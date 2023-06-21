@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
+import { Router } from "next/router";
 
 export default function Navbar() {
+  const [activeItem, setActiveItem] = useState(0);
+
+  
+  useEffect(() => {});
   return (
     <div className="flex items-center justify-between rounded-lg bg-gray-800 p-6">
       <div className="flex gap-2 items-center">
@@ -12,11 +18,21 @@ export default function Navbar() {
       </div>
       <div>
         <ul className="flex gap-2 items-center">
-          <li>Home</li>
-          <li>Products</li>
-          <li>Reviews</li>
-          <li>Contacts</li>
-          <li>FAQ</li>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/products">Products</Link>
+          </li>
+          <li>
+            <Link href="/reviews">Reviews</Link>
+          </li>
+          <li>
+            <Link href="/contacts">Contacts</Link>
+          </li>
+          <li>
+            <Link href="/faq">FAQ</Link>
+          </li>
         </ul>
       </div>
       <div className="flex gap-2 items-center">

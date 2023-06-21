@@ -1,5 +1,5 @@
 import React from "react";
-import { NewsInterface } from "@components/types";
+import { NewsInterface } from "@utils/types";
 
 export default function NewsCard(props: NewsInterface) {
   const { date, description, more, title } = props;

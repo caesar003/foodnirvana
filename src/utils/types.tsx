@@ -18,6 +18,7 @@ export interface ReviewInterface {
 }
 
 export interface BrandInterface {
+    id: number;
     name: string;
     imgSrc: string;
     price: number;
