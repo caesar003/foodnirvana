@@ -1,4 +1,4 @@
-import { BrandInterface, ReviewInterface } from "./types";
+import { BrandInterface, QuestionInterface, ReviewInterface } from "./types";
 const brands: BrandInterface[] = [
   {
     id: 1,
@@ -1582,4 +1582,18 @@ const brandCategories = [
   },
 ];
 
-export { brands, reviews, brandCategories };
+const faqs: QuestionInterface[] = [
+  {
+    question: "Will I get product instantly?",
+    answer:
+      "Yet, it will be instant. Cryptocurrency purchases can take a little longer, you will receive your product(-s) as soon as there are confirmations in the transaction.",
+  },
+  {
+    question: 'How do I use "X" products?',
+    answer:
+      "You will receive the latest methods and instructions on how to use a product if it's said so in the description.",
+  },
+  { question: "Is this USA only?", answer: "Yes." },
+];
+
+export { brands, reviews, brandCategories, faqs };

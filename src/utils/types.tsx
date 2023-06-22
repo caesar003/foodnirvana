@@ -32,3 +32,8 @@ export interface NewsInterface {
   description: string;
   more: string;
 }
+
+export interface QuestionInterface {
+  question: string;
+  answer:string;
+}

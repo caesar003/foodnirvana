@@ -4,19 +4,16 @@ import { Head, Layout, ProductCard } from "@components/index";
 import Footer from "@components/Footer";
 import { BrandInterface } from "@utils/types";
 
-export default function Products({ children }: PropsWithChildren) {
+export default function Products() {
   const [pageBrands, setPageBrands] = useState<BrandInterface[]>([]);
   const [categoryId, setCategoryId] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState("");
 
-  function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = e.target;
-    setSearchTerm(value);
-  }
-  function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {
-    const { value } = e.target;
-    setCategoryId(+value);
-  }
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearchTerm(e.target.value);
+
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setCategoryId(+e.target.value);
 
   useEffect(() => {
     if (categoryId === 0) {

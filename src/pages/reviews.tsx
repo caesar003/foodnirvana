@@ -1,5 +1,4 @@
 import Layout from "@components/Layout";
-import React from "react";
 import { reviews } from "@utils/default-values";
 import ReviewCard from "@components/ReviewCard";
 import Footer from "@components/Footer";
