@@ -5,10 +5,10 @@ import Navbar from "./Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start p-10">
-      <div className="w-[1030px]">
+    <main className="flex items-start justify-center">
+      <div className="w-[1030px] min-h-screen flex-col justify-center items-center p-10">
         <Navbar />
-        <div>{children}</div>
+        <>{children}</>
       </div>
     </main>
   );
