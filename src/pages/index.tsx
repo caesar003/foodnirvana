@@ -50,7 +50,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center my-10">
         <h1 className="text-5xl font-bold text-center">Products</h1>
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-3 gap-6 mt-4">
           {brands
             .slice(0, 6)
             .map(
@@ -62,6 +62,7 @@ export default function Home() {
                 name,
                 inStock,
                 productType,
+                categoryId
               }) => (
                 <ProductCard
                   key={id}
@@ -72,6 +73,7 @@ export default function Home() {
                   productType={productType}
                   description={description}
                   id={id}
+                  categoryId={categoryId}
                 />
               )
             )}
@@ -86,7 +88,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center my-10">
         <h1 className="text-5xl font-bold text-center">News</h1>
-        <div className="grid grid-cols-3 gap-4 mt-4 items-start">
+        <div className="grid grid-cols-3 gap-6 mt-4 items-start">
           <NewsCard
             date="Jun 16, 2023"
             description="Receiver a $5 balance reward every time you spend $50 in our store"
@@ -109,7 +111,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center my-10">
         <h1 className="text-5xl font-bold text-center">Reviews</h1>
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-3 gap-6 mt-4">
           {reviews
             .slice(0, 6)
             .map(({ date, stars, text, isVerified, reply }) => {
