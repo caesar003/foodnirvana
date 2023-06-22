@@ -1,5 +1,5 @@
-import { BrandInterface } from "./types";
-const brands:BrandInterface[] = [
+import { BrandInterface, ReviewInterface } from "./types";
+const brands: BrandInterface[] = [
   {
     id: 1,
     imgSrc: "asap.jpeg",
@@ -7,25 +7,25 @@ const brands:BrandInterface[] = [
     name: "ASAP",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 2,
     imgSrc: "bite-squad.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Bite Squad",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 3,
     imgSrc: "cafe-rio.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Cafe Rio",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const brands:BrandInterface[] = [
     name: "Carters's",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const brands:BrandInterface[] = [
     name: "Casey's",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const brands:BrandInterface[] = [
     name: "Chicken Salad Chick",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ const brands:BrandInterface[] = [
     name: "City Brew Coffee",
     inStock: true,
     productType: "gift cards",
-    description: []
+    description: [],
   },
   {
     id: 8,
@@ -70,16 +70,16 @@ const brands:BrandInterface[] = [
     name: "Del Taco",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 9,
     imgSrc: "dickey's-barbeque-pit.jpeg",
-    price: 0.50,
+    price: 0.5,
     name: "Dickey's Barbeque Pit",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 10,
@@ -88,25 +88,25 @@ const brands:BrandInterface[] = [
     name: "Einstein Bros. Bagels",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 11,
     imgSrc: "erbert-n-gerbert's.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Erbert & Herbert's",
     inStock: true,
     productType: "gift cards",
-    description: []
+    description: [],
   },
   {
     id: 12,
     imgSrc: "firehouse-subs.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Firehouse Subs",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 13,
@@ -115,7 +115,7 @@ const brands:BrandInterface[] = [
     name: "Freddy's",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 14,
@@ -124,7 +124,7 @@ const brands:BrandInterface[] = [
     name: "GTC Movies",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 15,
@@ -133,7 +133,7 @@ const brands:BrandInterface[] = [
     name: "Hot Topic",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 16,
@@ -142,30 +142,30 @@ const brands:BrandInterface[] = [
     name: "IHOP",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 17,
     imgSrc: "instacart.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Instacart",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 18,
     imgSrc: "jane.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Jane",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 19,
     imgSrc: "krispy-kreme.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Krispy Kreme",
     inStock: true,
     productType: "",
@@ -182,7 +182,7 @@ const brands:BrandInterface[] = [
     name: "Kum & Go",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 21,
@@ -191,7 +191,7 @@ const brands:BrandInterface[] = [
     name: "Love's",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 22,
@@ -200,7 +200,7 @@ const brands:BrandInterface[] = [
     name: "Marcus Theatres",
     inStock: true,
     productType: "gift cards",
-    description: []
+    description: [],
   },
   {
     id: 23,
@@ -223,7 +223,7 @@ const brands:BrandInterface[] = [
     name: "Mountain Mike's Pizza",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 25,
@@ -232,7 +232,7 @@ const brands:BrandInterface[] = [
     name: "Nando's PERi-PERi",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 26,
@@ -241,7 +241,7 @@ const brands:BrandInterface[] = [
     name: "Noodles & Company",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 27,
@@ -250,25 +250,25 @@ const brands:BrandInterface[] = [
     name: "&pizza",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 28,
     imgSrc: "o'reilly-auto-parts.jpeg",
-    price: 0.50,
+    price: 0.5,
     name: "O'Reilly Auto Parts",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 29,
     imgSrc: "pilot-flying.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Pilot Flying J",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 30,
@@ -277,25 +277,25 @@ const brands:BrandInterface[] = [
     name: "Potbelly Sandwich Shop",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 31,
     imgSrc: "pressed-juicery.jpeg",
-    price: 2.50,
+    price: 2.5,
     name: "Pressed Juicery",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 32,
     imgSrc: "restaurant.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Restaurant.com",
     inStock: true,
     productType: "gift cards",
-    description: []
+    description: [],
   },
   {
     id: 33,
@@ -304,7 +304,7 @@ const brands:BrandInterface[] = [
     name: "Round Table Pizza",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 34,
@@ -313,16 +313,16 @@ const brands:BrandInterface[] = [
     name: "Rubio's Coastal Grill",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 35,
     imgSrc: "safeway.jpeg",
-    price: 0.50,
+    price: 0.5,
     name: "Safeway",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 36,
@@ -331,7 +331,7 @@ const brands:BrandInterface[] = [
     name: "Salad and Go",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 37,
@@ -340,12 +340,12 @@ const brands:BrandInterface[] = [
     name: "Smoothie King",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 0,
     imgSrc: "sonic.jpeg",
-    price: 1.50,
+    price: 1.5,
     name: "Sonic Drive-In",
     inStock: true,
     productType: "",
@@ -358,7 +358,7 @@ const brands:BrandInterface[] = [
     name: "The Human Bean",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 39,
@@ -367,7 +367,7 @@ const brands:BrandInterface[] = [
     name: "Under Armour",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
   {
     id: 40,
@@ -389,7 +389,7 @@ const brands:BrandInterface[] = [
     name: "Zaxby's",
     inStock: true,
     productType: "",
-    description: []
+    description: [],
   },
 ];
 
@@ -401,4 +401,1101 @@ const products = [
   },
 ];
 
-export { brands };
+const reviews: ReviewInterface[] = [
+  {
+    date: "2 days ago",
+    text: "Worked perfect as usual Thanks for shopping with us",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "7 days ago", isVerified: true, stars: 5,},
+  { date: "7 days ago", isVerified: true, stars: 5,},
+  { date: "7 days ago", isVerified: true, stars: 5,},
+  {
+    date: "9 days ago",
+    text: "Thank you",
+    reply: "Thank you for shopping with us :)",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Thank you great service",
+    reply: "Thanks!",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Works well great support",
+    reply: "Appreciate it! ",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Works well great support",
+    reply: "Thanks for shopping with us &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Has a good and easy time with the account",
+    reply: "Glad to hear that, thank you! ",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "23 days ago", isVerified: true, stars: 5,},
+  { date: "23 days ago", isVerified: true, stars: 5,},
+  {
+    date: "23 days ago",
+    text: "I am so grateful for the incredible service provided by this company! They went above and beyond to deliver the accounts I needed, and I couldn't be happier with the results. Thank you for your hard work and dedication!",
+    reply:
+      "Thank you for shopping with us! Make sure to bring your friends and family aboard so we can all start saving money in these difficult times &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "25 days ago",
+    text: "Just wanted to take a moment to say thanks for a great service once again! Your dedication to providing high-quality service is truly appreciated. Keep up the great work!",
+    reply:
+      "We appreciate your kind words. It motivates us to try even harder! &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "25 days ago",
+    text: "I just had to share how impressed I am with the service I received! From start to finish, everything was handled with professionalism and care. It's so refreshing to see a company that truly values their customers. Keep up the great work!",
+    reply: "Thank you for your kind words it means a lot to us &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "I was a bit skeptical, but you've removed my doubts.",
+    reply: "Thank you for your trust! &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "Fast and recommendable, good service! Thank you! ",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "The billing address for this card could not be verified. There was a problem processing your credit card. Please review and verify that the credit card information was entered correctly and that your billing address matches the address where you receive your credit card statements. Then try to place your order.” error :/ rip Hey!",
+    reply:
+      "Please open a ticket or reach out to us via Telegram for a faster response rate. We will issue you a replacement or offer alternative solutions that will satisfy you! &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "No points on acct.",
+    reply:
+      "Hey, please open a ticket or contact us on Telegram at  T.ME/FOODNIRVANA so we can issue you a valid replacement &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "Incorrect password to account",
+    reply: "Sorry. Replacement issued &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "Nice!! would refer my friends.",
+    reply: "Thank you!— reply from Food Nirvana",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "a month ago",
+    text: "Great experience, got what I ordered swiftly.",
+    reply: "Thanks for shopping with Food Nirvana &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "2 months ago",
+    text: "Worked like a charm; looking forward to doing business again soon. ",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "2 months agoPassword incorrect. Have proof and pictures",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "2 months ago", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "I love the support team I'll keep purchasing &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "Accounts working and has balance",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  { date: "3 months agoEASY HIT ", isVerified: true, stars: 5,},
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "Accounts works and has balance",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "10/10 Got some pizza", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "but support was great and solved the problem quickly!",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "perfect human bean", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "Great! Support is so very helpful!!",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "Account works", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "GREAT SUPPORT FOR THE ISSUE",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "one of the first legit orders in a while, no problems account worked replaced when needed and support is nice and fast",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months agovery easy", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "I WILL NEVER STARVE WITH FOOD NIRVANA",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "FIRE LOGSSSS", isVerified: true, stars: 5,},
+  { date: "3 months ago", text: "EASY SHIT", isVerified: true, stars: 5,},
+  { date: "3 months ago", text: "ALWAYS A HIT!", isVerified: true, stars: 5,},
+  { date: "3 months ago", text: "GREAT SUPPORT!", isVerified: true, stars: 5,},
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "Worked perfectly. I will purchase another most definitely!",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "Works as intended", isVerified: true, stars: 5,},
+  { date: "3 months agoNo issues!", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "First account had a low amount but support got it handled supper quick and got me a replacement!",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", text: "good", isVerified: true, stars: 5,},
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "Everything went smoothly. Perfect hit!",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "ASKS FOR CVV AT CHECKOUT. WAS GIVEN 3 REPLACEMENTS, STILL DIDNT WORK. GOT FULL REFUND STORE CREDIT 💪",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago EASY HIT, GOT HELL FOOD", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "Perfect. Support helped solve the issue very promptly! They have a lifetime customer here!!",
+    isVerified: true,
+    stars: 5,
+  },
+  { date: "3 months ago", isVerified: true, stars: 5,},
+  {
+    date: "3 months ago",
+    text: "EASY SMACK, GOT $40 WORTH OF SHIT FOR $1.99. CMON NOW 🔥",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "ANOTHER EASY HIT. I FOLLOWED THE METHOD PROVIDED. USE CODE LENT FOR $3 OFF EACH LARGE CHEESE PIZZA.",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "WENDYS IS THE EASIEST SHIT EVER",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "HAD AN ISSUE, GAVE ME STORE CREDIT!!",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "EASY SMACK. USED GOOGLE CHROME, BRAVE HAD ME AT A LOADING SCREEN WHEN I PLACED THE ORDER. DON'T BE A DUMBASS LIKE ME, MAKE SURE TO CHANGE THE NUMBER IF YOU'RE DOING DELIVERY. I STILL GOT THE SANDWICH LOLS",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "3 months ago",
+    text: "GREAT CUSTOMER SUPPORT!! HAD AN ISSUE AND WAS GIVEN A REPLACEMENT ASAP NO ROCKY &lt;3",
+    isVerified: true,
+    stars: 5,
+  },
+
+  {
+    date: "7 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "7 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "7 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "7 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "7 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "8 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "9 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "10 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "11 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "12 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "13 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "14 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "15 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "16 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "16 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "16 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "16 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "16 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "17 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "18 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "19 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "19 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "19 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "19 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "20 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "21 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "22 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "22 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "22 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "22 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "23 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+  {
+    date: "24 days ago",
+    text: "Automatic feedback after 7 days",
+    isVerified: true,
+    stars: 5,
+  },
+];
+
+export { brands, reviews };

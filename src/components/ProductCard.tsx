@@ -1,5 +1,4 @@
 import { Check, X } from "lucide-react";
-// import { BrandInterface } from "@/utils/types";
 import { BrandInterface } from "@utils/types";
 
 export default function ProductCard(props: BrandInterface) {

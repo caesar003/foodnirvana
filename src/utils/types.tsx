@@ -10,11 +10,11 @@ export interface CustomerInterface {
 }
 
 export interface ReviewInterface {
+    date: string;
     stars: number;
-    text: string;
-    isVerifiedPurchase: boolean;
-    submittedSince: string;
-    repliedText?: string[];
+    text?: string;
+    isVerified: boolean;
+    reply?: string;
 }
 
 export interface BrandInterface {
