@@ -1,16 +1,30 @@
 import { Check, X } from "lucide-react";
 import { BrandInterface } from "@utils/types";
+import Image from "next/image";
 
 export default function ProductCard(props: BrandInterface) {
   const { imgSrc, inStock, name, price, productType } = props;
   return (
     <div className="max-w-sm bg-gray-800 border border-1 border-gray-900 rounded-lg">
       <a href="#">
-        <img className="rounded-t-lg" src={imgSrc} alt={name + " image"} />
+        <Image
+          className="rounded-t-lg w-full h-auto"
+          src={imgSrc}
+          alt={name + " image"}
+          width={480}
+          height={32}
+        />
       </a>
       <div className="p-5">
         <div className="mb-1">
-          <p className="font-bold">{name} {productType ? (<span className="capitalize">[{productType}]</span>) : ""}</p>
+          <p className="font-bold">
+            {name}{" "}
+            {productType ? (
+              <span className="capitalize">[{productType}]</span>
+            ) : (
+              ""
+            )}
+          </p>
         </div>
         <div className="flex justify-between items-center">
           <span className="font-bold">{`$${price.toFixed(2)}`}</span>

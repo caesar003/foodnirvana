@@ -62,7 +62,7 @@ export default function Home() {
                 name,
                 inStock,
                 productType,
-                categoryId
+                categoryId,
               }) => (
                 <ProductCard
                   key={id}
@@ -114,9 +114,10 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-6 mt-4">
           {reviews
             .slice(0, 6)
-            .map(({ date, stars, text, isVerified, reply }) => {
+            .map(({ date, stars, text, isVerified, reply }, idx) => {
               return (
                 <ReviewCard
+                  key={idx}
                   date={date}
                   stars={stars}
                   text={text}
@@ -136,9 +137,9 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center gap-3 bg-yellow-400 text-black py-6 rounded-lg my-10">
-        <p className="font-bold text-5xl">We're here to help</p>
+        <p className="font-bold text-5xl">We&apos;re here to help</p>
         <p className="text-lg">
-          If you're in need of support a product you purchased or just want to
+          If you&apos;re in need of support a product you purchased or just want to
           say hi, <br /> please contact us by tapping the button below
         </p>
         <Link
