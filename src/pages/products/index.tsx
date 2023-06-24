@@ -1,8 +1,11 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
 import { brands, brandCategories } from "@utils/default-values";
-import { Head, Layout, ProductCard } from "@components/index";
+import Head from "@components/Head";
+import Layout from "@components/Layout";
+import ProductCard from "@components/ProductCard";
 import Footer from "@components/Footer";
 import { BrandInterface } from "@utils/types";
+import Link from "next/link";
 
 export default function Products() {
   const [pageBrands, setPageBrands] = useState<BrandInterface[]>([]);
@@ -72,18 +75,26 @@ export default function Products() {
               inStock,
               productType,
               categoryId,
+              sold,
+              stars,
+              reviews,
             }) => (
-              <ProductCard
-                key={id}
-                imgSrc={`/images/${imgSrc}`}
-                inStock={inStock}
-                name={name}
-                price={price}
-                productType={productType}
-                description={description}
-                id={id}
-                categoryId={categoryId}
-              />
+              <Link href={`/products/${id}`}>
+                <ProductCard
+                  key={id}
+                  imgSrc={`/images/${imgSrc}`}
+                  inStock={inStock}
+                  name={name}
+                  price={price}
+                  productType={productType}
+                  description={description}
+                  id={id}
+                  categoryId={categoryId}
+                  stars={stars}
+                  sold={sold}
+                  reviews={reviews}
+                />
+              </Link>
             )
           )}
         </div>

@@ -1,11 +1,21 @@
 import React from "react";
 import { ReviewInterface } from "@utils/types";
 import { Check, Star, StarIcon } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
-export default function ReviewCard(props: ReviewInterface) {
-  const {date, stars, text, isVerified, reply} = props;
+interface PropsInterface {
+  date: string;
+  stars: number;
+  text: string | undefined;
+  isVerified: boolean;
+  reply?: string;
+  className: string;
+}
+
+export default function ReviewCard(props: PropsInterface) {
+  const { date, stars, text, isVerified, reply } = props;
   return (
-    <div className="max-w-sm bg-gray-800 text-gray-400 border border-1 border-gray-900 rounded-lg">
+    <div className={twMerge("bg-gray-800 text-gray-400 border border-1 border-gray-900 rounded-lg", props.className)}>
       <div className="p-5">
         <div className="flex justify-between">
           <div className="flex gap-1 text-yellow-400">
@@ -19,9 +29,7 @@ export default function ReviewCard(props: ReviewInterface) {
         <div className="flex gap-2 bg-gray-900 p-2 my-4 rounded-lg">
           <div className="border-l border-1 border-yellow-400"></div>
           <div className="py-2">
-            <p className="text-white font-bold my-2">
-              {reply && reply}
-            </p>
+            <p className="text-white font-bold my-2">{reply && reply}</p>
             <p className="text-sm my-2 mt-4">— reply from Food Nirvana</p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function ProductCard(props: BrandInterface) {
   const { imgSrc, inStock, name, price, productType } = props;
   return (
-    <div className="max-w-sm bg-gray-800 border border-1 border-gray-900 rounded-lg">
+    <div className="max-w-sm bg-gray-800 border border-1 border-gray-900 rounded-lg hover:scale-105 transition-all">
       <a href="#">
         <Image
           className="rounded-t-lg w-full h-auto"
@@ -18,7 +18,7 @@ export default function ProductCard(props: BrandInterface) {
       <div className="p-5">
         <div className="mb-1">
           <p className="font-bold">
-            {name}{" "}
+            {name}
             {productType ? (
               <span className="capitalize">[{productType}]</span>
             ) : (

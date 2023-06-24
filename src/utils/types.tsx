@@ -1,8 +1,8 @@
 export interface ProductInterface {
-  name: string;
-  price: number;
-  picture: string;
-  isInStock: boolean;
+  label: string,
+  price: number,
+  brandId: number,
+  stock: number,
 }
 
 export interface CustomerInterface {}
@@ -15,6 +15,10 @@ export interface ReviewInterface {
   reply?: string;
 }
 
+export interface BrandObjectDescription {
+  
+}
+
 export interface BrandInterface {
   id: number;
   name: string;
@@ -24,6 +28,9 @@ export interface BrandInterface {
   productType: string;
   description: string[];
   categoryId: number[];
+  sold: number;
+  stars: number;
+  reviews: number;
 }
 
 export interface NewsInterface {

@@ -63,18 +63,26 @@ export default function Home() {
                 inStock,
                 productType,
                 categoryId,
+                stars,
+                reviews,
+                sold,
               }) => (
-                <ProductCard
-                  key={id}
-                  imgSrc={`/images/${imgSrc}`}
-                  inStock={inStock}
-                  name={name}
-                  price={price}
-                  productType={productType}
-                  description={description}
-                  id={id}
-                  categoryId={categoryId}
-                />
+                <Link href={`/products/${id}`}>
+                  <ProductCard
+                    key={id}
+                    imgSrc={`/images/${imgSrc}`}
+                    inStock={inStock}
+                    name={name}
+                    price={price}
+                    productType={productType}
+                    description={description}
+                    id={id}
+                    categoryId={categoryId}
+                    stars={stars}
+                    reviews={reviews}
+                    sold={sold}
+                  />
+                </Link>
               )
             )}
         </div>
@@ -139,8 +147,8 @@ export default function Home() {
       <div className="flex flex-col items-center gap-3 bg-yellow-400 text-black py-6 rounded-lg my-10">
         <p className="font-bold text-5xl">We&apos;re here to help</p>
         <p className="text-lg">
-          If you&apos;re in need of support a product you purchased or just want to
-          say hi, <br /> please contact us by tapping the button below
+          If you&apos;re in need of support a product you purchased or just want
+          to say hi, <br /> please contact us by tapping the button below
         </p>
         <Link
           href="/contacts"

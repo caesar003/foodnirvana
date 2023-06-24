@@ -1,4 +1,9 @@
-import { BrandInterface, QuestionInterface, ReviewInterface } from "./types";
+import {
+  BrandInterface,
+  ProductInterface,
+  QuestionInterface,
+  ReviewInterface,
+} from "./types";
 const brands: BrandInterface[] = [
   {
     id: 1,
@@ -8,7 +13,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 2,
@@ -18,7 +26,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 3,
@@ -28,7 +39,14 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 4,
@@ -38,7 +56,14 @@ const brands: BrandInterface[] = [
     categoryId: [2],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 5,
@@ -48,7 +73,17 @@ const brands: BrandInterface[] = [
     categoryId: [3],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Rewards:",
+      "250 Points = $1.00 Casey's Cash OR 0.05c off / gallon.",
+      "5000 Points = +$1.00 off / gallon. Up to 20 gallons.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 6,
@@ -58,7 +93,37 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      " ",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      " ",
+      "Rewards menu:",
+      " ",
+      "Free Coozie - 25 Points",
+      "Free Large Drink - 50 Points",
+      "Free Buttercream Frosted Cookie - 50 Points",
+      "Free Side Item - 75 Points",
+      "Free Bowl of Soup - 100 Points",
+      "$5 Off Purchase - 100 Points",
+      "Free Small Cooler - 125 Points",
+      "Free Scoop or Sandwich - 125 Points",
+      "Free Large Quick Chick - 150 Points",
+      "Free Chocolate Crispy Bites Tray - 200 Points",
+      "$10 Off Purchase - 200 Points",
+      "Chick T Shirt - 200 Points",
+      "Free Gallon of Iced Tea - 200 Points",
+      "Free Buttercream Cookie Tray - 200 Points",
+      "Free Gallon of Lemonade - 200 Points",
+      "Chick Tervis Tumbler - 250 Points",
+      "Free Large Cooler - 250 Points",
+      "$25 Off Purchase - 400 Points",
+      " ",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 7,
@@ -68,7 +133,16 @@ const brands: BrandInterface[] = [
     categoryId: [4, 1],
     inStock: true,
     productType: "gift cards",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong balances or issues when going in-store.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 8,
@@ -78,7 +152,34 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Rewards menu:",
+
+      "Breakfast Toasted Wrap - 250 Points",
+      "Add 2 Scoops of Guac to Anything - 250 Points",
+      "Grilled Chicken Taco - 300 Points",
+      "Bean and Cheese Burrito - 300 Points",
+      "Any 20 Under $2 Menu Item - 300 Points",
+      "Small Fountain Drink - 350 Points",
+      "The Del Taco - 350 Points",
+      "Medium Crinkle Cut Fries - 450 Points",
+      "Snack Size Chips and Guac - 450 Points",
+      "Snack Size Chips and Queso - 450 Points",
+      "Beyond Taco - 500 Points",
+      "Breakfast Burrito - 600 Points",
+      "Regular Size Shake - 600 Points",
+      "Epic Burrito - 1000 Points",
+      "Beyond 8 Layer Burrito - 1000 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 9,
@@ -88,7 +189,29 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Rewards can be used between ALL of their brands - Dickey&apos;s Barbecue Pit, Big Deal Burger, Trailer Birds and Wing Boss. You will have to sign onto the respective app to redeem.",
+
+      "Rewards menu:",
+
+      "Big Yellow Cup - 250 Points",
+      "Chocolate Cookie - 300 Points",
+      "Blondie Brownie - 300 Points",
+      "Pecan Pie - 300 Points",
+      "Beef Brisket Classic Sandwich - 700 Points",
+      "Pulled Pork Classic Sandwich - 700 Points",
+      "Westerner Sandwich - 850 Points",
+      "1 Meat Plate - 1250 Points",
+      "2 Meat Plate - 1350 Points",
+      "3 Meat Plate - 1450 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 10,
@@ -98,7 +221,28 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Rewards menu:",
+
+      "Free Beverage Size Upgrade - 30 Points",
+      "Free Whip, Flavor Shot or Espresso Shot - 30 Points",
+      "Free Any Size Brewed Coffee - 75 Points",
+      "Free Any Bakery Item - 75 Points",
+      "Free Bagel & Shmear - 100 Points",
+      "Free Any Beverage, Any Size - 120 Points",
+      "Free Any Egg Sandwich - 185 Points",
+      "Free Half Dozen (6 Bagels Only) - 225 Points",
+      "Free Baker's Dozen (13 Bagels Only) - 375 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 11,
@@ -108,7 +252,16 @@ const brands: BrandInterface[] = [
     categoryId: [1, 4],
     inStock: true,
     productType: "gift cards",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong balances or issues when going in-store.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 12,
@@ -118,7 +271,14 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 13,
@@ -128,7 +288,14 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 6-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 14,
@@ -138,7 +305,24 @@ const brands: BrandInterface[] = [
     categoryId: [5],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 6-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Rewards menu:",
+
+      "Any Candy - 700 Points",
+      "Medium Popcorn & Large Drink, or any one size Popcorn, or Fountain Drink - 1000 Points",
+      "Combo #2 (Medium Popcorn, Large Drink & Candy) - 1500 Points",
+      "Ticket - 2000 Points",
+      "3D, GTX, LX Ticket - 2500 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 15,
@@ -148,7 +332,18 @@ const brands: BrandInterface[] = [
     categoryId: [2],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Its not possible to stack rewards from multiple accounts. You can only use 1 account per transaction!",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 16,
@@ -158,7 +353,14 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 17,
@@ -168,7 +370,10 @@ const brands: BrandInterface[] = [
     categoryId: [2],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 18,
@@ -178,7 +383,10 @@ const brands: BrandInterface[] = [
     categoryId: [2],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 19,
@@ -193,6 +401,9 @@ const brands: BrandInterface[] = [
       "Warranty covers wrong reward balances and invalid accounts.",
       "Instructions on how to use the product will be sent to you after the purchase.",
     ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 20,
@@ -202,7 +413,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 21,
@@ -212,7 +426,16 @@ const brands: BrandInterface[] = [
     categoryId: [3],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Every 1000 points equal $10. Points can be used in-store for anything except gas. That includes, food and the restaurants connected with the Love's location (excluding alcohol and fuel).",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 22,
@@ -222,7 +445,20 @@ const brands: BrandInterface[] = [
     categoryId: [4, 5],
     inStock: true,
     productType: "gift cards",
-    description: [],
+    description: [
+      "There is a 6-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "THESE CAN BE STACKED",
+
+      "Warranty covers wrong reward balances.",
+
+      "You will receive Gift Card + PIN",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 23,
@@ -238,6 +474,9 @@ const brands: BrandInterface[] = [
       "Warranty covers wrong reward balances and invalid accounts.",
       "Instructions on how to use the product will be sent to you after the purchase.",
     ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 24,
@@ -247,7 +486,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 25,
@@ -257,7 +499,23 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Rewards menu:",
+
+      "$5 Off - 500 Points",
+      "$10 Off - 1000 Points",
+      "$15 Off - 1500 Points",
+      "$25 Off - 2500 Points",
+      "$50 Off - 5000 Points",
+      "$100 Off - 10000 Points",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 26,
@@ -267,7 +525,28 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 72-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Rewards menu:",
+
+      "Side Salad or Mac - 300 Points",
+      "Regular Fountain Drink - 300 Points",
+      "Side Soup - 350 Points",
+      "Dessert (Crispy or Cookie) - 350 Points",
+      "Protein Addon - 575 Points",
+      "Small Shareable - 600 Points",
+      "Regular Shareable - 850 Points",
+      "Small Entree - 1150 Points",
+      "Regular Entree - 1500 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 27,
@@ -277,7 +556,26 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "One Reward Per Transaction",
+
+      "Rewards menu:",
+
+      "$1 Off - 100 Points",
+      "Free Soda - 250 Points",
+      "$5 Off - 500 Points",
+      "Free Pizza - 1500 Points",
+      "10 Pies & 10 Sodas Free - 10,000 Points",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 28,
@@ -287,7 +585,18 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers issues with redeeming the coupon or expired coupons.",
+
+      "These are not stackable.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 29,
@@ -297,7 +606,18 @@ const brands: BrandInterface[] = [
     categoryId: [3],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Every 1000 points equal $10. Points can be used in-store for anything except gas. That includes, food and the restaurants connected with the Pilot location (excluding alcohol, lottery and tobacco).",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 30,
@@ -307,7 +627,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 31,
@@ -317,7 +640,16 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 32,
@@ -327,7 +659,18 @@ const brands: BrandInterface[] = [
     categoryId: [1, 4],
     inStock: true,
     productType: "gift cards",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers invalid gift cards, or errors while adding it.",
+
+      "These gift cards offer discounts at your local restaurants. Example, you'd get $50 off a $100 purchase at a local participating restaurant. Do not buy under the impression you get to use this gift card fully for the cost of a restaurant. ",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 33,
@@ -337,7 +680,14 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 34,
@@ -347,7 +697,16 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 35,
@@ -357,7 +716,18 @@ const brands: BrandInterface[] = [
     categoryId: [3],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 48-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "1 Point= $0.10 Off Per Gal At Participating Gas Stations. Up To $1.00 Per Gal Off. Find participating locations here: https://local.safeway.com/search.html",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 36,
@@ -367,7 +737,16 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+
+      "Warranty covers wrong reward balances and invalid accounts.",
+
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 37,
@@ -377,10 +756,13 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
-    id: 0,
+    id: 42,
     imgSrc: "sonic.jpeg",
     price: 1.5,
     name: "Sonic Drive-In",
@@ -388,6 +770,9 @@ const brands: BrandInterface[] = [
     inStock: true,
     productType: "",
     description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 38,
@@ -397,7 +782,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 39,
@@ -407,7 +795,10 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: ["ONE REPLACEMENT IN CASE CANCELLED / DECLINED"],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 40,
@@ -422,6 +813,9 @@ const brands: BrandInterface[] = [
       "Warranty covers wrong reward balances and invalid accounts.",
       "Instructions on how to use the product will be sent to you after the purchase.",
     ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
   {
     id: 41,
@@ -431,16 +825,450 @@ const brands: BrandInterface[] = [
     categoryId: [1],
     inStock: true,
     productType: "",
-    description: [],
+    description: [
+      "There is a 24-hour warranty for this product. You will not be entitled to a replacement outside the warranty.",
+      "Warranty covers wrong reward balances and invalid accounts.",
+      "Instructions on how to use the product will be sent to you after the purchase.",
+    ],
+    stars: 5,
+    sold: 11,
+    reviews: 8,
   },
 ];
 
-const products = [
+const products: ProductInterface[] = [
+  // krispy-kreme
+  { label: "[$5 - $9.99]", price: 1.5, brandId: 19, stock: 123 },
+  { label: "[$10 - $14.99]", price: 2.5, brandId: 19, stock: 44 },
+  { label: "[$15 - $19.99]", price: 3.99, brandId: 19, stock: 5 },
+  { label: "[$20 - $24.99]", price: 5.5, brandId: 19, stock: 0 },
+  { label: "[$25 - $29.99]", price: 6.99, brandId: 19, stock: 0 },
+  { label: "[$30 - $39.99]", price: 9.99, brandId: 19, stock: 0 },
+  { label: "[$40 - $49.99]", price: 12.99, brandId: 19, stock: 1 },
+  // wendy
+  { label: "[150-299 Points]", price: 0.25, brandId: 40, stock: 152 },
+  { label: "[300-449 Points]", price: 0.75, brandId: 40, stock: 125 },
+  { label: "[450-599 Points]", price: 1.25, brandId: 40, stock: 70 },
+  { label: "[600-799 Points]", price: 1.99, brandId: 40, stock: 42 },
+  { label: "[800-999 Points]", price: 2.99, brandId: 40, stock: 14 },
+  { label: "[1000-1499 Points]", price: 3.99, brandId: 40, stock: 3 },
+  { label: "[1500-1999 Points]", price: 6.99, brandId: 40, stock: 0 },
+  { label: "[2000-2499 Points]", price: 9.99, brandId: 40, stock: 1 },
+  { label: "[2500-2999 Points]", price: 12.99, brandId: 40, stock: 0 },
+  { label: "[3000-4999 Points]", price: 15.99, brandId: 40, stock: 3 },
+  { label: "[5000+ Points]", price: 22.99, brandId: 40, stock: 1 },
+  { label: "[6000+ Points]", price: 25.99, brandId: 40, stock: 0 },
+  { label: "[7000+ Points]", price: 29.99, brandId: 40, stock: 0 },
+  { label: "[price: 10 - 14.99 Balance]", price: 4.99, brandId: 40, stock: 0 },
+  { label: "[price: 25 Balance]", price: 7.99, brandId: 40, stock: 0 },
+  { label: "[price: 45 - 49.99 Balance]", price: 16.99, brandId: 40, stock: 0 },
+  { label: "[price: 55 - 59.99 Balance]", price: 19.99, brandId: 40, stock: 0 },
+  // sonic
+  { label: "[Payment Attached]", price: 1.5, brandId: 42, stock: 41 },
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 42, stock: 0 },
+  // firehouse
+  { label: "[6,000 - 9,999 Points]", price: 1.5, brandId: 12, stock: 463 },
+  { label: "[10,000 - 19,999 Points]", price: 4.5, brandId: 12, stock: 614 },
+  { label: "[20,000 - 29,999 Points]", price: 7.5, brandId: 12, stock: 61 },
+  { label: "[30,000 - 39,999 Points]", price: 9.99, brandId: 12, stock: 15 },
+  { label: "[40,000 - 49,999 Points]", price: 12.5, brandId: 12, stock: 7 },
+  { label: "[50,000 - 74,999 Points]", price: 20.99, brandId: 12, stock: 9 },
+  { label: "[75,000 - 99,999 Points]", price: 26.99, brandId: 12, stock: 2 },
+  { label: "[100,000 - 149,999 Points]", price: 34.99, brandId: 12, stock: 3 },
+  { label: "[200,000 - 299,999 Points]", price: 74.99, brandId: 12, stock: 1 },
+  // round table
+  { label: "[50+ Points]", price: 0.99, brandId: 33, stock: 1 },
+  { label: "[75+ Points]", price: 2.5, brandId: 33, stock: 1 },
+  { label: "[100+ Points]", price: 4.99, brandId: 33, stock: 1 },
+  { label: "[125+ Points]", price: 5.99, brandId: 33, stock: 2 },
+  { label: "[150+ Points]", price: 8.99, brandId: 33, stock: 0 },
+  { label: "[200+ Points]", price: 11.99, brandId: 33, stock: 0 },
+  { label: "[250+ Points]", price: 13.99, brandId: 33, stock: 2 },
+  { label: "[350+ Points]", price: 19.99, brandId: 33, stock: 0 },
+  { label: "[400+ Points]", price: 22.99, brandId: 33, stock: 1 },
+  { label: "[800+ Points]", price: 39.99, brandId: 33, stock: 1 },
+
+  // instacart
+  { label: "[Payment Attached]", price: 1.5, brandId: 17, stock: 210 },
+  { label: "[AMEX / DIS]", price: 2.99, brandId: 17, stock: 29 },
+  { label: "[PayPal]", price: 3.99, brandId: 17, stock: 0 },
+  { label: "[$30+ Gift Card Balance]", price: 9.99, brandId: 17, stock: 0 },
+  { label: "[$89+ Gift Card Balance]", price: 28.99, brandId: 17, stock: 0 },
+  //  meijer
+  { label: "[$10+]", price: 2.99, brandId: 23, stock: 1560 },
+  { label: "[$20+]", price: 5.99, brandId: 23, stock: 527 },
+  { label: "[$30+]", price: 8.99, brandId: 23, stock: 141 },
+  { label: "[$40+]", price: 11.99, brandId: 23, stock: 0 },
+  { label: "[$50+]", price: 14.99, brandId: 23, stock: 0 },
+  { label: "[$60+]", price: 17.99, brandId: 23, stock: 0 },
+  { label: "[$70+]", price: 20.99, brandId: 23, stock: 0 },
+  { label: "[$80+]", price: 23.99, brandId: 23, stock: 0 },
+  { label: "[$90+]", price: 26.99, brandId: 23, stock: 0 },
+  { label: "[$100+]", price: 29.99, brandId: 23, stock: 0 },
+  // 41 zaxby's
+  { label: "[250+ Points]", price: 0.45, brandId: 41, stock: 29 },
+  { label: "[700+ Points]", price: 1.5, brandId: 41, stock: 1 },
+  { label: "[1050+ Points]", price: 1.99, brandId: 41, stock: 0 },
   {
-    brandId: "",
-    name: "",
-    price: "",
+    label: "[$5 - $9.99 Gift Card Balance]",
+    price: 1.5,
+    brandId: 41,
+    stock: 1,
   },
+  { label: "[$10+ Gift Card Balance]", price: 1.99, brandId: 41, stock: 0 },
+  { label: "[$15+ Gift Card Balance]", price: 2.99, brandId: 41, stock: 0 },
+  { label: "[Payment Attached]", price: 1.99, brandId: 41, stock: 36 },
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 41, stock: 0 },
+  // 16 ihop
+  { label: "[10+ Points]", price: 0.99, brandId: 16, stock: 676 },
+  { label: "[15+ Points]", price: 2.99, brandId: 16, stock: 220 },
+  { label: "[20+ Points]", price: 4.99, brandId: 16, stock: 48 },
+  { label: "[25+ Points]", price: 6.5, brandId: 16, stock: 16 },
+  { label: "[30+ Points]", price: 7.99, brandId: 16, stock: 9 },
+  { label: "[40+ Points]", price: 9.99, brandId: 16, stock: 2 },
+  { label: "[50+ Points]", price: 14.99, brandId: 16, stock: 0 },
+  { label: "[70+ Points]", price: 19.99, brandId: 16, stock: 0 },
+  // 9 dickey's
+  { label: "[500 - 999 Points]", price: 0.5, brandId: 9, stock: 50 },
+  { label: "[1000 - 1349 Points]", price: 1.5, brandId: 9, stock: 10 },
+  { label: "[1350 - 1999 Points]", price: 2.99, brandId: 9, stock: 6 },
+  { label: "[2000 - 2999 Points]", price: 3.99, brandId: 9, stock: 0 },
+  { label: "[3000 - 3999 Points]", price: 4.99, brandId: 9, stock: 0 },
+  { label: "[4000 - 5999 Points]", price: 5.99, brandId: 9, stock: 0 },
+  { label: "[6000 - 9999 Points]", price: 6.99, brandId: 9, stock: 0 },
+  // 1 asap
+  { label: "[Payment Attached]", price: 1.99, brandId: 1, stock: 122 },
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 1, stock: 1 },
+  // bite-squad
+  { label: "[Payment Attached]", price: 1.99, brandId: 2, stock: 433 },
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 2, stock: 58 },
+  // safeway
+  { label: "[3+ Rewards]", price: 0.5, brandId: 35, stock: 1071 },
+
+  { label: "[5+ Rewards]", price: 0.99, brandId: 35, stock: 362 },
+
+  { label: "[7+ Rewards]", price: 1.8, brandId: 35, stock: 260 },
+
+  { label: "[10+ Rewards]", price: 2.5, brandId: 35, stock: 34 },
+
+  { label: "[12+ Rewards]", price: 4.2, brandId: 35, stock: 23 },
+
+  { label: "[20+ Rewards]", price: 7.99, brandId: 35, stock: 1 },
+  // rubio's
+  { label: "[400+ Points]", price: 0.99, brandId: 34, stock: 46 },
+
+  { label: "[700+ Points]", price: 2.99, brandId: 34, stock: 90 },
+
+  { label: "[1300+ Points]", price: 5.99, brandId: 34, stock: 0 },
+
+  { label: "[Payment Attached]", price: 1.99, brandId: 34, stock: 679 },
+
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 34, stock: 53 },
+  // einstein
+  { label: "[100 - 119 Points]", price: 0.75, brandId: 10, stock: 21 },
+
+  { label: "[120 - 184 Points]", price: 0.99, brandId: 10, stock: 28 },
+
+  { label: "[185 - 224 Points]", price: 1.25, brandId: 10, stock: 10 },
+
+  { label: "[225 - 299 Points]", price: 1.99, brandId: 10, stock: 12 },
+
+  { label: "[300 - 374 Points]", price: 2.5, brandId: 10, stock: 5 },
+
+  { label: "[375 - 500 Points]", price: 3.5, brandId: 10, stock: 2 },
+
+  { label: "[501+ Points]", price: 4.5, brandId: 10, stock: 4 },
+
+  { label: "[$5 - $9.99 Bank Rewards]", price: 1.25, brandId: 10, stock: 6 },
+
+  { label: "[$10 - $14.99 Bank Rewards]", price: 1.99, brandId: 10, stock: 0 },
+
+  { label: "[$15- $19.99 Bank Rewards]", price: 2.99, brandId: 10, stock: 0 },
+
+  { label: "[$20+ Bank Rewards]", price: 4.99, brandId: 10, stock: 2 },
+
+  { label: "[$30+ Bank Rewards]", price: 5.99, brandId: 10, stock: 2 },
+
+  { label: "[$60 Bank Rewards]", price: 11.99, brandId: 10, stock: 1 },
+
+  { label: "[1500+ Points]", price: 9.99, brandId: 10, stock: 1 },
+  // noodles
+  { label: "[300+ Points]", price: 0.99, brandId: 26, stock: 633 },
+
+  { label: "[600+ Points]", price: 1.5, brandId: 26, stock: 263 },
+
+  { label: "[850+ Points]", price: 1.99, brandId: 26, stock: 142 },
+
+  { label: "[1150+ Points]", price: 2.5, brandId: 26, stock: 148 },
+
+  { label: "[1500+ Points]", price: 2.99, brandId: 26, stock: 89 },
+
+  { label: "[3000+ Points]", price: 5.99, brandId: 26, stock: 16 },
+
+  { label: "[4500+ Points]", price: 8.99, brandId: 26, stock: 6 },
+
+  { label: "[6000+ Points]", price: 11.99, brandId: 26, stock: 3 },
+
+  { label: "[7500+ Points]", price: 14.99, brandId: 26, stock: 0 },
+
+  { label: "[15,500+ Points]", price: 29.99, brandId: 26, stock: 0 },
+
+  { label: "[+33,000 Points]", price: 64.99, brandId: 26, stock: 1 },
+  // del taco
+  { label: "[250 - 449 Points]", price: 0.99, brandId: 8, stock: 23 },
+
+  { label: "[450 - 599 Points]", price: 1.99, brandId: 8, stock: 5 },
+
+  { label: "[600 - 999 Points]", price: 2.99, brandId: 8, stock: 10 },
+
+  { label: "[1000 - 1499 Points]", price: 4.5, brandId: 8, stock: 5 },
+
+  { label: "[1500 - 1999 Points]", price: 5.99, brandId: 8, stock: 1 },
+
+  { label: "[2000+ Points]", price: 7.99, brandId: 8, stock: 2 },
+
+  { label: "[3000+ Points]", price: 9.99, brandId: 8, stock: 0 },
+
+  { label: "[4000+ Points]", price: 11.99, brandId: 8, stock: 0 },
+  // cafe rio
+  { label: "[$10+] (Gift Card)", price: 1.5, brandId: 3, stock: 18 },
+
+  { label: "[$20+] (Gift Card)", price: 3.99, brandId: 3, stock: 34 },
+
+  { label: "[$30+] (Gift Card)", price: 5.99, brandId: 3, stock: 0 },
+
+  { label: "[$70-80] (Gift Card)", price: 15.99, brandId: 3, stock: 2 },
+
+  { label: "[+$100] (Gift Cards)", price: 20.99, brandId: 3, stock: 1 },
+
+  { label: "[$10 - $14.99]", price: 1.99, brandId: 3, stock: 1753 },
+
+  { label: "[$15 - $19.99]", price: 2.5, brandId: 3, stock: 33 },
+
+  { label: "[$20 - $29.99]", price: 3.99, brandId: 3, stock: 282 },
+
+  { label: "[$30 - $39.99]", price: 5.99, brandId: 3, stock: 87 },
+
+  { label: "[$40 - $49.99]", price: 7.99, brandId: 3, stock: 35 },
+
+  { label: "[$70 - $79.99]", price: 13.99, brandId: 3, stock: 7 },
+
+  { label: "[$100-$125]", price: 19.99, brandId: 3, stock: 11 },
+
+  { label: "[$179+]", price: 35.99, brandId: 3, stock: 1 },
+
+  {
+    label: "[+$278] (Gift Card) + $50 Rewards",
+    price: 64.99,
+    brandId: 3,
+    stock: 1,
+  },
+
+  { label: "[$462+]", price: 89.99, brandId: 3, stock: 1 },
+
+  { label: "[+$140]", price: 26.99, brandId: 3, stock: 1 },
+
+  { label: "[$160-$170]", price: 30.99, brandId: 3, stock: 2 },
+
+  { label: "[$190-$200]", price: 36.99, brandId: 3, stock: 3 },
+
+  { label: "[$219-$249]", price: 44.5, brandId: 3, stock: 2 },
+
+  { label: "[$250-$275]", price: 49.99, brandId: 3, stock: 3 },
+
+  { label: "[+$200] (Gift Card)", price: 37.99, brandId: 3, stock: 0 },
+
+  { label: "[$+620]", price: 99.99, brandId: 3, stock: 1 },
+  // mountain mike's
+  { label: "[Payment Attached]", price: 1.99, brandId: 24, stock: 63 },
+
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 24, stock: 8 },
+  // potbelly
+  { label: "[Payment Attached]", price: 1.99, brandId: 30, stock: 55 },
+
+  { label: "[AMEX / DIS]", price: 3.5, brandId: 30, stock: 22 },
+  // &pizza
+  { label: "[500 - 1499 Points]", price: 0.99, brandId: 27, stock: 187 },
+
+  { label: "[1500+ Points]", price: 1.5, brandId: 27, stock: 8 },
+
+  { label: "[2000+ Points]", price: 2.99, brandId: 27, stock: 5 },
+
+  { label: "[3000+ Points]", price: 4.5, brandId: 27, stock: 4 },
+
+  { label: "[4000+ Points]", price: 5.99, brandId: 27, stock: 0 },
+
+  { label: "[5000+ Points]", price: 7.5, brandId: 27, stock: 0 },
+  // nando's
+  { label: "[500+ Points]", brandId: 25, price: 0.99, stock: 33 },
+  { label: "[1000+ Points]", brandId: 25, price: 2.5, stock: 22 },
+  { label: "[1500+ Points]", brandId: 25, price: 3.99, stock: 20 },
+  { label: "[2500+ Points]", brandId: 25, price: 7.5, stock: 13 },
+  { label: "[5000 - 7499 Points]", brandId: 25, price: 19.99, stock: 3 },
+  { label: "[7500 - 9999 Points]", brandId: 25, price: 24.99, stock: 1 },
+
+  // pressed
+  { label: "[$10 - $14.99]", brandId: 31, price: 2.5, stock: 25 },
+  { label: "[$20 - $29.99]", brandId: 31, price: 4.99, stock: 8 },
+  { label: "[$50 - $74.99]", brandId: 31, price: 11.99, stock: 3 },
+  { label: "[$75 - $99.99]", brandId: 31, price: 16.99, stock: 3 },
+  { label: "[$100 - $129]", brandId: 31, price: 21.99, stock: 3 },
+  { label: "[$130-$149]", brandId: 31, price: 30.99, stock: 2 },
+  { label: "[$150-$200]", brandId: 31, price: 38.99, stock: 2 },
+  { label: "[$200+]", brandId: 31, price: 64.99, stock: 4 },
+  { label: "[$250+]", brandId: 31, price: 79.99, stock: 2 },
+  { label: "[$300+]", brandId: 31, price: 99.99, stock: 1 },
+  // freddy's
+  { label: "[300+ Points]", brandId: 13, price: 0.99, stock: 5 },
+  { label: "[700+ Points]", brandId: 13, price: 1.99, stock: 0 },
+  { label: "[1000+ Points]", brandId: 13, price: 2.99, stock: 0 },
+  { label: "[4500+ Points]", brandId: 13, price: 13.5, stock: 0 },
+  // smoothie
+  { label: "[Payment Attached]", brandId: 37, price: 1.99, stock: 44 },
+  { label: "[AMEX / DIS]", brandId: 37, price: 3.5, stock: 2 },
+
+  // salad n go
+  { label: "[$10 - $14.99]", brandId: 36, price: 2.99, stock: 0 },
+  { label: "[$15 - $19.99]", brandId: 36, price: 4.5, stock: 1 },
+  { label: "[$20 - $24.99]", brandId: 36, price: 5.5, stock: 1 },
+  { label: "[$25 - $29.99]", brandId: 36, price: 7.5, stock: 1 },
+
+  // chicken salad chick
+
+  { label: "[100+ Points]", brandId: 6, price: 0.99, stock: 187 },
+  { label: "[200+ Points]", brandId: 6, price: 1.99, stock: 86 },
+  { label: "[400+ Points]", brandId: 6, price: 4.99, stock: 14 },
+  { label: "[600+ Points]", brandId: 6, price: 6.99, stock: 2 },
+  { label: "[800+ Points]", brandId: 6, price: 9.99, stock: 3 },
+  { label: "[1000+ Points]", brandId: 6, price: 12.99, stock: 7 },
+  { label: "[1500+ Points]", brandId: 6, price: 17.99, stock: 1 },
+
+  // the human bean
+  { label: "[Payment Attached]", brandId: 38, price: 1.99, stock: 8 },
+  { label: "[AMEX / DIS]", brandId: 38, price: 3.5, stock: 3 },
+  // casey's
+  { label: "[$10 - $14.99]", brandId: 5, price: 2.99, stock: 24 },
+  { label: "[$15 - $19.99]", brandId: 5, price: 4.5, stock: 28 },
+  { label: "[$20 - $24.99]", brandId: 5, price: 5.5, stock: 0 },
+  { label: "[$25 - $29.99]", brandId: 5, price: 7.5, stock: 0 },
+
+  // love's
+  { label: "[1000 - 1999 Points]", brandId: 21, price: 1.99, stock: 0 },
+  { label: "[2000 - 2999 Points]", brandId: 21, price: 3.99, stock: 0 },
+  { label: "[3000 - 4999 Points]", brandId: 21, price: 6.99, stock: 0 },
+  { label: "[7000 - 9999 Points]", brandId: 21, price: 17.99, stock: 1 },
+  { label: "[10000 - 14999 Points]", brandId: 21, price: 26.99, stock: 2 },
+  // erbert & gerberts
+  { label: "[$5 - $9.99]", brandId: 11, price: 1.5, stock: 40 },
+  { label: "[$10 - $14.99]", brandId: 11, price: 1.99, stock: 33 },
+  { label: "[$15 - $19.99]", brandId: 11, price: 2.99, stock: 5 },
+  { label: "[$20 - $29.99]", brandId: 11, price: 4.5, stock: 10 },
+  { label: "[$30 - $39.99]", brandId: 11, price: 5.5, stock: 0 },
+  { label: "[$40 - $49.99]", brandId: 11, price: 6.99, stock: 0 },
+  { label: "[$50 - $74.99]", brandId: 11, price: 8.99, stock: 1 },
+  { label: "[$75 - $84.99]", brandId: 11, price: 11.5, stock: 1 },
+
+  // gtc movies
+  { label: "[2000+ Points]", brandId: 14, price: 1.99, stock: 50 },
+  { label: "[4000+ Points]", brandId: 14, price: 4.99, stock: 6 },
+  { label: "[5000+ Points]", brandId: 14, price: 7.99, stock: 3 },
+  { label: "[6000+ Points]", brandId: 14, price: 9.99, stock: 0 },
+  { label: "[7000+ Points]", brandId: 14, price: 10.99, stock: 2 },
+  { label: "[8000+ Points]", brandId: 14, price: 12.99, stock: 2 },
+  { label: "[9000+ Points]", brandId: 14, price: 14.5, stock: 1 },
+  { label: "[21,000+ Points]", brandId: 14, price: 22.99, stock: 1 },
+
+  // marcus theatres
+
+  { label: "[$5+]", brandId: 22, price: 1.99, stock: 34 },
+  { label: "[$10+]", brandId: 22, price: 3.99, stock: 93 },
+  { label: "[$15+]", brandId: 22, price: 5.99, stock: 46 },
+  { label: "[$20+]", brandId: 22, price: 7.99, stock: 21 },
+  { label: "[$25+]", brandId: 22, price: 9.99, stock: 97 },
+  { label: "[$30+]", brandId: 22, price: 11.99, stock: 4 },
+  { label: "[$35+]", brandId: 22, price: 13.99, stock: 1 },
+  { label: "[$40+]", brandId: 22, price: 15.99, stock: 3 },
+  { label: "[$45+]", brandId: 22, price: 17.99, stock: 5 },
+  { label: "[$50+]", brandId: 22, price: 19.99, stock: 12 },
+  { label: "[$60+]", brandId: 22, price: 23.99, stock: 0 },
+  { label: "[$70+]", brandId: 22, price: 27.99, stock: 0 },
+  { label: "[$75+]", brandId: 22, price: 29.99, stock: 0 },
+  { label: "[$80+]", brandId: 22, price: 31.99, stock: 0 },
+  { label: "[$90+]", brandId: 22, price: 35.99, stock: 0 },
+  { label: "[$100+]", brandId: 22, price: 39.99, stock: 0 },
+  { label: "[$125+]", brandId: 22, price: 49.99, stock: 0 },
+  { label: "[$150+]", brandId: 22, price: 59.99, stock: 0 },
+  { label: "[$272+]", brandId: 22, price: 89.99, stock: 1 },
+  { label: "[$373+]", brandId: 22, price: 111.99, stock: 0 },
+
+  // pilot flying
+
+  { label: "[1000 - 1999 Points]", brandId: 29, price: 1.5, stock: 94 },
+  { label: "[2000 - 2999 Points]", brandId: 29, price: 2.99, stock: 17 },
+  { label: "[3000 - 3999 Points]", brandId: 29, price: 4.5, stock: 2 },
+  { label: "[4000 - 4999 Points]", brandId: 29, price: 5.99, stock: 2 },
+  { label: "[5000 - 7499 Points]", brandId: 29, price: 7.5, stock: 0 },
+  { label: "[7500- 9999 Points]", brandId: 29, price: 14.99, stock: 1 },
+  { label: "[10,000- 14,999 Points]", brandId: 29, price: 22.99, stock: 2 },
+  { label: "[15,000- 19,999 Points]", brandId: 29, price: 39.99, stock: 3 },
+  { label: "[+105,000 Points]", brandId: 29, price: 274.99, stock: 0 },
+  // jane
+
+  { label: "[Payment Attached]", brandId: 18, price: 1.5, stock: 80 },
+  { label: "[AMEX / DIS]", brandId: 18, price: 3.5, stock: 8 },
+  // carters
+
+  { label: "[$10]", brandId: 4, price: 1.99, stock: 194 },
+  { label: "[$20]", brandId: 4, price: 3.99, stock: 57 },
+  { label: "[$30]", brandId: 4, price: 5.99, stock: 18 },
+  { label: "[$40]", brandId: 4, price: 7.99, stock: 7 },
+  { label: "[$50]", brandId: 4, price: 9.99, stock: 3 },
+  { label: "[$60]", brandId: 4, price: 11.99, stock: 3 },
+  { label: "[$70]", brandId: 4, price: 13.99, stock: 1 },
+  { label: "[$80]", brandId: 4, price: 15.99, stock: 0 },
+  // hot topic
+
+  { label: "[$5+]", brandId: 15, price: 0.75, stock: 1920 },
+  { label: "[$10+]", brandId: 15, price: 1.99, stock: 262 },
+  { label: "[$15+]", brandId: 15, price: 2.5, stock: 21 },
+  { label: "[$20+]", brandId: 15, price: 2.99, stock: 8 },
+  { label: "[$30+]", brandId: 15, price: 4.5, stock: 0 },
+  // restaurant.com
+
+  { label: "[$50]", brandId: 32, price: 1.5, stock: 3 },
+  { label: "[$100]", brandId: 32, price: 4.99, stock: 3 },
+  { label: "[$500]", brandId: 32, price: 16.99, stock: 0 },
+  { label: "[$1000]", brandId: 32, price: 29.99, stock: 1 },
+
+  // under-armour
+
+  { label: "[Payment Attached]", brandId: 39, price: 0.99, stock: 32 },
+  { label: "[AMEX / DIS]", brandId: 39, price: 2.99, stock: 1 },
+  // kum & go
+
+  {
+    label: "[Payment Attached + No Alcohol]",
+    brandId: 20,
+    price: 2.99,
+    stock: 0,
+  },
+  { label: "[Payment Attached + Alcohol]", brandId: 20, price: 5.99, stock: 0 },
+  // o'reilly auto parts
+
+  { label: "[$5 Reward Code]", brandId: 28, price: 0.5, stock: 30 },
+  { label: "[$10 Reward Code]", brandId: 28, price: 1.5, stock: 0 },
+  { label: "[$20 Reward Code]", brandId: 28, price: 3.99, stock: 0 },
+  { label: "[$30 Reward Code]", brandId: 28, price: 5.99, stock: 0 },
+  { label: "[$70 Reward Codes]", brandId: 28, price: 17.5, stock: 0 },
+  // city brew coffee
+  { label: "[$10 - $19.99]", brandId: 7, price: 0.49, stock: 179 },
+  { label: "[$20 - $29.99]", brandId: 7, price: 3.99, stock: 205 },
+  { label: "[$30 - $39.99]", brandId: 7, price: 6.99, stock: 10 },
+  { label: "[$40 - $49.99]", brandId: 7, price: 9.99, stock: 6 },
+  { label: "[$50 - $69.99]", brandId: 7, price: 14.99, stock: 3 },
+  { label: "[$70 - $99.99]", brandId: 7, price: 18.99, stock: 0 },
+  { label: "[$100 - $149.99]", brandId: 7, price: 23.99, stock: 1 },
+  { label: "[+$200]", brandId: 7, price: 51.99, stock: 0 },
 ];
 
 const reviews: ReviewInterface[] = [
@@ -1596,4 +2424,4 @@ const faqs: QuestionInterface[] = [
   { question: "Is this USA only?", answer: "Yes." },
 ];
 
-export { brands, reviews, brandCategories, faqs };
+export { brands, reviews, brandCategories, faqs, products };
