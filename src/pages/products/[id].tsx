@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import Image from "next/image";
-import {  Star, } from "lucide-react";
+import { Star } from "lucide-react";
 import ReviewCard from "@components/ReviewCard";
 import ItemCard from "./components/ItemCard";
 import Footer from "@components/Footer";
@@ -57,7 +57,7 @@ export default function Product() {
         <div className="grid grid-cols-12 gap-4 my-10 items-start">
           <div className="col-span-8">
             <div className="bg-gray-800 p-6 rounded-xl">
-              <h1 className="text-4xl font-bold">{brand.name}</h1>
+              <h1 className="text-4xl font-bold">{brand?.name}</h1>
               <div className="flex gap-2 items-center">
                 <p>
                   Product sold{" "}
@@ -93,6 +93,7 @@ export default function Product() {
                 .slice(0, 6)
                 .map(({ date, isVerified, stars, text }, idx) => (
                   <ReviewCard
+                    key={idx}
                     date={date}
                     isVerified={isVerified}
                     stars={stars}
@@ -106,6 +107,7 @@ export default function Product() {
             {pageProducts.length
               ? pageProducts.map((product, idx) => (
                   <ItemCard
+                    key={idx}
                     product={product}
                     selectedItem={selectedItem}
                     clickEvent={() => setSelectedItem(idx)}

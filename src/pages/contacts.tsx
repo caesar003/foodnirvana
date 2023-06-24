@@ -1,7 +1,7 @@
 import Footer from "@components/Footer";
 import Input from "@components/Input";
 import Layout from "@components/Layout";
-import { Head } from "@components/index";
+import Head from "@components/Head";
 import { Send } from "lucide-react";
 import Link from "next/link";
 import React from "react";

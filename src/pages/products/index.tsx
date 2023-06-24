@@ -79,9 +79,8 @@ export default function Products() {
               stars,
               reviews,
             }) => (
-              <Link href={`/products/${id}`}>
+              <Link key={id} href={`/products/${id}`}>
                 <ProductCard
-                  key={id}
                   imgSrc={`/images/${imgSrc}`}
                   inStock={inStock}
                   name={name}

@@ -9,7 +9,7 @@ interface PropsInterface {
   text: string | undefined;
   isVerified: boolean;
   reply?: string;
-  className: string;
+  className?: string;
 }
 
 export default function ReviewCard(props: PropsInterface) {

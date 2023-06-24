@@ -13,7 +13,7 @@ interface PropsInterface {
 
 export default function ItemCard({
   clickEvent,
-  product: { brandId, label, price, stock },
+  product,
   brand,
   selectedItem,
   index,
@@ -29,7 +29,7 @@ export default function ItemCard({
     >
       <div className="flex justify-between items-center mb-1">
         <p>
-          {brand.name} {label}
+          {brand?.name} {product?.label}
         </p>
         {isActive ? (
           <Circle className="bg-yellow-400 text-yellow-400 rounded-full" />
@@ -38,8 +38,8 @@ export default function ItemCard({
         )}
       </div>
       <div className="flex items-center justify-between">
-        <p className="font-bold">$ {price.toFixed(2)}</p>
-        <p className="text-sm">{stock} in stock</p>
+        <p className="font-bold">$ {product?.price.toFixed(2)}</p>
+        <p className="text-sm">{product?.stock} in stock</p>
       </div>
     </div>
   );
