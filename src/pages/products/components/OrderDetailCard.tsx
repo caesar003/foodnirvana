@@ -1,21 +1,18 @@
 import { ProductInterface } from "@utils/types";
-import { Check, X, Zap } from "lucide-react";
+import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import React from "react";
 
 interface PropsInterface {
-    totalPrice: number;
-    pageProducts: ProductInterface[],
-    selectedItem: number;
-    addQty: Function;
+  totalPrice: number;
+  pageProducts: ProductInterface[];
+  selectedItem: number;
+  addQty: Function;
   qty: number;
   setQty: Function;
 }
 
-
-
 export default function OrderDetailCard(props: PropsInterface) {
-
-    const {addQty, totalPrice, pageProducts, selectedItem, setQty, qty } = props;
+  const { addQty, totalPrice, pageProducts, selectedItem, setQty, qty } = props;
   return (
     <div className="bg-gray-800 flex flex-col p-6 rounded-xl my-2 border border-gray-800">
       <div className="flex items-center justify-between mb-3">
@@ -41,9 +38,9 @@ export default function OrderDetailCard(props: PropsInterface) {
       </div>
       <div className="flex items-center justify-between gap-2 my-3">
         <p className="w-1/2">Quantity</p>
-        <div className="w-1/2 flex bg-gray-900 rounded-3xl p-2 justify-between">
+        <div className="w-1/2 flex bg-gray-900 rounded-3xl p-2 justify-between items-center">
           <button onClick={() => addQty(-1)} className="mx-1">
-            -
+            <Minus className="h-5 w-5" />
           </button>
           <input
             className="bg-gray-900 w-12 focus:outline-none active:ring-0 text-center"
@@ -53,7 +50,7 @@ export default function OrderDetailCard(props: PropsInterface) {
             max={12}
           />
           <button onClick={() => addQty(1)} className="mx-1">
-            +
+            <Plus className="h-5 w-5" />
           </button>
         </div>
       </div>

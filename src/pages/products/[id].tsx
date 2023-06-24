@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import Image from "next/image";
-import { Check, Circle, Star, X, Zap } from "lucide-react";
+import {  Star, } from "lucide-react";
 import ReviewCard from "@components/ReviewCard";
 import ItemCard from "./components/ItemCard";
 import Footer from "@components/Footer";
@@ -21,13 +21,11 @@ export default function Product() {
   const addQty = (val: number) => {
     const product: ProductInterface = { ...pageProducts[selectedItem] };
     if (val === -1) {
-      // total can't be lower than zero
       if (qty === 1) return;
       setQty(qty - 1);
     }
 
     if (val === 1) {
-      // total can't be higher than max stock
       if (qty === maxOrder) return;
       if (qty === product.stock) return;
 
@@ -55,19 +53,6 @@ export default function Product() {
   return (
     <Layout>
       <Head title="" />
-      {/* 
-      id,
-        imgSrc,
-        description,
-        price,
-        name,
-        inStock,
-        productType,
-        categoryId,
-        stars,
-        reviews,
-        sold, 
-        */}
       {brand ? (
         <div className="grid grid-cols-12 gap-4 my-10 items-start">
           <div className="col-span-8">
