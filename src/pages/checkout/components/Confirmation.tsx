@@ -45,7 +45,7 @@ export default function Confirmation() {
         <FaEnvelopeOpenText size={65} />
         <h3 className="text-xl">Thank your for your purchase!</h3>
         <p className="text-center text-lg text-gray-400">
-          Your order has been received. Now sit tight, we'll have our courier in
+          Your order has been received. Now sit tight, we&apos;ll have our courier in
           front of your door in not time!
         </p>
 

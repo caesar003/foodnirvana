@@ -45,3 +45,8 @@ export interface QuestionInterface {
   question: string;
   answer:string;
 }
+
+export interface CartItem {
+  id: number;
+  qty: number;
+}

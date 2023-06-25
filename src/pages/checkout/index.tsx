@@ -7,21 +7,9 @@ import PaymentMethod from "./components/PaymentMethod";
 import { useRouter } from "next/router";
 import { brands, products } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
-
-import { Bookmark, CreditCard, Gift, Tag, Tags } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  FaCcAmex,
-  FaCcJcb,
-  FaCcMastercard,
-  FaCcPaypal,
-  FaCcVisa,
-  FaGift,
-  FaShoppingBasket,
-} from "react-icons/fa";
 import OrderDetails from "./components/OrderDetails";
 import Confirmation from "./components/Confirmation";
+
 interface OrderDetailInterface {
   brandId: number;
   productId: number;
@@ -35,6 +23,7 @@ interface UserInfo {
   country: string;
   zip: string;
 }
+
 interface PaymentDetail {
   cardNumber: string;
   expiryDate: Date;
@@ -47,7 +36,7 @@ export default function Checkout(props: any) {
   const [orderDetail, setOrderDetail] = useState<OrderDetailInterface>();
 
   const [brand, setBrand] = useState<BrandInterface>();
-  const [product, setProduct] = useState<ProductInterface>();
+  const [product, setProduct] = useState<ProductInterface | undefined>();
 
   const goBack = () => {
     if (step === 0) {
@@ -80,16 +69,19 @@ export default function Checkout(props: any) {
         qty: parseInt(qty),
       };
 
-      // @ts-ignore
-      const _brand = brands.find((item) => item.id === parseInt(brand_id));
+      const _brand = // @ts-ignore
+        brands.find((item) => item?.id === parseInt(brand_id));
+
       const _product = products.find(
         // @ts-ignore
         (item) => item.id === parseInt(product_id)
       );
 
-      setOrderDetail(_orderDetail);
-      setBrand(_brand);
-      setProduct(_product);
+      if (_brand !== undefined && _product !== undefined) {
+        setOrderDetail(_orderDetail); // @ts-ignore
+        setBrand(_brand); // @ts-ignore
+        setProduct(_product);
+      }
     }
   }, []);
 
@@ -115,9 +107,7 @@ export default function Checkout(props: any) {
               <>
                 {step === 0 ? (
                   <CustomerDetail // @ts-ignore
-                    brand={brand}
-                    orderDetail={orderDetail}
-                    product={product}
+                    brand={brand} orderDetail={orderDetail} product={product}
                   />
                 ) : (
                   <PaymentMethod />
