@@ -12,7 +12,7 @@ import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCart } from "@hooks/useCart";
-import { CartItem } from "@components/CartDropdown";
+import { CartItemInterface } from "@components/CartDropdown";
 
 export default function Product() {
   // @ts-ignore
@@ -41,9 +41,15 @@ export default function Product() {
   };
 
   const addToCart = (item: ProductInterface) => {
+    // console.log({item});
+    // const _brand = brands.find(item => item.id === )
+    const _brand = brands.find(brand => brand.id === item.brandId )
+    // console.log({_brand})
     const _cartItem = {
       id: item.id,
       qty: qty,
+      brand: _brand,
+      item: item,
     };
     setShoppingCart([...shoppingCart, _cartItem]);
   };

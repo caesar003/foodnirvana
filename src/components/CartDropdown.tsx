@@ -1,35 +1,15 @@
 import { Menu } from "@headlessui/react";
-import { BrandInterface, CartItem, ProductInterface } from "@utils/types";
+import { CartItemInterface, ProductInterface } from "@utils/types";
 import { brands, products } from "@utils/default-values";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
+import { ChevronDownSquare, Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function CartDropdown({
   shoppingCart,
 }: {
-  shoppingCart: CartItem[];
+  shoppingCart: CartItemInterface[];
 }) {
-  const [cartProducts, setCartProducts] = useState<ProductInterface[]>([]);
-  const [cartBrands, setCartBrands] = useState([]);
-  useEffect(() => {
-    if (shoppingCart.length) {
-      const _prods: ProductInterface[] = [];
-      const _brands: BrandInterface[] = [];
-      shoppingCart.forEach((item) => {
-        const _product = products.find((_item) => _item.id === item?.id);
-        const _brand = brands.find((_item) => _item.id === _product?.brandId);
-        // @ts-ignore;
-        _prods.push(_product);
-        // @ts-ignore;
-        _brands.push(_brand);
-      });
-
-      // @ts-ignore;
-      setCartBrands(_brands);
-      setCartProducts(_prods);
-    }
-  }, []);
   return (
     <Menu as="div" className="relative">
       <Menu.Button className="flex items-center gap-2">
@@ -49,7 +29,7 @@ export default function CartDropdown({
               to proceed with the purchase
             </p>
             {shoppingCart.map((item, idx) => (
-              <CartItem key={idx} />
+              <CartItem key={idx} item={item} />
             ))}
           </div>
         )}
@@ -66,21 +46,21 @@ export function EmptyCart() {
   );
 }
 
-export function CartItem() {
+export function CartItem({ item }: { item: CartItemInterface }) {
   return (
-    <div className="flex items-center justify-between my-2">
+    <div className="my-2 flex items-center justify-between">
       <div className="flex items-center">
         <div className="aspect-video bg-gray-200">
           <Image
             width={85}
             height={15}
-            src={"/images/asap.jpeg"}
+            src={`/images/${item.brand.imgSrc}`}
             alt={"asap"}
             className="h-full w-auto"
           />
         </div>
         <div className="flex flex-col">
-          <p className="text-sm font-bold">Krispy Kreme</p>
+          <p className="text-sm font-bold">{item.brand.name}</p>
           <p className="text-xs">Quantity: 1</p>
         </div>
       </div>
@@ -88,7 +68,9 @@ export function CartItem() {
         <button className="aspect-square rounded-lg bg-gray-900 p-1">
           <Minus className="h-4 w-4" />
         </button>
-        <div className="aspect-square rounded-lg bg-gray-900 p-1 px-2">1</div>
+        <div className="aspect-square rounded-lg bg-gray-900 p-1 px-2">
+          {item.qty}
+        </div>
         <button className="aspect-square rounded-lg bg-gray-900 p-1">
           <Plus className="h-4 w-4" />
         </button>

@@ -1,6 +1,6 @@
 import { Menu } from "@headlessui/react";
 import { cart } from "@utils/storage";
-import { CartItem } from "@utils/types";
+import { CartItemInterface } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

@@ -3,11 +3,11 @@ import { Fragment, PropsWithChildren, useEffect, useState } from "react";
 import "../app/globals.css";
 import Banner from "./Banner";
 import Navbar from "./Navbar";
-import { CartItem } from "@utils/types";
+import { CartItemInterface } from "@utils/types";
 import { cart } from "@utils/storage";
 
 export default function Layout({ children }: PropsWithChildren) {
-  const [shoppingCart, setShoppingCart] = useState<CartItem[]>([]);
+  const [shoppingCart, setShoppingCart] = useState<CartItemInterface[]>([]);
   useEffect(() => {
     setShoppingCart(cart.get());
   }, []);

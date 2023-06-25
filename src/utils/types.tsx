@@ -46,7 +46,9 @@ export interface QuestionInterface {
   answer:string;
 }
 
-export interface CartItem {
+export interface CartItemInterface {
   id: number;
   qty: number;
+  brand: BrandInterface;
+  item: ProductInterface;
 }
