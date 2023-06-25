@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import Head from "@components/Head";
 import CheckoutLayout from "@components/CheckoutLayout";
 import { ArrowLeft } from "lucide-react";
@@ -44,7 +44,7 @@ interface PropsInterface {
   orderDetail: OrderDetailInterface;
   product: ProductInterface;
   brand: BrandInterface;
-  goForward: Function;
+  goForward: MouseEventHandler<HTMLButtonElement>;
   step: number;
 }
 
@@ -87,8 +87,11 @@ export default function OrderDetails({
           <p>${totalPrice}</p>
         </div>
 
-        <button className="my-2 rounded-2xl bg-yellow-400 py-3 text-center font-bold text-black hover:bg-indigo-950 hover:text-yellow-400">
-          Pay
+        <button
+          onClick={goForward}
+          className="my-2 rounded-2xl bg-yellow-400 py-3 text-center font-bold text-black hover:bg-indigo-950 hover:text-yellow-400"
+        >
+          {step === 0 ? "Continue to payment" : "Pay"}
         </button>
 
         <p className="text-sm">

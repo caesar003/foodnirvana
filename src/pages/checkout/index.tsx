@@ -21,6 +21,7 @@ import {
   FaShoppingBasket,
 } from "react-icons/fa";
 import OrderDetails from "./components/OrderDetails";
+import Confirmation from "./components/Confirmation";
 interface OrderDetailInterface {
   brandId: number;
   productId: number;
@@ -49,16 +50,15 @@ export default function Checkout(props: any) {
   const [product, setProduct] = useState<ProductInterface>();
 
   const goBack = () => {
-    // console.log("going back");
     if (step === 0) {
-      // window.location.href = "/";
       // @ts-ignore
-      router.push(`/products/${brand.id}`);
-      // console.log(product)
+      return router.push(`/products/${brand.id}`);
+    } else {
+      setStep(step - 1);
     }
   };
 
-  const goForward = () => {};
+  const goForward = () => setStep(step + 1);
 
   const [userInfo, setUserInfo] = useState<UserInfo>();
   const [paymenDetail, setPaymentDetail] = useState<PaymentDetail>();
@@ -102,26 +102,35 @@ export default function Checkout(props: any) {
     <CheckoutLayout>
       <Head title="Food Nirvana - Checkout" />
 
-      <div className="">
-        <div className="">
+      {step === 2 ? (
+        <Confirmation />
+      ) : (
+        <div>
           <button className="flex items-center gap-2" onClick={goBack}>
             <ArrowLeft />
             <span>Go back</span>
           </button>
           {orderDetail ? (
             <div className="grid grid-cols-12 gap-4">
-              <PaymentMethod />
+              <>
+                {step === 0 ? (
+                  <CustomerDetail // @ts-ignore
+                    brand={brand}
+                    orderDetail={orderDetail}
+                    product={product}
+                  />
+                ) : (
+                  <PaymentMethod />
+                )}
 
-              {/*<CustomerDetail  // @ts-ignore
-                brand={brand} orderDetail={orderDetail} product={product}
-              /> */}
-              <OrderDetails
-                orderDetail={orderDetail} // @ts-ignore
-                product={product} // @ts-ignore
-                brand={brand}
-                step={step}
-                goForward={goForward}
-              />
+                <OrderDetails
+                  orderDetail={orderDetail} // @ts-ignore
+                  product={product} // @ts-ignore
+                  brand={brand}
+                  step={step}
+                  goForward={goForward}
+                />
+              </>
             </div>
           ) : (
             <div>
@@ -129,7 +138,7 @@ export default function Checkout(props: any) {
             </div>
           )}
         </div>
-      </div>
+      )}
     </CheckoutLayout>
   );
 }

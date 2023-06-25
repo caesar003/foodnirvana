@@ -21,7 +21,7 @@ export default function PaymentMethod() {
           <p>Payment Method</p>
         </div>
         <div className="my-4 grid grid-cols-4 gap-2">
-          <div className="grid aspect-video grid-cols-2 grid-rows-2 rounded bg-white">
+          <div className="grid aspect-video grid-cols-2 grid-rows-2 rounded bg-white p-0.5">
             <div className="flex aspect-video justify-center p-0.5">
               <Image
                 src={"/images/mc-logo-52.svg"}
@@ -55,7 +55,7 @@ export default function PaymentMethod() {
                 width={300}
                 height={300}
                 alt="amex logo"
-                className="h-full w-auto"
+                className="h-full object-cover"
               />
             </div>
           </div>
