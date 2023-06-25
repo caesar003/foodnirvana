@@ -7,6 +7,20 @@ import PaymentMethod from "./components/PaymentMethod";
 import { useRouter } from "next/router";
 import { brands, products } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
+
+import { Bookmark, CreditCard, Gift, Tag, Tags } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaCcAmex,
+  FaCcJcb,
+  FaCcMastercard,
+  FaCcPaypal,
+  FaCcVisa,
+  FaGift,
+  FaShoppingBasket,
+} from "react-icons/fa";
+import OrderDetails from "./components/OrderDetails";
 interface OrderDetailInterface {
   brandId: number;
   productId: number;
@@ -37,9 +51,14 @@ export default function Checkout(props: any) {
   const goBack = () => {
     // console.log("going back");
     if (step === 0) {
-      window.location.href = "/";
+      // window.location.href = "/";
+      // @ts-ignore
+      router.push(`/products/${brand.id}`);
+      // console.log(product)
     }
   };
+
+  const goForward = () => {};
 
   const [userInfo, setUserInfo] = useState<UserInfo>();
   const [paymenDetail, setPaymentDetail] = useState<PaymentDetail>();
@@ -85,16 +104,25 @@ export default function Checkout(props: any) {
 
       <div className="">
         <div className="">
-          <button className="flex gap-2 items-center" onClick={goBack}>
+          <button className="flex items-center gap-2" onClick={goBack}>
             <ArrowLeft />
             <span>Go back</span>
           </button>
           {orderDetail ? (
-            // @ts-ignore
-            // <CustomerDetail // @ts-ignore
-            //   orderDetail={orderDetail} product={product} brand={brand}
-            // />
-            <PaymentMethod />
+            <div className="grid grid-cols-12 gap-4">
+              <PaymentMethod />
+
+              {/*<CustomerDetail  // @ts-ignore
+                brand={brand} orderDetail={orderDetail} product={product}
+              /> */}
+              <OrderDetails
+                orderDetail={orderDetail} // @ts-ignore
+                product={product} // @ts-ignore
+                brand={brand}
+                step={step}
+                goForward={goForward}
+              />
+            </div>
           ) : (
             <div>
               <p>Something went wrong</p>
