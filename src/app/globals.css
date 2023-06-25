@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0c1525;
+  --bg: #121212;
   --text-color: #fff;
 }
 
@@ -17,7 +17,7 @@
 
 body {
   color: var(--text-color);
-  background-color: var(--bg); 
+  background-color: var(--bg);
 }
 
 @layer utilities {
