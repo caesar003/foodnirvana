@@ -5,16 +5,14 @@ import Image from "next/image";
 export default function ProductCard(props: BrandInterface) {
   const { imgSrc, inStock, name, price, productType } = props;
   return (
-    <div className="max-w-sm bg-gray-800 border border-1 border-gray-900 rounded-lg hover:scale-105 transition-all">
-      <a href="#">
-        <Image
-          className="rounded-t-lg w-full h-auto"
-          src={imgSrc}
-          alt={name + " image"}
-          width={480}
-          height={32}
-        />
-      </a>
+    <div className="border-1 max-w-sm rounded-lg border border-gray-900 bg-gray-800 transition-all hover:scale-105">
+      <Image
+        className="h-auto w-full rounded-t-lg"
+        src={imgSrc}
+        alt={name + " image"}
+        width={480}
+        height={32}
+      />
       <div className="p-5">
         <div className="mb-1">
           <p className="font-bold">
@@ -26,14 +24,14 @@ export default function ProductCard(props: BrandInterface) {
             )}
           </p>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <span className="font-bold">{`$${price.toFixed(2)}`}</span>
-          <div className="flex gap-2 items-center">
-            <span className="uppercase text-sm">in stock</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm uppercase">in stock</span>
             {inStock ? (
-              <Check className="w-4 h-4 text-yellow-400" />
+              <Check className="h-4 w-4 text-yellow-400" />
             ) : (
-              <X className="w-4 h-4 text-rose-600" />
+              <X className="h-4 w-4 text-rose-600" />
             )}
           </div>
         </div>

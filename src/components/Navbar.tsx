@@ -1,14 +1,19 @@
 import { Menu } from "@headlessui/react";
 import { cart } from "@utils/storage";
+import { CartItem } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { useCart } from "@hooks/useCart";
+import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
-  const [shoppingCart, setShoppingCart] = useState<number[]>([]);
+  // @ts-ignore
+  const { shoppingCart, setShoppingCart } = useCart();
+
   const paths: { label: string; path: string }[] = [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },
@@ -20,7 +25,7 @@ export default function Navbar() {
   const { pathname } = useRouter();
 
   useEffect(() => {
-    setShoppingCart(cart.get());
+    // setShoppingCart(cart.get());
   }, []);
 
   return (
@@ -49,7 +54,8 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="flex items-center gap-4">
-        <Menu as="div" className="relative">
+        <CartDropdown shoppingCart={shoppingCart} />
+        {/* <Menu as="div" className="relative">
           <Menu.Button className="flex items-center gap-2">
             <span className="flex items-center gap-2">
               <ShoppingCart className="h-5 w-5" />
@@ -95,11 +101,11 @@ export default function Navbar() {
                 </div>
               </div>
             </Menu.Item>
-            {/* <Menu.Item>
+            <Menu.Item>
               <p>world</p>
-            </Menu.Item> */}
+            </Menu.Item>
           </Menu.Items>
-        </Menu>
+        </Menu> */}
         <button className="rounded-xl bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black">
           customer login
         </button>

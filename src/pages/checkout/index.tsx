@@ -112,7 +112,6 @@ export default function Checkout(props: any) {
                 ) : (
                   <PaymentMethod />
                 )}
-
                 <OrderDetails
                   orderDetail={orderDetail} // @ts-ignore
                   product={product} // @ts-ignore

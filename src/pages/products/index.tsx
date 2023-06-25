@@ -42,19 +42,19 @@ export default function Products() {
   return (
     <Layout>
       <Head title="Food Nirvana - Our Products" />
-      <div className="flex flex-col items-center my-10">
-        <h1 className="text-5xl font-bold text-center">Products</h1>
-        <div className="grid grid-cols-3 gap-4 my-4 w-full items-center">
+      <div className="my-10 flex flex-col items-center">
+        <h1 className="text-center text-5xl font-bold">Products</h1>
+        <div className="my-4 grid w-full grid-cols-3 items-center gap-4">
           <div className="col-span-2">
             <input
               onChange={handleInput}
-              className="w-full bg-gray-800 rounded-2xl p-2"
+              className="w-full rounded-2xl bg-gray-800 p-2"
             />
           </div>
           <div className="col">
             <select
               onChange={handleSelect}
-              className="bg-gray-800 w-full rounded-2xl p-3"
+              className="w-full rounded-2xl bg-gray-800 p-3"
             >
               {brandCategories.map(({ name, id }) => (
                 <option key={id} className="capitalize" value={id}>
@@ -64,7 +64,7 @@ export default function Products() {
             </select>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6 my-4">
+        <div className="my-4 grid grid-cols-3 gap-6">
           {pageBrands.map(
             ({
               id,
@@ -79,7 +79,13 @@ export default function Products() {
               stars,
               reviews,
             }) => (
-              <Link key={id} href={`/products/${id}`}>
+              <Link
+                key={id}
+                href={{
+                  pathname: `/products/${id}`,
+               
+                }}
+              >
                 <ProductCard
                   imgSrc={`/images/${imgSrc}`}
                   inStock={inStock}

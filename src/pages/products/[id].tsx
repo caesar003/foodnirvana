@@ -4,22 +4,26 @@ import React, { useEffect, useState } from "react";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ChevronDownSquare, Star } from "lucide-react";
 import ReviewCard from "@components/ReviewCard";
 import ItemCard from "./components/ItemCard";
 import Footer from "@components/Footer";
 import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCart } from "@hooks/useCart";
+import { CartItem } from "@components/CartDropdown";
 
 export default function Product() {
+  // @ts-ignore
+  const { shoppingCart, setShoppingCart } = useCart();
+  const router = useRouter();
   const maxOrder: number = 20;
   const [brand, setBrand] = useState<BrandInterface>();
   const [pageProducts, setPageProducts] = useState<ProductInterface[]>([]);
   const [selectedItem, setSelectedItem] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(1);
   const [qty, setQty] = useState<number>(1);
-
-  // /?brand_id=1&product_id=3&qty=3&
 
   const addQty = (val: number) => {
     const product: ProductInterface = { ...pageProducts[selectedItem] };
@@ -36,16 +40,32 @@ export default function Product() {
     }
   };
 
+  const addToCart = (item: ProductInterface) => {
+    const _cartItem = {
+      id: item.id,
+      qty: qty,
+    };
+    setShoppingCart([...shoppingCart, _cartItem]);
+  };
+
   useEffect(() => {
-    if (window !== undefined) {
-      const url = window.location.href;
-      const brandId = parseInt(url.slice(url.lastIndexOf("/") + 1));
-      const _brand = brands.find((item) => item.id === brandId);
-      const _products = products.filter((items) => items.brandId === brandId);
-      setPageProducts(_products);
-      setBrand(_brand);
-      setTotalPrice(_products[0].price);
+    const { id } = router.query;
+    let brandId: number = 0;
+    if (id) {
+      // @ts-ignore
+      brandId = parseInt(id);
+    } else {
+      if (window !== undefined) {
+        const url = window.location.href;
+        brandId = parseInt(url.slice(url.lastIndexOf("/") + 1));
+      }
     }
+
+    const _brand = brands.find((item) => item.id === brandId);
+    const _products = products.filter((items) => items.brandId === brandId);
+    setPageProducts(_products);
+    setBrand(_brand);
+    setTotalPrice(_products[0].price);
   }, []);
 
   useEffect(() => {
@@ -53,15 +73,16 @@ export default function Product() {
       setTotalPrice(pageProducts[selectedItem].price * qty);
     }
   }, [selectedItem, qty]);
+
   return (
     <Layout>
       <Head title="" />
       {brand ? (
-        <div className="grid grid-cols-12 gap-4 my-10 items-start">
+        <div className="my-10 grid grid-cols-12 items-start gap-4">
           <div className="col-span-8">
-            <div className="bg-gray-800 p-6 rounded-xl">
+            <div className="rounded-xl bg-gray-800 p-6">
               <h1 className="text-4xl font-bold">{brand?.name}</h1>
-              <div className="flex gap-2 items-center">
+              <div className="flex items-center gap-2">
                 <p>
                   Product sold{" "}
                   <span className="text-gray-400">{brand.sold}</span> times
@@ -81,7 +102,7 @@ export default function Product() {
                 alt={brand.name + " image"}
                 width={500}
                 height={100}
-                className="w-full h-auto"
+                className="h-auto w-full"
               />
 
               <div>
@@ -91,7 +112,7 @@ export default function Product() {
               </div>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-xl my-6 flex flex-col gap-4">
+            <div className="my-6 flex flex-col gap-4 rounded-xl bg-gray-800 p-6">
               {reviews
                 .slice(0, 6)
                 .map(({ date, isVerified, stars, text }, idx) => (
@@ -120,19 +141,19 @@ export default function Product() {
                 ))
               : ""}
 
-            <div className="bg-gray-800 flex flex-col p-6 rounded-xl my-2 border border-gray-800">
-              <div className="flex items-center justify-between mb-3">
+            <div className="my-2 flex flex-col rounded-xl border border-gray-800 bg-gray-800 p-6">
+              <div className="mb-3 flex items-center justify-between">
                 <p>Price</p>
-                <p className="font-bold text-4xl">$ {totalPrice?.toFixed(2)}</p>
+                <p className="text-4xl font-bold">$ {totalPrice?.toFixed(2)}</p>
               </div>
-              <div className="flex items-center justify-between my-3">
+              <div className="my-3 flex items-center justify-between">
                 <p>Delivery Time</p>
                 <p className="flex gap-2">
                   <Zap className="h-6 w-6 text-yellow-400" />{" "}
                   <span>Instant</span>
                 </p>
               </div>
-              <div className="flex items-center justify-between my-3">
+              <div className="my-3 flex items-center justify-between">
                 <p>In Stock</p>
                 <p className="flex gap-2">
                   {pageProducts[selectedItem]?.stock ? (
@@ -143,14 +164,14 @@ export default function Product() {
                   <span>{pageProducts[selectedItem]?.stock}</span>
                 </p>
               </div>
-              <div className="flex items-center justify-between gap-2 my-3">
+              <div className="my-3 flex items-center justify-between gap-2">
                 <p className="w-1/2">Quantity</p>
-                <div className="w-1/2 flex bg-gray-900 rounded-3xl p-2 justify-between items-center">
+                <div className="flex w-1/2 items-center justify-between rounded-3xl bg-gray-900 p-2">
                   <button onClick={() => addQty(-1)} className="mx-1">
                     <Minus className="h-5 w-5" />
                   </button>
                   <input
-                    className="bg-gray-900 w-12 focus:outline-none active:ring-0 text-center"
+                    className="w-12 bg-gray-900 text-center focus:outline-none active:ring-0"
                     type="number"
                     value={qty}
                     onChange={(e) => setQty(parseInt(e?.target?.value))}
@@ -161,7 +182,10 @@ export default function Product() {
                   </button>
                 </div>
               </div>
-              <button className="hover:bg-yellow-400 hover:text-gray-900 bg-gray-900 text-yellow-400 font-bold py-2 rounded-xl my-2 text-center">
+              <button
+                onClick={() => addToCart(pageProducts[selectedItem])}
+                className="my-2 rounded-xl bg-gray-900 py-2 text-center font-bold text-yellow-400 hover:bg-yellow-400 hover:text-gray-900"
+              >
                 Add to Cart
               </button>
               <Link
@@ -170,10 +194,10 @@ export default function Product() {
                   query: {
                     brand_id: brand.id,
                     product_id: pageProducts[selectedItem].id,
-                    qty:qty,
+                    qty: qty,
                   },
                 }}
-                className="bg-yellow-400 text-gray-900 font-bold hover:bg-gray-900 hover:text-yellow-400 py-2 rounded-xl my-2 text-center"
+                className="my-2 rounded-xl bg-yellow-400 py-2 text-center font-bold text-gray-900 hover:bg-gray-900 hover:text-yellow-400"
               >
                 Buy Now
               </Link>
