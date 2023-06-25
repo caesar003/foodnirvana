@@ -1,11 +1,6 @@
-import { Menu } from "@headlessui/react";
-import { cart } from "@utils/storage";
-import { CartItemInterface } from "@utils/types";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { useCart } from "@hooks/useCart";
 import CartDropdown from "./CartDropdown";
@@ -55,57 +50,6 @@ export default function Navbar() {
       </div>
       <div className="flex items-center gap-4">
         <CartDropdown shoppingCart={shoppingCart} />
-        {/* <Menu as="div" className="relative">
-          <Menu.Button className="flex items-center gap-2">
-            <span className="flex items-center gap-2">
-              <ShoppingCart className="h-5 w-5" />
-              <span>{shoppingCart.length}</span>
-            </span>
-          </Menu.Button>
-          <Menu.Items className="absolute -right-20 z-10 mt-2 w-80 origin-top-right divide-y divide-gray-500 rounded-sm bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
-            <Menu.Item>
-              <div className="p-2">
-                <p className="my-2 font-bold">Shopping Cart</p>
-                <p className="text-sm">
-                  Feel free to add/remove your products or continue to the
-                  checkout to proceed with the purchase
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="aspect-video bg-gray-200">
-                      <Image
-                        width={85}
-                        height={15}
-                        src={"/images/asap.jpeg"}
-                        alt={"asap"}
-                        className="h-full w-auto"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm font-bold">Krispy Kreme</p>
-                      <p className="text-xs">Quantity: 1</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="aspect-square rounded-lg bg-gray-900 p-1">
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <div className="aspect-square rounded-lg bg-gray-900 p-1 px-2">
-                      1
-                    </div>
-                    <button className="aspect-square rounded-lg bg-gray-900 p-1">
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Menu.Item>
-            <Menu.Item>
-              <p>world</p>
-            </Menu.Item>
-          </Menu.Items>
-        </Menu> */}
         <button className="rounded-xl bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black">
           customer login
         </button>

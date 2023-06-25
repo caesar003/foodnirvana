@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import Image from "next/image";
-import { ChevronDownSquare, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import ReviewCard from "@components/ReviewCard";
 import ItemCard from "./components/ItemCard";
 import Footer from "@components/Footer";
@@ -12,7 +12,6 @@ import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCart } from "@hooks/useCart";
-import { CartItemInterface } from "@components/CartDropdown";
 
 export default function Product() {
   // @ts-ignore
@@ -41,10 +40,7 @@ export default function Product() {
   };
 
   const addToCart = (item: ProductInterface) => {
-    // console.log({item});
-    // const _brand = brands.find(item => item.id === )
-    const _brand = brands.find(brand => brand.id === item.brandId )
-    // console.log({_brand})
+    const _brand = brands.find((brand) => brand.id === item.brandId);
     const _cartItem = {
       id: item.id,
       qty: qty,

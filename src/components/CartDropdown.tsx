@@ -1,9 +1,7 @@
 import { Menu } from "@headlessui/react";
 import { CartItemInterface, ProductInterface } from "@utils/types";
-import { brands, products } from "@utils/default-values";
-import { ChevronDownSquare, Minus, Plus, ShoppingCart } from "lucide-react";
+import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function CartDropdown({
   shoppingCart,
@@ -61,7 +59,7 @@ export function CartItem({ item }: { item: CartItemInterface }) {
         </div>
         <div className="flex flex-col">
           <p className="text-sm font-bold">{item.brand.name}</p>
-          <p className="text-xs">Quantity: 1</p>
+          <p className="text-xs">Quantity: {item.qty}</p>
         </div>
       </div>
       <div className="flex gap-2">
