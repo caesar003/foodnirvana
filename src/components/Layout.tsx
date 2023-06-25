@@ -1,15 +1,15 @@
 "use client";
+import { PropsWithChildren } from "react";
 import "../app/globals.css";
-import React, { Fragment, PropsWithChildren } from "react";
+import Banner from "./Banner";
 import Navbar from "./Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <main className="flex items-start justify-center">
-      <div className="w-[1030px] min-h-screen flex-col justify-center items-center p-10">
-        <Navbar />
-        <>{children}</>
-      </div>
+    <main className="mx-auto min-h-screen max-w-6xl flex-col items-center justify-center px-4 py-6 sm:px-6">
+      <Banner />
+      <Navbar />
+      <>{children}</>
     </main>
   );
 }

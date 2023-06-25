@@ -1,56 +1,55 @@
+import Footer from "@components/Footer";
+import Head from "@components/Head";
 import Layout from "@components/Layout";
 import NewsCard from "@components/NewsCard";
 import ProductCard from "@components/ProductCard";
 import ReviewCard from "@components/ReviewCard";
-import Head from "@components/Head";
 import { brands, reviews } from "@utils/default-values";
 import { ArrowRight, Send, Star } from "lucide-react";
 import Link from "next/link";
-import Footer from "@components/Footer";
 
 export default function Home() {
   return (
     <Layout>
       <Head title="Home - Food Nirvana" />
-      <div className="flex flex-col my-10">
-        <div className="flex flex-col items-center">
-          <h1 className="my-2 text-6xl font-bold">Food Nirvana</h1>
-          <p className="my-2 text-2xl text-gray-500">Hungry? Spend less!</p>
-          <Link
-            href="/products"
-            className="text-black uppercase font-bold bg-yellow-400 hover:bg-indigo-900 hover:text-white rounded-lg p-2 px-8 mt-2 mb-4"
-          >
-            buy now
-          </Link>
-          <Link
-            href="/"
-            className="font-bold bg-gray-800 text-white hover:bg-white hover:text-black rounded-lg p-2 px-8 my-4 flex items-center gap-2"
-          >
-            <Send className="h-5 w-5" /> <span>Telegram</span>
-          </Link>
-        </div>
-
-        <div className="flex justify-between my-8">
+      <section className="flex flex-col items-center py-16">
+        <h1 className="my-2 text-6xl font-bold">Food Nirvana</h1>
+        <p className="my-2 text-2xl text-gray-500">Hungry? Spend less!</p>
+        <Link
+          href="/products"
+          className="mb-4 mt-2 rounded-lg bg-yellow-400 p-2 px-8 font-bold uppercase text-black hover:bg-indigo-900 hover:text-white"
+        >
+          buy now
+        </Link>
+        <Link
+          href="/"
+          className="my-4 flex items-center gap-2 rounded-lg bg-gray-800 p-2 px-8 font-bold text-white hover:bg-white hover:text-black"
+        >
+          <Send className="h-5 w-5" /> <span>Telegram</span>
+        </Link>
+      </section>
+      <section className="flex flex-col">
+        <div className="my-8 flex justify-around">
           <div className="text-center">
-            <p className="text-yellow-400 text-5xl font-bold">857</p>
-            <p className="capitalize text-lg">product sold</p>
+            <p className="text-5xl font-bold text-yellow-400">857</p>
+            <p className="text-lg capitalize">product sold</p>
           </div>
           <div>
-            <p className="text-yellow-400 text-5xl font-bold">363</p>
+            <p className="text-5xl font-bold text-yellow-400">363</p>
             <p>customers </p>
           </div>
           <div className="text-center">
-            <p className="flex text-yellow-400 text-5xl font-bold">
+            <p className="flex text-5xl font-bold text-yellow-400">
               <span>5.00</span>
               <Star />
             </p>
             <p className="capitalize">trusted</p>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center my-10">
-        <h1 className="text-5xl font-bold text-center">Products</h1>
-        <div className="grid grid-cols-3 gap-6 mt-4">
+      </section>
+      <section className="my-10 flex flex-col items-center">
+        <h1 className="text-center text-5xl font-bold">Products</h1>
+        <div className="mt-4 grid grid-cols-3 gap-6">
           {brands
             .slice(0, 6)
             .map(
@@ -87,15 +86,15 @@ export default function Home() {
         </div>
         <Link
           href="/products"
-          className="m-2 flex gap-2 items-center bg-gray-800 shadow-md shadow-gray-600 rounded p-1 px-4"
+          className="m-2 flex items-center gap-2 rounded bg-gray-800 p-1 px-4 shadow-md shadow-gray-600"
         >
           <span>View all products</span>
           <ArrowRight className="h-5  w-5" />
         </Link>
-      </div>
-      <div className="flex flex-col items-center my-10">
-        <h1 className="text-5xl font-bold text-center">News</h1>
-        <div className="grid grid-cols-3 gap-6 mt-4 items-start">
+      </section>
+      <section className="my-10 flex flex-col items-center">
+        <h1 className="text-center text-5xl font-bold">News</h1>
+        <div className="mt-4 grid grid-cols-3 items-start gap-6">
           <NewsCard
             date="Jun 16, 2023"
             description="Receiver a $5 balance reward every time you spend $50 in our store"
@@ -115,10 +114,10 @@ export default function Home() {
             more="Join us on telegram for daily discounts and promotions!"
           />
         </div>
-      </div>
-      <div className="flex flex-col items-center my-10">
-        <h1 className="text-5xl font-bold text-center">Reviews</h1>
-        <div className="grid grid-cols-3 gap-6 mt-4">
+      </section>
+      <section className="my-10 flex flex-col items-center">
+        <h1 className="text-center text-5xl font-bold">Reviews</h1>
+        <div className="mt-4 grid grid-cols-3 gap-6">
           {reviews
             .slice(0, 6)
             .map(({ date, stars, text, isVerified, reply }, idx) => {
@@ -136,27 +135,25 @@ export default function Home() {
         </div>
         <Link
           href="/reviews"
-          className="m-2 flex gap-2 items-center bg-gray-800 shadow-md shadow-gray-600 rounded p-1 px-4"
+          className="m-2 flex items-center gap-2 rounded bg-gray-800 p-1 px-4 shadow-md shadow-gray-600"
         >
           <span>View all reviews</span>
           <ArrowRight className="h-5  w-5" />
         </Link>
-      </div>
-
-      <div className="flex flex-col items-center gap-3 bg-yellow-400 text-black py-6 rounded-lg my-10">
-        <p className="font-bold text-5xl">We&apos;re here to help</p>
+      </section>
+      <section className="my-10 flex flex-col items-center gap-3 rounded-lg bg-yellow-400 py-6 text-black">
+        <p className="text-5xl font-bold">We&apos;re here to help</p>
         <p className="text-lg">
           If you&apos;re in need of support a product you purchased or just want
           to say hi, <br /> please contact us by tapping the button below
         </p>
         <Link
           href="/contacts"
-          className="text-yellow-400 bg-gray-800 hover:bg-white hover:text-gray-800 py-2 px-6 rounded-xl"
+          className="rounded-xl bg-gray-800 px-6 py-2 text-yellow-400 hover:bg-white hover:text-gray-800"
         >
           Contact Support
         </Link>
-      </div>
-
+      </section>
       <Footer />
     </Layout>
   );
