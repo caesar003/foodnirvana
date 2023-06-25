@@ -12,7 +12,7 @@ export default function FAQ() {
       <div className="flex-1">
         <div className="grid grid-cols-2 gap-6 items-start my-10">
           {faqs.map(({ question: q, answer: a }, idx) => (
-            <Accordion key={idx} question={q} answer={a} />
+            <Accordion key={idx} title={q} text={a} />
           ))}
         </div>
       </div>

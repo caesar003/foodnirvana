@@ -1,4 +1,5 @@
 export interface ProductInterface {
+  id: number;
   label: string,
   price: number,
   brandId: number,
