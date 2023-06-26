@@ -12,7 +12,7 @@ export default function Contact() {
       <form>
         <div className="mx-auto max-w-xl">
           <div className="col-span-4 col-start-2 my-10 rounded-xl bg-gray-800 p-6">
-            <h1 className="text-4xl font-semibold">Contact Us</h1>
+            <h1 className="text-3xl font-semibold md:text-4xl">Contact Us</h1>
             <p className="my-2 text-sm text-gray-400">
               Use the form below to get in touch with our support team. Please
               give us up to 48 hours to respond to your ticket.
@@ -65,7 +65,7 @@ export default function Contact() {
               <textarea
                 rows={6}
                 id="message"
-                className="my-1 rounded-xl bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="my-1 rounded-xl border-none bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 placeholder="I'd like to ask about..."
               />
             </div>
