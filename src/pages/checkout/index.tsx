@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Head from "@components/Head";
 import CheckoutLayout from "@components/CheckoutLayout";
-import { ArrowLeft, Tags } from "lucide-react";
-import { useRouter } from "next/router";
-import { CartItemInterface } from "@utils/types";
-import Confirmation from "./components/Confirmation";
+import Head from "@components/Head";
 import { qParams } from "@utils/query-params";
-import { FaGift, FaShoppingBasket } from "react-icons/fa";
-import Link from "next/link";
-import PaymentMethod from "./components/PaymentMethod";
+import { CartItemInterface } from "@utils/types";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Confirmation from "./components/Confirmation";
 import CustomerDetail from "./components/CustomerDetail";
-import Product from "./components/Product";
 import OrderDetails from "./components/OrderDetails";
+import PaymentMethod from "./components/PaymentMethod";
+import Product from "./components/Product";
 
 export default function Checkout() {
   const router = useRouter();
@@ -65,29 +63,23 @@ export default function Checkout() {
             <span>Go back</span>
           </button>
 
-          {cart.length ? (
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-7">
-                {step === 0 ? <CustomerDetail /> : <PaymentMethod />}
-                <div className="flex flex-col divide-y-2 divide-slate-600 rounded-lg bg-gray-800">
-                  {cart.map((item, idx) => (
-                    <Product item={item} key={idx} />
-                  ))}
-                </div>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-7">
+              {step === 0 ? <CustomerDetail /> : <PaymentMethod />}
+              <div className="flex flex-col divide-y-2 divide-slate-600 rounded-lg bg-gray-800">
+                {cart.map((item, idx) => (
+                  <Product item={item} key={idx} />
+                ))}
               </div>
+            </div>
 
-              <OrderDetails
-                cart={cart}
-                goForward={goForward}
-                step={step}
-                totalPrice={totalPrice}
-              />
-            </div>
-          ) : (
-            <div>
-              <p>something went wrong</p>
-            </div>
-          )}
+            <OrderDetails
+              cart={cart}
+              goForward={goForward}
+              step={step}
+              totalPrice={totalPrice}
+            />
+          </div>
         </div>
       )}
     </CheckoutLayout>

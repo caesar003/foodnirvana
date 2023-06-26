@@ -18,12 +18,12 @@ export default function CartDropdown({
           <span>{shoppingCart.length}</span>
         </span>
       </Menu.Button>
-      <Menu.Items className="absolute -right-20 z-10 mt-2 w-96 origin-top-right divide-y divide-gray-500 rounded-lg bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
+      <Menu.Items className="absolute -right-20 z-10 mt-2 w-96 origin-top-right divide-y divide-gray-500 rounded-lg bg-gray-800 p-4 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
         {shoppingCart.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="flex flex-col">
-            <p className="my-2 font-bold">Shopping Cart</p>
+          <div className="flex flex-col gap-2 py-3">
+            <p className="font-bold">Shopping Cart</p>
             <p className="text-sm">
               Feel free to add/remove your products or continue to the checkout
               to proceed with the purchase
