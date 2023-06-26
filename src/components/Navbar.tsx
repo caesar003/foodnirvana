@@ -1,14 +1,17 @@
 import { useCart } from "@hooks/useCart";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
   // @ts-ignore
   const { shoppingCart, setShoppingCart } = useCart();
+
+  // const [] = useState<React.Dispatch<React.SetStateAction<boolean>>>(false);
+  const [sidebarShown, setSidebarShown] = useState(false);
 
   const paths: { label: string; path: string }[] = [
     { label: "Home", path: "/" },
@@ -25,7 +28,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="mt-8 flex items-center justify-between rounded-lg bg-gray-800 px-6 py-5">
+    <div className="relative mt-8 flex items-center justify-between rounded-lg bg-gray-800 px-6 py-5">
       <div className="flex items-center gap-2">
         <p className="font-bold capitalize">Food Nirvana</p>
         <p className="rounded-lg border-2 border-yellow-400 p-1 px-3 text-xs font-bold uppercase text-yellow-400">
@@ -49,12 +52,30 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
+
+      {/* navbar list on small screen */}
+      <div
+        className={twMerge(
+          "absolute right-0 top-0 z-10 flex h-screen w-[320px] flex-col bg-gray-800 transition-all duration-300 md:hidden",
+          sidebarShown ? " " : "hidden"
+        )}
+      >
+        <div className="flex items-center justify-between p-4">
+          <div></div>
+          <button onClick={() => setSidebarShown(false)}>
+            <X size={24} />
+          </button>
+        </div>
+      </div>
+      {/* navbar list on small screen */}
       <div className="flex items-center gap-4">
         <CartDropdown shoppingCart={shoppingCart} />
         <button className="hidden rounded-xl bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black transition-colors hover:bg-indigo-900 hover:text-yellow-400 md:block">
           customer login
         </button>
-        <Menu className="md:hidden" size={24} />
+        <button className="md:hidden" onClick={() => setSidebarShown(true)}>
+          <Menu size={24} />
+        </button>
       </div>
     </div>
   );
