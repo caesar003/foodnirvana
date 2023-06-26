@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react";
-import { CartItemInterface, ProductInterface } from "@utils/types";
+import { CartItemInterface } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 
@@ -16,7 +16,7 @@ export default function CartDropdown({
           <span>{shoppingCart.length}</span>
         </span>
       </Menu.Button>
-      <Menu.Items className="absolute -right-20 z-10 mt-2 w-80 origin-top-right divide-y divide-gray-500 rounded-sm bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
+      <Menu.Items className="absolute -right-20 z-10 mt-2 w-80 origin-top-right divide-y divide-gray-500 rounded-lg bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
         {shoppingCart.length === 0 ? (
           <EmptyCart />
         ) : (
@@ -39,7 +39,9 @@ export default function CartDropdown({
 export function EmptyCart() {
   return (
     <Menu.Item>
-      <p>You don&apos;t have any items in your shopping cart yet.</p>
+      <div className="px-3 py-2 text-sm">
+        <p>You don&apos;t have any items in your shopping cart yet.</p>
+      </div>
     </Menu.Item>
   );
 }
