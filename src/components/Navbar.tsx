@@ -1,14 +1,14 @@
 import { useApp } from "@hooks/useCart";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
   // @ts-ignore
-  const { sidebarShown, setSidebarShown,  shoppingCart, setShoppingCart } = useApp();
+  const { sidebarShown, setSidebarShown, shoppingCart, setShoppingCart } =
+    useApp();
   const paths: { label: string; path: string }[] = [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },
@@ -20,7 +20,7 @@ export default function Navbar() {
   const { pathname } = useRouter();
 
   return (
-    <div className="relative mt-8 flex items-center justify-between rounded-lg bg-gray-800 px-6 py-5">
+    <div className="relative mt-8 flex items-center justify-between gap-4 rounded-lg bg-gray-800 px-6 py-5">
       <div className="flex items-center gap-2">
         <p className="font-bold capitalize">Food Nirvana</p>
         <p className="rounded-lg border-2 border-yellow-400 p-1 px-3 text-xs font-bold uppercase text-yellow-400">

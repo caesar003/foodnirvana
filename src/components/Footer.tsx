@@ -6,15 +6,15 @@ export default function Footer() {
     <div className="flex flex-col justify-around gap-3 rounded-lg bg-gray-800 p-6 text-white">
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12 md:col-span-8">
-          <p className="text-xl font-bold">Food Nirvana</p>
-          <p className="mt-4 text-sm font-medium uppercase leading-relaxed">
+          <p className="text-base font-bold md:text-xl">Food Nirvana</p>
+          <p className="mt-4 text-sm font-medium uppercase leading-relaxed text-gray-300">
             with food nirvana you will stop spending ridiculous amount of money
             on fast food and shopping. <br />
             start saving up to 90% off your purchases!
           </p>
         </div>
         <div className="col-span-6 flex flex-col gap-4 md:col-span-2">
-          <p className="text-xl font-bold uppercase">tabs</p>
+          <p className="text-base font-bold uppercase md:text-xl">tabs</p>
           <div className="flex flex-col gap-2">
             <Link
               className="text-sm font-semibold hover:text-yellow-400"
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="col-span-6 flex flex-col gap-4 md:col-span-2">
-          <p className="text-xl font-bold uppercase">social</p>
+          <p className="text-base font-bold uppercase md:text-xl">social</p>
           <div className="flex flex-col gap-2">
             <Link
               href="/"
@@ -68,14 +68,14 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-4 flex w-full items-center justify-between">
-        <span>Food Nirvana &copy; 2023</span>
+        <span className="text-sm md:text-base">Food Nirvana &copy; 2023</span>
         <div className="flex items-center gap-1">
           <Link
             href="https://sellpass.io/"
             target="_blank"
             className="col-span-2 flex gap-2"
           >
-            <p className="font-bold">Powered by</p>
+            <p className="text-sm font-bold md:text-base">Powered by</p>
             <svg
               width="107"
               height="22"

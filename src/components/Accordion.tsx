@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface PropsType {
@@ -11,15 +11,20 @@ interface PropsType {
 export default function Accordion({ title, text, className }: PropsType) {
   const [shown, setShown] = useState(false);
   return (
-    <div className={twMerge("col bg-gray-800 p-6 rounded-xl", className)}>
+    <div className={twMerge("col rounded-xl bg-gray-800 p-6", className)}>
       <button
         onClick={() => setShown(!shown)}
-        className="w-full font-bold flex justify-between items-center mb-2"
+        className="mb-2 flex w-full items-center justify-between text-sm font-bold"
       >
         <span>{title}</span>
         {shown ? <ChevronUp /> : <ChevronDown />}
       </button>
-      <p className={twMerge("text-base transition-all", shown ? "" : "hidden")}>
+      <p
+        className={twMerge(
+          "text-sm text-gray-300 transition-all",
+          shown ? "" : "hidden"
+        )}
+      >
         {text}
       </p>
     </div>

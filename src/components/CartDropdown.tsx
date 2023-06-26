@@ -1,7 +1,8 @@
 import { Menu } from "@headlessui/react";
-import { CartItemInterface, ProductInterface } from "@utils/types";
+import { CartItemInterface } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CartDropdown({
   shoppingCart,
@@ -16,11 +17,11 @@ export default function CartDropdown({
           <span>{shoppingCart.length}</span>
         </span>
       </Menu.Button>
-      <Menu.Items className="absolute -right-20 z-10 mt-2 w-80 origin-top-right divide-y divide-gray-500 rounded-sm bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
+      <Menu.Items className="absolute -right-20 z-10 mt-2 w-96 origin-top-right divide-y divide-gray-500 rounded-lg bg-gray-800 py-0.5 shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none">
         {shoppingCart.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="p-2">
+          <div className="px-4 py-2">
             <p className="my-2 font-bold">Shopping Cart</p>
             <p className="text-sm">
               Feel free to add/remove your products or continue to the checkout
@@ -29,6 +30,14 @@ export default function CartDropdown({
             {shoppingCart.map((item, idx) => (
               <CartItem key={idx} item={item} />
             ))}
+            <div className="py-3">
+              <Link
+                href="/checkout"
+                className="w-full rounded-xl border-none bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black transition-colors hover:bg-indigo-900 hover:text-yellow-400"
+              >
+                Checkout
+              </Link>
+            </div>
           </div>
         )}
       </Menu.Items>
@@ -39,7 +48,9 @@ export default function CartDropdown({
 export function EmptyCart() {
   return (
     <Menu.Item>
-      <p>You don&apos;t have any items in your shopping cart yet.</p>
+      <div className="px-3 py-2 text-sm">
+        <p>You don&apos;t have any items in your shopping cart yet.</p>
+      </div>
     </Menu.Item>
   );
 }

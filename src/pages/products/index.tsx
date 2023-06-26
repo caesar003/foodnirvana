@@ -1,11 +1,11 @@
-import React, { PropsWithChildren, useEffect, useState } from "react";
-import { brands, brandCategories } from "@utils/default-values";
+import Footer from "@components/Footer";
 import Head from "@components/Head";
 import Layout from "@components/Layout";
 import ProductCard from "@components/ProductCard";
-import Footer from "@components/Footer";
+import { brandCategories, brands } from "@utils/default-values";
 import { BrandInterface } from "@utils/types";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 export default function Products() {
   const [pageBrands, setPageBrands] = useState<BrandInterface[]>([]);
@@ -42,19 +42,20 @@ export default function Products() {
   return (
     <Layout>
       <Head title="Food Nirvana - Our Products" />
-      <div className="my-10 flex flex-col items-center">
-        <h1 className="text-center text-5xl font-bold">Products</h1>
-        <div className="my-4 grid w-full grid-cols-3 items-center gap-4">
-          <div className="col-span-2">
+      <div className="my-10 flex flex-col items-center gap-6">
+        <h1 className="text-center text-3xl font-bold md:text-4xl">Products</h1>
+        <div className="my-4 flex w-full items-center gap-4">
+          <div className="flex-1">
             <input
+              placeholder="Search for a product..."
               onChange={handleInput}
-              className="w-full rounded-2xl bg-gray-800 p-2"
+              className="w-full rounded-2xl border-none bg-gray-800 px-6 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-yellow-400"
             />
           </div>
           <div className="col">
             <select
               onChange={handleSelect}
-              className="w-full rounded-2xl bg-gray-800 p-3"
+              className="w-full rounded-2xl border-none bg-gray-800 px-6 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-yellow-400"
             >
               {brandCategories.map(({ name, id }) => (
                 <option key={id} className="capitalize" value={id}>
@@ -64,7 +65,7 @@ export default function Products() {
             </select>
           </div>
         </div>
-        <div className="my-4 grid grid-cols-3 gap-6">
+        <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {pageBrands.map(
             ({
               id,
@@ -83,7 +84,6 @@ export default function Products() {
                 key={id}
                 href={{
                   pathname: `/products/${id}`,
-               
                 }}
               >
                 <ProductCard

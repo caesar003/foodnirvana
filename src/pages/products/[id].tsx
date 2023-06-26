@@ -1,17 +1,16 @@
-import Layout from "@components/Layout";
+import Footer from "@components/Footer";
 import Head from "@components/Head";
-import React, { useEffect, useState } from "react";
+import Layout from "@components/Layout";
+import ReviewCard from "@components/ReviewCard";
+import { useApp } from "@hooks/useCart";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
+import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
 import Image from "next/image";
-import { Star } from "lucide-react";
-import ReviewCard from "@components/ReviewCard";
-import ItemCard from "./components/ItemCard";
-import Footer from "@components/Footer";
-import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useApp } from "@hooks/useCart";
+import { useEffect, useState } from "react";
+import ItemCard from "./components/ItemCard";
 
 export default function Product() {
   // @ts-ignore
@@ -81,8 +80,8 @@ export default function Product() {
       <Head title="" />
       {brand ? (
         <div className="my-10 grid grid-cols-12 items-start gap-4">
-          <div className="col-span-8">
-            <div className="rounded-xl bg-gray-800 p-6">
+          <div className="col-span-12 md:col-span-8">
+            <div className="flex flex-col gap-4 rounded-xl bg-gray-800 p-6">
               <h1 className="text-4xl font-bold">{brand?.name}</h1>
               <div className="flex items-center gap-2">
                 <p>
@@ -129,7 +128,7 @@ export default function Product() {
                 ))}
             </div>
           </div>
-          <div className="col-span-4 flex flex-col">
+          <div className="col-span-12 flex flex-col md:col-span-4">
             {pageProducts.length
               ? pageProducts.map((product, idx) => (
                   <ItemCard
@@ -173,7 +172,7 @@ export default function Product() {
                     <Minus className="h-5 w-5" />
                   </button>
                   <input
-                    className="w-12 bg-gray-900 text-center focus:outline-none active:ring-0"
+                    className="w-12 border-none bg-gray-900 text-center focus:outline-none"
                     type="number"
                     value={qty}
                     onChange={(e) => setQty(parseInt(e?.target?.value))}

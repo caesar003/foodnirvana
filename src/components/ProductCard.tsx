@@ -1,11 +1,11 @@
-import { Check, X } from "lucide-react";
 import { BrandInterface } from "@utils/types";
+import { Check, X } from "lucide-react";
 import Image from "next/image";
 
 export default function ProductCard(props: BrandInterface) {
   const { imgSrc, inStock, name, price, productType } = props;
   return (
-    <div className="border-1 max-w-sm rounded-lg border border-gray-900 bg-gray-800 transition-all hover:scale-105">
+    <div className="border-1 rounded-lg border border-gray-900 bg-gray-800 transition-all hover:scale-105">
       <Image
         className="h-auto w-full rounded-t-lg"
         src={imgSrc}
