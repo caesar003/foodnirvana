@@ -57,8 +57,8 @@ export default function OrderDetails({cart, goForward, step, totalPrice}: PropsI
             <p className="text-xl font-bold">Your order</p>
           </div>
           <p className="text-xs text-gray-400">
-            {cart.length} <span>item</span>
-            <span>{cart.length > 1 ? "s" : ""}</span>
+            {cart?.length} <span>item</span>
+            <span>{cart?.length > 1 ? "s" : ""}</span>
           </p>
         </div>
         <div className="my-1 flex justify-between">
