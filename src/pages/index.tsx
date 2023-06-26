@@ -17,13 +17,13 @@ export default function Home() {
         <p className="my-2 text-2xl text-gray-500">Hungry? Spend less!</p>
         <Link
           href="/products"
-          className="mb-4 mt-2 rounded-lg bg-yellow-400 p-2 px-8 font-bold uppercase text-black hover:bg-indigo-900 hover:text-white"
+          className="mb-4 mt-2 rounded-lg bg-yellow-400 p-2 px-8 font-bold uppercase text-black transition-colors hover:bg-indigo-900 hover:text-white"
         >
           buy now
         </Link>
         <Link
           href="/"
-          className="my-4 flex items-center gap-2 rounded-lg bg-gray-800 p-2 px-8 font-bold text-white hover:bg-white hover:text-black"
+          className="my-4 flex items-center gap-2 rounded-lg bg-gray-800 p-2 px-8 font-bold text-white transition-colors hover:bg-white hover:text-black"
         >
           <Send className="h-5 w-5" /> <span>Telegram</span>
         </Link>

@@ -1,6 +1,4 @@
-import React from "react";
-import { ReviewInterface } from "@utils/types";
-import { Check, Star, StarIcon } from "lucide-react";
+import { Check, Star } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
 interface PropsInterface {
@@ -15,29 +13,36 @@ interface PropsInterface {
 export default function ReviewCard(props: PropsInterface) {
   const { date, stars, text, isVerified, reply } = props;
   return (
-    <div className={twMerge("bg-gray-800 text-gray-400 border border-1 border-gray-900 rounded-lg", props.className)}>
+    <div
+      className={twMerge(
+        "border-1 rounded-lg border border-gray-900 bg-gray-800 text-gray-400",
+        props.className
+      )}
+    >
       <div className="p-5">
         <div className="flex justify-between">
           <div className="flex gap-1 text-yellow-400">
             <Stars counts={stars} />
           </div>
-          <p>{date}</p>
+          <p className="text-sm font-medium">{date}</p>
         </div>
         <div className="my-4">
-          <p className="font-bold text-white">{text}</p>
+          <p className=" text-sm font-medium leading-relaxed text-white">
+            {text}
+          </p>
         </div>
-        <div className="flex gap-2 bg-gray-900 p-2 my-4 rounded-lg">
-          <div className="border-l border-1 border-yellow-400"></div>
-          <div className="py-2">
-            <p className="text-white font-bold my-2">{reply && reply}</p>
-            <p className="text-sm my-2 mt-4">— reply from Food Nirvana</p>
+        <div className="my-4 flex gap-2 rounded-lg bg-gray-900 p-2">
+          <div className="border-1 border-l border-yellow-400"></div>
+          <div className="py-2 pl-2">
+            <p className="text-sm font-semibold text-white">{reply && reply}</p>
+            <p className="my-2 mt-4 text-sm">— reply from Food Nirvana</p>
           </div>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           {isVerified ? (
             <>
               <Check className="h-6 w-6 text-yellow-400" />
-              <span>Verified Purchase</span>
+              <span className="text-sm font-medium">Verified Purchase</span>
             </>
           ) : (
             ""

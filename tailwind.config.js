@@ -12,6 +12,9 @@ module.exports = {
           800: "#1b1b1b",
           900: "#121212",
         },
+        indigo: {
+          900: "#0c1525",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

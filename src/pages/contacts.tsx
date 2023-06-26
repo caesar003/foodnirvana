@@ -1,32 +1,33 @@
 import Footer from "@components/Footer";
+import Head from "@components/Head";
 import Input from "@components/Input";
 import Layout from "@components/Layout";
-import Head from "@components/Head";
 import { Send } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 export default function Contact() {
   return (
     <Layout>
       <Head title="Food Nirvana - Contact Us" />
       <form>
-        <div className="grid grid-cols-6 justify-center">
-          <div className="bg-gray-800 col-span-4 col-start-2 p-6 my-10 rounded-xl">
-            <h1 className="text-5xl">Contact Us</h1>
-            <p className="text-gray-400 my-2">
+        <div className="mx-auto max-w-xl">
+          <div className="col-span-4 col-start-2 my-10 rounded-xl bg-gray-800 p-6">
+            <h1 className="text-4xl font-semibold">Contact Us</h1>
+            <p className="my-2 text-sm text-gray-400">
               Use the form below to get in touch with our support team. Please
               give us up to 48 hours to respond to your ticket.
             </p>
-            <div className="grid justify-center items-center p-4">
-              <Link href="/" className="flex gap-3">
-                <Send />
-                <span>Telegram</span>
+            <div className="grid items-center justify-center p-4">
+              <Link
+                href="/"
+                className="flex items-center gap-3 rounded-lg px-8 py-2 font-semibold transition-colors hover:bg-white hover:text-gray-900"
+              >
+                <Send className="h-5 w-5" /> <span>Telegram</span>
               </Link>
             </div>
 
-            <div className="flex flex-col my-4">
-              <label htmlFor="title" className="text-lg">
+            <div className="my-4 flex flex-col">
+              <label htmlFor="title" className="text-sm">
                 Title
               </label>
               <Input
@@ -36,8 +37,8 @@ export default function Contact() {
                 required
               />
             </div>
-            <div className="flex flex-col my-4">
-              <label htmlFor="email" className="text-lg">
+            <div className="my-4 flex flex-col">
+              <label htmlFor="email" className="text-sm">
                 Email
               </label>
               <Input
@@ -47,8 +48,8 @@ export default function Contact() {
                 required
               />
             </div>
-            <div className="flex flex-col my-4">
-              <label htmlFor="invoiceId" className="text-lg">
+            <div className="my-4 flex flex-col">
+              <label htmlFor="invoiceId" className="text-sm">
                 Invoice ID
               </label>
               <Input
@@ -57,20 +58,20 @@ export default function Contact() {
                 id="invoiceId"
               />
             </div>
-            <div className="flex flex-col my-4">
-              <label htmlFor="message" className="text-lg">
+            <div className="my-4 flex flex-col">
+              <label htmlFor="message" className="text-sm">
                 Message
               </label>
               <textarea
                 rows={6}
                 id="message"
-                className="bg-gray-900 p-2 rounded-xl"
+                className="my-1 rounded-xl bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 placeholder="I'd like to ask about..."
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-yellow-400 text-black hover:bg-indigo-800 hover:text-yellow-400 rounded-lg p-2 mt-4 text-lg"
+              className="mt-4 w-full rounded-lg bg-yellow-400 p-2 text-sm font-semibold text-black transition-colors hover:bg-indigo-900 hover:text-yellow-400"
             >
               Create Ticket
             </button>
