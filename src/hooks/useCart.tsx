@@ -2,17 +2,20 @@ import { CartItemInterface } from "@utils/types";
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 
 // @ts-ignore;
-const CartContext = createContext();
+const AppContext = createContext();
 
 export function AppWrapper({ children }: PropsWithChildren) {
   const [shoppingCart, setShoppingCart] = useState<CartItemInterface[]>([]);
+  const [sidebarShown, setSidebarShown] = useState<boolean>(false);
   return (
-    <CartContext.Provider value={{ shoppingCart, setShoppingCart }}>
+    <AppContext.Provider
+      value={{ shoppingCart, setShoppingCart, sidebarShown, setSidebarShown }}
+    >
       {children}
-    </CartContext.Provider>
+    </AppContext.Provider>
   );
 }
 
-export function useCart() {
-  return useContext(CartContext);
+export function useApp() {
+  return useContext(AppContext);
 }

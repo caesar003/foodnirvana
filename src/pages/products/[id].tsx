@@ -11,11 +11,11 @@ import Footer from "@components/Footer";
 import { Check, Minus, Plus, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCart } from "@hooks/useCart";
+import { useApp } from "@hooks/useCart";
 
 export default function Product() {
   // @ts-ignore
-  const { shoppingCart, setShoppingCart } = useCart();
+  const { shoppingCart, setShoppingCart } = useApp();
   const router = useRouter();
   const maxOrder: number = 20;
   const [brand, setBrand] = useState<BrandInterface>();
