@@ -6,5 +6,10 @@ export default function Input(
     HTMLInputElement
   >
 ) {
-  return <input className="bg-gray-900 p-2 rounded-xl my-1" {...props} />;
+  return (
+    <input
+      className="my-1 rounded-xl bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      {...props}
+    />
+  );
 }
