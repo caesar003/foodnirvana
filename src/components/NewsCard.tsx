@@ -1,21 +1,18 @@
-import React from "react";
 import { NewsInterface } from "@utils/types";
 
 export default function NewsCard(props: NewsInterface) {
   const { date, description, more, title } = props;
   return (
-    <div className="max-w-sm bg-yellow-400 text-black border border-1 border-gray-900 rounded-lg">
+    <div className="border-1 max-w-sm rounded-lg border border-gray-900 bg-yellow-400 text-black">
       <div className="p-5">
-        <p className="text-xs my-1">Posted on {date}</p>
-        <p className="text-2xl my-2 uppercase font-bold">{title}</p>
-        <p className="text-base my-2">{description}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <div className="col p-2 bg-black rounded-lg">
-            <p className="text-center text-yellow-400 text-sm font-bold">
-              {more}
-            </p>
-          </div>
-        </div>
+        <p className="my-1 text-xs">Posted on {date}</p>
+        <p className="my-2 text-2xl font-bold uppercase">{title}</p>
+        <p className="my-2 text-sm leading-relaxed">{description}</p>
+        <button className="mt-4 w-full rounded-lg bg-black p-2">
+          <p className="text-center text-xs font-bold text-yellow-400">
+            {more}
+          </p>
+        </button>
       </div>
     </div>
   );

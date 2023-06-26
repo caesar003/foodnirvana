@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="my-10 flex flex-col items-center">
+      <section className="my-16 flex flex-col items-center">
         <h1 className="text-center text-5xl font-bold">Products</h1>
         <div className="mt-4 grid grid-cols-3 gap-6">
           {brands
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
         <Link
           href="/products"
-          className="m-2 flex items-center gap-2 rounded bg-gray-800 p-1 px-4 shadow-md shadow-gray-600"
+          className="mt-6 flex items-center gap-2 rounded-lg bg-gray-800 px-8 py-2 text-sm font-semibold transition-colors hover:bg-indigo-900 hover:text-yellow-400"
         >
           <span>View all products</span>
           <ArrowRight className="h-5  w-5" />
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
       <section className="my-10 flex flex-col items-center">
         <h1 className="text-center text-5xl font-bold">News</h1>
-        <div className="mt-4 grid grid-cols-3 items-start gap-6">
+        <div className="mt-8 grid grid-cols-3 items-start gap-6">
           <NewsCard
             date="Jun 16, 2023"
             description="Receiver a $5 balance reward every time you spend $50 in our store"
@@ -115,9 +115,9 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="my-10 flex flex-col items-center">
+      <section className="my-16 flex flex-col items-center">
         <h1 className="text-center text-5xl font-bold">Reviews</h1>
-        <div className="mt-4 grid grid-cols-3 gap-6">
+        <div className="mt-12 grid grid-cols-3 gap-6">
           {reviews
             .slice(0, 6)
             .map(({ date, stars, text, isVerified, reply }, idx) => {
@@ -135,24 +135,26 @@ export default function Home() {
         </div>
         <Link
           href="/reviews"
-          className="m-2 flex items-center gap-2 rounded bg-gray-800 p-1 px-4 shadow-md shadow-gray-600"
+          className="mt-6 flex items-center gap-2 rounded-lg bg-gray-800 px-8 py-2 text-sm font-semibold transition-colors hover:bg-indigo-900 hover:text-yellow-400"
         >
           <span>View all reviews</span>
           <ArrowRight className="h-5  w-5" />
         </Link>
       </section>
-      <section className="my-10 flex flex-col items-center gap-3 rounded-lg bg-yellow-400 py-6 text-black">
-        <p className="text-5xl font-bold">We&apos;re here to help</p>
-        <p className="text-lg">
-          If you&apos;re in need of support a product you purchased or just want
-          to say hi, <br /> please contact us by tapping the button below
-        </p>
-        <Link
-          href="/contacts"
-          className="rounded-xl bg-gray-800 px-6 py-2 text-yellow-400 hover:bg-white hover:text-gray-800"
-        >
-          Contact Support
-        </Link>
+      <section className="my-16 rounded-2xl bg-yellow-400  text-black">
+        <div className="flex flex-col items-center gap-4 px-6 py-8 text-center">
+          <p className="text-5xl font-bold">We&apos;re here to help</p>
+          <p className="text-base">
+            If you&apos;re in need of support a product you purchased or just
+            want to say hi, <br /> please contact us by tapping the button below
+          </p>
+          <Link
+            href="/contacts"
+            className="rounded-xl bg-gray-800 px-6 py-2 font-medium text-yellow-400 transition-colors hover:bg-white hover:text-gray-800"
+          >
+            Contact Support
+          </Link>
+        </div>
       </section>
       <Footer />
     </Layout>

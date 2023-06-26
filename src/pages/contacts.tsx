@@ -17,7 +17,7 @@ export default function Contact() {
               Use the form below to get in touch with our support team. Please
               give us up to 48 hours to respond to your ticket.
             </p>
-            <div className="grid items-center justify-center p-4">
+            <div className="grid items-center justify-center pt-4">
               <Link
                 href="/"
                 className="flex items-center gap-3 rounded-lg px-8 py-2 font-semibold transition-colors hover:bg-white hover:text-gray-900"
