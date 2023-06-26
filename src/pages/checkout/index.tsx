@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Head from "@components/Head";
 import CheckoutLayout from "@components/CheckoutLayout";
-import { ArrowLeft, CreditCard, Plus, Tags, UserCircle2 } from "lucide-react";
+import {
+  ArrowLeft,
+  Circle,
+  CreditCard,
+  Plus,
+  Tags,
+  UserCircle2,
+} from "lucide-react";
 import { useRouter } from "next/router";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import Confirmation from "./components/Confirmation";
@@ -81,8 +88,8 @@ export default function Checkout(props: any) {
     return res;
   };
 
-  // console.log(cart);
-  console.log(JSON.stringify(cart));
+  console.log(cart);
+  // console.log(JSON.stringify(cart));
 
   return (
     <CheckoutLayout>
@@ -99,8 +106,8 @@ export default function Checkout(props: any) {
 
           {cart.length ? (
             <div className="grid grid-cols-12 gap-4">
-              {step === 0 ? (
-                <div className="col-span-7">
+              <div className="col-span-7">
+                {step === 0 ? (
                   <div className=" my-4 rounded-xl bg-gray-800 p-4">
                     <div className="flex items-center gap-2 border-gray-500  py-2">
                       <UserCircle2 />
@@ -159,9 +166,7 @@ export default function Checkout(props: any) {
                       </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="col-span-7">
+                ) : (
                   <div className="my-4 rounded-xl bg-gray-800 p-6">
                     <div className="flex items-center gap-2 border-gray-500  py-2">
                       <CreditCard />
@@ -274,8 +279,41 @@ export default function Checkout(props: any) {
                       </div>
                     </div>
                   </div>
+                )}
+                <div className="flex flex-col">
+                  {cart.map((item, idx) => (
+                    <div key={idx} className="grid grid-cols-2">
+                      <div className="aspect-video p-6">
+                        <Image
+                          // @ts-ignore
+                          src={`/images/${item.brand.imgSrc}`}
+                          width={200}
+                          height={200}
+                          className="h-auto w-full"
+                          alt="nothin"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        {/* @ts-ignore */}
+                        <p className="text-xl font-bold">{item.brand.name}</p>
+                        <div className="flex items-center gap-2 text-xs">
+                          {/* @ts-ignore */}
+                          <p>${item.item.price.toFixed(2)}</p>
+                          <Circle className="h-2 w-2" />
+                          <p>
+                            {" "}
+                            {/* @ts-ignore */}
+                            {item.qty} <span>item</span> {/* @ts-ignore */}
+                            <span>{item.qty > 1 ? "s" : ""}</span>
+                          </p>
+                          <Circle className="h-2 w-2" />
+                          <p> Instant Dmail Delivery </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
 
               <div className="col-span-5">
                 <div className="my-4 flex flex-col rounded-xl bg-gray-800 p-4 py-6">
@@ -308,7 +346,7 @@ export default function Checkout(props: any) {
                     {step === 0 ? "Continue to payment" : "Pay"}
                   </button>
 
-                  <p className="text-sm">
+                  <p className="text-xs">
                     By tapping &quot;Pay&quot;, you agree to our{" "}
                     <Link href="/">Terms of Service</Link> and allow us to
                     charge you for this payment.
