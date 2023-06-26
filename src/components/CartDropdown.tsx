@@ -22,7 +22,7 @@ export default function CartDropdown({
         {shoppingCart.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="px-4 py-2">
+          <div className="flex flex-col">
             <p className="my-2 font-bold">Shopping Cart</p>
             <p className="text-sm">
               Feel free to add/remove your products or continue to the checkout
@@ -33,7 +33,7 @@ export default function CartDropdown({
             ))}
             <Link
               href={`/checkout?${qParams.encode(shoppingCart)}`}
-              className="rounded-xl bg-yellow-400 py-2 text-center font-bold text-black"
+              className="w-full rounded-xl bg-yellow-400 py-2 text-center font-bold text-black"
             >
               Checkout
             </Link>
