@@ -1,6 +1,6 @@
 import { BrandInterface, ProductInterface } from "@utils/types";
-import { Circle } from "lucide-react";
-import React, { MouseEventHandler } from "react";
+import { CheckCircle } from "lucide-react";
+import { MouseEventHandler } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface PropsInterface {
@@ -23,16 +23,16 @@ export default function ItemCard({
     <div
       onClick={clickEvent}
       className={twMerge(
-        "bg-gray-800 p-4 rounded-xl my-2 border hover:border-yellow-400 cursor-pointer",
+        "my-2 cursor-pointer rounded-xl border bg-gray-800 p-4 hover:border-yellow-400",
         isActive ? "border-yellow-400" : "border-gray-800"
       )}
     >
-      <div className="flex justify-between items-center mb-1">
+      <div className="mb-1 flex items-center justify-between">
         <p>
           {brand?.name} {product?.label}
         </p>
         {isActive ? (
-          <Circle className="bg-yellow-400 text-yellow-400 rounded-full" />
+          <CheckCircle className="rounded-full  text-yellow-400" />
         ) : (
           ""
         )}
