@@ -9,7 +9,7 @@ export default function NavbarCollapse() {
   return (
     <div
       className={twMerge(
-        "absolute right-0 top-0 z-10 flex h-screen w-[320px] flex-col bg-gray-800 transition-all duration-300 md:hidden",
+        "fixed right-0 top-0 z-10 flex h-screen w-[320px] flex-col bg-gray-800 transition-all duration-300 md:hidden",
         sidebarShown ? " " : "hidden"
       )}
     >
