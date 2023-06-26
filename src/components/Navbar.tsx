@@ -1,5 +1,5 @@
-import { useApp } from "@hooks/useCart";
-import { Menu } from "lucide-react";
+import { useApp } from "@hooks/useApp";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { twMerge } from "tailwind-merge";

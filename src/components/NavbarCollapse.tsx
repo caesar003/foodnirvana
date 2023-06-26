@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { twMerge } from "tailwind-merge";
 import { X } from "lucide-react";
-import { useApp } from "@hooks/useCart";
+import { useApp } from "@hooks/useApp";
 
 export default function NavbarCollapse() {
   // @ts-ignore

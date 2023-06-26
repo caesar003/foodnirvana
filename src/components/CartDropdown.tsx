@@ -1,4 +1,5 @@
 import { Menu } from "@headlessui/react";
+import { qParams } from "@utils/query-params";
 import { CartItemInterface } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
@@ -30,14 +31,12 @@ export default function CartDropdown({
             {shoppingCart.map((item, idx) => (
               <CartItem key={idx} item={item} />
             ))}
-            <div className="py-3">
-              <Link
-                href="/checkout"
-                className="w-full rounded-xl border-none bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black transition-colors hover:bg-indigo-900 hover:text-yellow-400"
-              >
-                Checkout
-              </Link>
-            </div>
+            <Link
+              href={`/checkout?${qParams.encode(shoppingCart)}`}
+              className="rounded-xl bg-yellow-400 py-2 text-center font-bold text-black"
+            >
+              Checkout
+            </Link>
           </div>
         )}
       </Menu.Items>

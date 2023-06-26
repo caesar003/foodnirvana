@@ -2,7 +2,7 @@ import Footer from "@components/Footer";
 import Head from "@components/Head";
 import Layout from "@components/Layout";
 import ReviewCard from "@components/ReviewCard";
-import { useApp } from "@hooks/useCart";
+import { useApp } from "@hooks/useApp";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ItemCard from "./components/ItemCard";
+import { qParams } from "@utils/query-params";
 
 export default function Product() {
   // @ts-ignore
@@ -46,6 +47,8 @@ export default function Product() {
       brand: _brand,
       item: item,
     };
+    if (!item.stock) return;
+    // @ts-ignore
     setShoppingCart([...shoppingCart, _cartItem]);
   };
 
@@ -190,14 +193,14 @@ export default function Product() {
                 Add to Cart
               </button>
               <Link
-                href={{
-                  pathname: `/checkout`,
-                  query: {
-                    brand_id: brand.id,
-                    product_id: pageProducts[selectedItem].id,
+                href={`/checkout?${qParams.encode([
+                  {
+                    id: pageProducts[selectedItem].id,
+                    brand: brand,
                     qty: qty,
+                    item: pageProducts[selectedItem],
                   },
-                }}
+                ])}`}
                 className="my-2 rounded-xl bg-yellow-400 py-2 text-center font-bold text-gray-900 hover:bg-gray-900 hover:text-yellow-400"
               >
                 Buy Now

@@ -1,4 +1,4 @@
-import { AppWrapper } from "@hooks/useCart";
+import { AppWrapper } from "@hooks/useApp";
 import React, { PropsWithChildren } from "react";
 
 // @ts-ignore
