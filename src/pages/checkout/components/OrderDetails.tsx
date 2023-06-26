@@ -2,9 +2,6 @@ import React, { MouseEventHandler, useEffect, useState } from "react";
 import Head from "@components/Head";
 import CheckoutLayout from "@components/CheckoutLayout";
 import { ArrowLeft } from "lucide-react";
-// import CustomerDetail from "./components/CustomerDetail";
-// import PaymentMethod from "./components/PaymentMethod";
-1;
 import { useRouter } from "next/router";
 import { brands, products } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
@@ -55,14 +52,10 @@ export default function OrderDetails({
   goForward,
   step,
 }: PropsInterface) {
-  console.log({ orderDetail, product, brand });
-
   const [totalPrice, setTotalPrice] = useState(0);
-
   useEffect(() => {
-    if (orderDetail && product && brand) {
-      // @ts-ignore
-      setTotalPrice((orderDetail.qty * product.price).toFixed(2));
+    if (orderDetail && product && brand) { 
+      setTotalPrice(Number((orderDetail?.qty * product?.price).toFixed(2)));
     }
   }, []);
   return (

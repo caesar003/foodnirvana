@@ -62,13 +62,13 @@ export function CartItem({ item }: { item: CartItemInterface }) {
           <Image
             width={85}
             height={15}
-            src={`/images/${item.brand.imgSrc}`}
+            src={`/images/${item?.brand?.imgSrc}`}
             alt={"asap"}
             className="h-full w-auto"
           />
         </div>
         <div className="flex flex-col">
-          <p className="text-sm font-bold">{item.brand.name}</p>
+          <p className="text-sm font-bold">{item?.brand?.name}</p>
           <p className="text-xs">Quantity: {item.qty}</p>
         </div>
       </div>

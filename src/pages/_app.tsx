@@ -1,12 +1,16 @@
-import { AppWrapper } from "@hooks/useApp";
-import React, { PropsWithChildren } from "react";
+import React, { useState } from "react";
+import type { AppProps } from "next/app";
+import { CartItemInterface } from "@utils/types";
+import { AppContext } from "@hooks/context";
 
-// @ts-ignore
-export default function App(props) {
-  const { Component, pageProps } = props;
+export default function App({ Component, pageProps }: AppProps) {
+  const [shoppingCart, setShoppingCart] = useState<CartItemInterface[]>([]);
+  const [sidebarShown, setSidebarShown] = useState<boolean>(false);
   return (
-    <AppWrapper>
+    <AppContext.Provider
+      value={{ setShoppingCart, setSidebarShown, shoppingCart, sidebarShown }}
+    >
       <Component {...pageProps} />
-    </AppWrapper>
+    </AppContext.Provider>
   );
 }

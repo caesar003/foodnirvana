@@ -49,6 +49,6 @@ export interface QuestionInterface {
 export interface CartItemInterface {
   id: number;
   qty: number;
-  brand: BrandInterface;
-  item: ProductInterface;
+  brand: BrandInterface | undefined;
+  item: ProductInterface | undefined;
 }

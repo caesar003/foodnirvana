@@ -14,7 +14,6 @@ import ItemCard from "./components/ItemCard";
 import { qParams } from "@utils/query-params";
 
 export default function Product() {
-  // @ts-ignore
   const { shoppingCart, setShoppingCart } = useApp();
   const router = useRouter();
   const maxOrder: number = 20;
@@ -32,9 +31,7 @@ export default function Product() {
     }
 
     if (val === 1) {
-      if (qty === maxOrder) return;
-      if (qty === product.stock) return;
-
+      if (qty === maxOrder || qty === product.stock) return;
       setQty(qty + 1);
     }
   };
@@ -48,7 +45,6 @@ export default function Product() {
       item: item,
     };
     if (!item.stock) return;
-    // @ts-ignore
     setShoppingCart([...shoppingCart, _cartItem]);
   };
 
@@ -56,8 +52,7 @@ export default function Product() {
     const { id } = router.query;
     let brandId: number = 0;
     if (id) {
-      // @ts-ignore
-      brandId = parseInt(id);
+      brandId = Number(id);
     } else {
       if (window !== undefined) {
         const url = window.location.href;

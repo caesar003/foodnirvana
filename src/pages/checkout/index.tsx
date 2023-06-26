@@ -10,7 +10,7 @@ import {
   UserCircle2,
 } from "lucide-react";
 import { useRouter } from "next/router";
-import { BrandInterface, ProductInterface } from "@utils/types";
+import { CartItemInterface,  } from "@utils/types";
 import Confirmation from "./components/Confirmation";
 import { useApp } from "@hooks/useApp";
 import { qParams } from "@utils/query-params";
@@ -44,18 +44,12 @@ export default function Checkout(props: any) {
     useApp();
 
   const [step, setStep] = useState(0);
-  const [orderDetail, setOrderDetail] = useState<OrderDetailInterface>();
-
-  const [brand, setBrand] = useState<BrandInterface>();
-  const [product, setProduct] = useState<ProductInterface | undefined>();
-
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CartItemInterface[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const goBack = () => {
-    if (step === 0) {
-      // @ts-ignore
-      return router.push(`/products/${cart[0].brand.id}`);
+    if (step === 0) { 
+      return router.push(`/products/${cart[0].brand?.id}`);
     } else {
       setStep(step - 1);
     }
@@ -63,14 +57,11 @@ export default function Checkout(props: any) {
 
   const goForward = () => setStep(step + 1);
 
-  const [userInfo, setUserInfo] = useState<UserInfo>();
-  const [paymenDetail, setPaymentDetail] = useState<PaymentDetail>();
-
   useEffect(() => {
     if (window !== undefined) {
       const location = window.location;
       if (!location.search) return;
-      const _cart = qParams.decode(location.search.substring(1));
+      const _cart:CartItemInterface[] = qParams.decode(location.search.substring(1));
       if (_cart) {
         setCart(_cart);
         setTotalPrice(calculatePrice(_cart));
@@ -78,18 +69,13 @@ export default function Checkout(props: any) {
     }
   }, []);
 
-  // @ts-ignore
-  const calculatePrice = (obj) => {
+  const calculatePrice = (obj:CartItemInterface[]) => {
     let res = 0;
-    // @ts-ignore
-    obj.forEach((item) => {
-      res += item.item.price * item.qty;
+    obj.forEach((item) => { // @ts-ignore
+      res += (item?.item?.price * item?.qty) ;
     });
     return res;
   };
-
-  console.log(cart);
-  // console.log(JSON.stringify(cart));
 
   return (
     <CheckoutLayout>
@@ -284,26 +270,20 @@ export default function Checkout(props: any) {
                   {cart.map((item, idx) => (
                     <div key={idx} className="grid grid-cols-2">
                       <div className="aspect-video p-6">
-                        <Image
-                          // @ts-ignore
-                          src={`/images/${item.brand.imgSrc}`}
+                        <Image 
+                          src={`/images/${item.brand?.imgSrc}`}
                           width={200}
                           height={200}
                           className="h-auto w-full"
                           alt="nothin"
                         />
                       </div>
-                      <div className="flex flex-col justify-center">
-                        {/* @ts-ignore */}
-                        <p className="text-xl font-bold">{item.brand.name}</p>
+                      <div className="flex flex-col justify-center">                         <p className="text-xl font-bold">{item.brand?.name}</p>
                         <div className="flex items-center gap-2 text-xs">
-                          {/* @ts-ignore */}
-                          <p>${item.item.price.toFixed(2)}</p>
+                          <p>${item.item?.price.toFixed(2)}</p>
                           <Circle className="h-2 w-2" />
                           <p>
-                            {" "}
-                            {/* @ts-ignore */}
-                            {item.qty} <span>item</span> {/* @ts-ignore */}
+                            {item.qty} <span>item</span>
                             <span>{item.qty > 1 ? "s" : ""}</span>
                           </p>
                           <Circle className="h-2 w-2" />

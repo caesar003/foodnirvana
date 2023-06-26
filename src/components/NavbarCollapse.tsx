@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 import { X } from "lucide-react";
 import { useApp } from "@hooks/useApp";
 
 export default function NavbarCollapse() {
-  // @ts-ignore
   const { sidebarShown, setSidebarShown } = useApp();
   return (
     <div
