@@ -4,7 +4,7 @@ import CheckoutLayout from "@components/CheckoutLayout";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/router";
 import { brands, products } from "@utils/default-values";
-import { BrandInterface, ProductInterface } from "@utils/types";
+import { BrandInterface, CartItemInterface, ProductInterface } from "@utils/types";
 
 import { Bookmark, CreditCard, Gift, Tag, Tags } from "lucide-react";
 import Image from "next/image";
@@ -38,26 +38,13 @@ interface PaymentDetail {
 }
 
 interface PropsInterface {
-  orderDetail: OrderDetailInterface;
-  product: ProductInterface;
-  brand: BrandInterface;
+  cart: CartItemInterface[];
   goForward: MouseEventHandler<HTMLButtonElement>;
   step: number;
+  totalPrice: number; 
 }
 
-export default function OrderDetails({
-  orderDetail,
-  product,
-  brand,
-  goForward,
-  step,
-}: PropsInterface) {
-  const [totalPrice, setTotalPrice] = useState(0);
-  useEffect(() => {
-    if (orderDetail && product && brand) { 
-      setTotalPrice(Number((orderDetail?.qty * product?.price).toFixed(2)));
-    }
-  }, []);
+export default function OrderDetails({cart, goForward, step, totalPrice}: PropsInterface) {
   return (
     <div className="col-span-5">
       <div className="my-4 flex flex-col rounded-xl bg-gray-800 p-4 py-6">
@@ -69,7 +56,10 @@ export default function OrderDetails({
             <FaShoppingBasket size={22} />
             <p className="text-xl font-bold">Your order</p>
           </div>
-          <p className="text-xs text-gray-400">1 item</p>
+          <p className="text-xs text-gray-400">
+            {cart.length} <span>item</span>
+            <span>{cart.length > 1 ? "s" : ""}</span>
+          </p>
         </div>
         <div className="my-1 flex justify-between">
           <p className="text-lg">Subtotal</p>
@@ -87,7 +77,7 @@ export default function OrderDetails({
           {step === 0 ? "Continue to payment" : "Pay"}
         </button>
 
-        <p className="text-sm">
+        <p className="text-xs">
           By tapping &quot;Pay&quot;, you agree to our{" "}
           <Link href="/">Terms of Service</Link> and allow us to charge you for
           this payment.

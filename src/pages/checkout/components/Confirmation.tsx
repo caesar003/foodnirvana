@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaEnvelope, FaEnvelopeOpenText, FaQuestion } from "react-icons/fa";
+import { FaEnvelopeOpenText, FaQuestion } from "react-icons/fa";
 
 export default function Confirmation() {
   return (
@@ -13,35 +13,6 @@ export default function Confirmation() {
       </div>
 
       <div className="col-span-6 col-start-4 mt-4 flex flex-col items-center gap-4 rounded-xl bg-gray-800 p-6">
-        {/* <h3>Payment Details</h3>
-
-        <div className="flex items-center justify-between">
-          <p>Invoice ID:</p>
-          <p>15e7372f-e099-4786-a0f7-0d0f737c02ad</p>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <p>Price:</p>
-          <p>5.15</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <p>Product:</p>
-          <p>Krispy Kreme</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <p>Payment Method:</p>
-          <p>PayPa</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <p>Invoice ID:</p>
-          <p>15e7372f-e099-4786-a0f7-0d0f737c02ad</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <p>Invoice ID:</p>
-          <p>15e7372f-e099-4786-a0f7-0d0f737c02ad</p>
-        </div> */}
-
-        {/* <FaEnvelope /> */}
         <FaEnvelopeOpenText size={65} />
         <h3 className="text-xl">Thank your for your purchase!</h3>
         <p className="text-center text-lg text-gray-400">

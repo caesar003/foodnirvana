@@ -6,18 +6,18 @@ import Navbar from "./Navbar";
 export default function CheckoutLayout({ children }: PropsWithChildren) {
   return (
     <main className="flex items-start justify-center">
-      <div className="w-[1030px] min-h-screen flex-col justify-center items-center p-10">
+      <div className="min-h-screen w-[1030px] flex-col items-center justify-center p-10">
         <div className="flex items-center justify-center rounded-lg bg-gray-900 p-6">
-          <div className="flex gap-2 items-center">
-            <p className="capitalize font-bold">Food Nirvana</p>
-            <p className="uppercase text-yellow-400 font-bold p-1 px-3 border-2 border-yellow-400 rounded-lg">
+          <div className="flex items-center gap-2">
+            <p className="font-bold capitalize">Food Nirvana</p>
+            <p className="rounded-lg border-2 border-yellow-400 p-1 px-3 font-bold uppercase text-yellow-400">
               pro
             </p>
           </div>
         </div>
 
         <div className="flex-1">{children}</div>
-        <div className="flex gap-2 justify-center">
+        <div className="flex justify-center gap-2">
           <p>Secured by</p>
           <svg
             width="107"

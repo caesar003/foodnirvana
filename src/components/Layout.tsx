@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, PropsWithChildren, useEffect, useState } from "react";
+import { Fragment, PropsWithChildren } from "react";
 import "../app/globals.css";
 import Banner from "./Banner";
 import Navbar from "./Navbar";

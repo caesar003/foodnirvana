@@ -6,8 +6,7 @@ import { twMerge } from "tailwind-merge";
 import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
-  const { sidebarShown, setSidebarShown, shoppingCart, setShoppingCart } =
-    useApp();
+  const { setSidebarShown, shoppingCart } = useApp();
   const paths: { label: string; path: string }[] = [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },

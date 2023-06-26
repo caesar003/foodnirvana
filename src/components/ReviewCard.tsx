@@ -1,5 +1,6 @@
-import { Check, Star } from "lucide-react";
+import { Check } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import Stars from "./Stars";
 
 interface PropsInterface {
   date: string;
@@ -49,16 +50,6 @@ export default function ReviewCard(props: PropsInterface) {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-export function Stars({ counts }: { counts: number }) {
-  return (
-    <div className="flex gap-1 text-yellow-400">
-      {new Array(counts).fill(null).map((_, idx) => (
-        <Star key={idx} />
-      ))}
     </div>
   );
 }
