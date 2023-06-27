@@ -2,13 +2,13 @@ import { BrandInterface } from "@utils/types";
 import { Check, X } from "lucide-react";
 import Image from "next/image";
 
-export default function ProductCard(props: BrandInterface) {
-  const { imgSrc, inStock, name, price, productType } = props;
+export default function ProductCard({ item }: { item: BrandInterface }) {
+  const { imgSrc, inStock, name, price, productType } = item;
   return (
     <div className="border-1 rounded-lg border border-gray-900 bg-gray-800 transition-all hover:scale-105">
       <Image
         className="h-auto w-full rounded-t-lg"
-        src={imgSrc}
+        src={`/images/${imgSrc}`}
         alt={name + " image"}
         width={480}
         height={32}

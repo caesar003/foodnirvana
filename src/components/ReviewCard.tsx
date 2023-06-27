@@ -2,22 +2,26 @@ import { Check } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import Stars from "./Stars";
 
-interface PropsInterface {
+
+interface ReviewItem {
   date: string;
   stars: number;
-  text: string | undefined;
+  text?: string | undefined;
   isVerified: boolean;
   reply?: string;
+}
+interface PropsInterface {
+  item: ReviewItem;
   className?: string;
 }
 
-export default function ReviewCard(props: PropsInterface) {
-  const { date, stars, text, isVerified, reply } = props;
+export default function ReviewCard({ item, className }: PropsInterface) {
+  const { date, stars, text, isVerified, reply } = item;
   return (
     <div
       className={twMerge(
         "border-1 rounded-lg border border-gray-900 bg-gray-800 text-gray-400",
-        props.className
+        className
       )}
     >
       <div className="p-5">

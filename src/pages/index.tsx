@@ -4,7 +4,7 @@ import Layout from "@components/Layout";
 import NewsCard from "@components/NewsCard";
 import ProductCard from "@components/ProductCard";
 import ReviewCard from "@components/ReviewCard";
-import { brands, reviews } from "@utils/default-values";
+import { brands, news, reviews } from "@utils/default-values";
 import { ArrowRight, Send, Star } from "lucide-react";
 import Link from "next/link";
 
@@ -59,39 +59,15 @@ export default function Home() {
         <div className="flex flex-col gap-8">
           <h1 className="text-center text-5xl font-bold">Products</h1>
           <div className="mt-4 grid grid-cols-1 place-items-center gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {brands
-              .slice(0, 6)
-              .map(
-                ({
-                  id,
-                  imgSrc,
-                  description,
-                  price,
-                  name,
-                  inStock,
-                  productType,
-                  categoryId,
-                  stars,
-                  reviews,
-                  sold,
-                }) => (
-                  <Link key={id} href={`/products/${id}`} className="max-w-sm">
-                    <ProductCard
-                      imgSrc={`/images/${imgSrc}`}
-                      inStock={inStock}
-                      name={name}
-                      price={price}
-                      productType={productType}
-                      description={description}
-                      id={id}
-                      categoryId={categoryId}
-                      stars={stars}
-                      reviews={reviews}
-                      sold={sold}
-                    />
-                  </Link>
-                )
-              )}
+            {brands.slice(0, 6).map((item) => (
+              <Link
+                key={item.id}
+                href={`/products/${item.id}`}
+                className="max-w-sm"
+              >
+                <ProductCard item={item} />
+              </Link>
+            ))}
           </div>
           <div className="mt-6 ">
             <Link
@@ -107,43 +83,17 @@ export default function Home() {
       <section className="my-10 flex flex-col items-center">
         <h1 className="text-center text-5xl font-bold">News</h1>
         <div className="mt-8 grid grid-cols-1 items-start gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <NewsCard
-            date="Jun 16, 2023"
-            description="Receiver a $5 balance reward every time you spend $50 in our store"
-            more="Join us on Telegram to not miss any announcements"
-            title="$5 reward"
-          />
-          <NewsCard
-            date="June 16, 2023"
-            more="Check our vouches on Telegram."
-            description="Every vouch picture you send, get 10% back to your store credit of what you paid for the product. Submit to @YungGoony or @Mertinjo on Telegram."
-            title="10% cashback"
-          />
-          <NewsCard
-            date="June, 16 2023"
-            title="Permanent 15% Discount For all crypto purchases"
-            description="Use code 'CRYPTO' at checkout to apply the discount and continue paying with your chosen crypto."
-            more="Join us on telegram for daily discounts and promotions!"
-          />
+          {news.map((item, idx) => (
+            <NewsCard key={idx} item={item} />
+          ))}
         </div>
       </section>
       <section className="my-16 flex flex-col items-center">
         <h1 className="text-center text-5xl font-bold">Reviews</h1>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {reviews
-            .slice(0, 6)
-            .map(({ date, stars, text, isVerified, reply }, idx) => {
-              return (
-                <ReviewCard
-                  key={idx}
-                  date={date}
-                  stars={stars}
-                  text={text}
-                  isVerified={isVerified}
-                  reply={reply}
-                />
-              );
-            })}
+          {reviews.slice(0, 6).map((item, idx) => {
+            return <ReviewCard key={idx} item={item} />;
+          })}
         </div>
         <div className="mt-6 ">
           <Link

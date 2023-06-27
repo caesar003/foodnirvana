@@ -1,7 +1,7 @@
 import { NewsInterface } from "@utils/types";
 
-export default function NewsCard(props: NewsInterface) {
-  const { date, description, more, title } = props;
+export default function NewsCard({item}: {item: NewsInterface}) {
+  const { date, description, more, title } = item;
   return (
     <div className="border-1 max-w-sm rounded-lg border border-gray-900 bg-yellow-400 text-black">
       <div className="p-5">

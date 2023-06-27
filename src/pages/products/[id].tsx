@@ -1,20 +1,20 @@
+import { useEffect, useState } from "react";
+
+import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
 import Footer from "@components/Footer";
 import Head from "@components/Head";
 import Layout from "@components/Layout";
 import ReviewCard from "@components/ReviewCard";
+
+import ItemCard from "./components/ItemCard";
+
 import { useApp } from "@hooks/useApp";
 import { brands, products, reviews } from "@utils/default-values";
-import {
-  BrandInterface,
-  CartItemInterface,
-  ProductInterface,
-} from "@utils/types";
-import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { BrandInterface, ProductInterface } from "@utils/types";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import ItemCard from "./components/ItemCard";
 import { qParams } from "@utils/query-params";
 
 export default function Product() {
@@ -40,10 +40,10 @@ export default function Product() {
     }
   };
 
-  const selectAnItem = (idx:number) => {
-    setSelectedItem(idx)
+  const selectAnItem = (idx: number) => {
+    setSelectedItem(idx);
     setQty(1);
-  }
+  };
   const addToCart = (item: ProductInterface) => {
     const _brand = brands.find((brand) => brand.id === item.brandId);
     const _cartItem = {
@@ -96,11 +96,6 @@ export default function Product() {
     }
   }, [selectedItem, qty]);
 
-  /**
-   * todo
-   *
-   */
-
   return (
     <Layout>
       <Head title="" />
@@ -140,18 +135,9 @@ export default function Product() {
             </div>
 
             <div className="my-6 flex flex-col gap-4 rounded-xl bg-gray-800 p-6">
-              {reviews
-                .slice(0, 6)
-                .map(({ date, isVerified, stars, text }, idx) => (
-                  <ReviewCard
-                    key={idx}
-                    date={date}
-                    isVerified={isVerified}
-                    stars={stars}
-                    className="bg-gray-900"
-                    text={text}
-                  />
-                ))}
+              {reviews.slice(0, 6).map((item, idx) => (
+                <ReviewCard key={idx} className="bg-gray-900" item={item} />
+              ))}
             </div>
           </div>
           <div className="col-span-12 flex flex-col md:col-span-4">

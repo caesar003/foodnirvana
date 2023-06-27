@@ -3,6 +3,7 @@ import {
   ProductInterface,
   QuestionInterface,
   ReviewInterface,
+  NewsInterface,
 } from "./types";
 const brands: BrandInterface[] = [
   {
@@ -2514,4 +2515,28 @@ const faqs: QuestionInterface[] = [
   { question: "Is this USA only?", answer: "Yes." },
 ];
 
-export { brands, reviews, brandCategories, faqs, products };
+const news: NewsInterface[] = [
+  {
+    date: "Jun 16, 2023",
+    description:
+      "Receiver a $5 balance reward every time you spend $50 in our store",
+    more: "Join us on Telegram to not miss any announcements",
+    title: "$5 reward",
+  },
+  {
+    date: "June 16, 2023",
+    more: "Check our vouches on Telegram.",
+    description:
+      "Every vouch picture you send, get 10% back to your store credit of what you paid for the product. Submit to @YungGoony or @Mertinjo on Telegram.",
+    title: "10% cashback",
+  },
+  {
+    date: "June, 16 2023",
+    title: "Permanent 15% Discount For all crypto purchases",
+    description:
+      "Use code 'CRYPTO' at checkout to apply the discount and continue paying with your chosen crypto.",
+    more: "Join us on telegram for daily discounts and promotions!",
+  },
+];
+
+export { news, brands, reviews, brandCategories, faqs, products };
