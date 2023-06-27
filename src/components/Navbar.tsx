@@ -7,17 +7,19 @@ import CartDropdown from "./CartDropdown";
 import { paths } from "@utils/paths";
 
 export default function Navbar() {
-  const { setSidebarShown  } = useApp();
+  const { setSidebarShown } = useApp();
   const { pathname } = useRouter();
 
   return (
     <div className="relative mt-8 flex items-center justify-between gap-4 rounded-lg bg-gray-800 px-6 py-5">
-      <div className="flex items-center gap-2">
-        <p className="font-bold capitalize">Food Nirvana</p>
-        <p className="rounded-lg border-2 border-yellow-400 p-1 px-3 text-xs font-bold uppercase text-yellow-400">
-          pro
-        </p>
-      </div>
+      <Link href="/">
+        <div className="flex items-center gap-2">
+          <p className="font-bold capitalize">Food Nirvana</p>
+          <p className="rounded-lg border-2 border-yellow-400 p-1 px-3 text-xs font-bold uppercase text-yellow-400">
+            pro
+          </p>
+        </div>
+      </Link>
       <div className="hidden md:block">
         <ul className="flex items-center gap-1">
           {paths.map(({ label, path }) => (

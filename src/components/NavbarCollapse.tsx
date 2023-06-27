@@ -25,7 +25,7 @@ export default function NavbarCollapse() {
       <div>
         <ul className="p-4 font-bold">
           {paths.map(({label, path}) => (
-            <li key={label}>
+            <li key={label} className="my-2 text-sm">
               <Link href={path}>{label}</Link>
             </li>
           ))}
