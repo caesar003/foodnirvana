@@ -1,16 +1,6 @@
-import { Bookmark, CreditCard, Gift, Plus, Tag, Tags } from "lucide-react";
+import Input from "@components/Input";
+import { CreditCard, Plus } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import {
-  FaCcAmex,
-  FaCcJcb,
-  FaCcMastercard,
-  FaCcPaypal,
-  FaCcVisa,
-  FaGift,
-  FaShoppingBasket,
-} from "react-icons/fa";
 
 export default function PaymentMethod() {
   return (
@@ -95,33 +85,25 @@ export default function PaymentMethod() {
       <div className="flex flex-col">
         <div className="my-2  grid gap-4">
           <div className="flex flex-col gap-2">
-            <label htmlFor="email">Card number</label>
-            <input
-              type="text"
-              id="email"
-              className="rounded-xl bg-gray-900 px-2 py-1 focus:outline-none"
-            />
+            <label className="text-sm" htmlFor="email">
+              Card number
+            </label>
+            <Input id="email" />
           </div>
         </div>
         <div className="my-2 grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-2">
-            <label htmlFor="country">Expiry Date</label>
-            <input
-              type="text"
-              id="country"
-              className="rounded-xl bg-gray-900 px-2 py-1 focus:outline-none"
-              placeholder="1234567890123456"
-            />
+            <label className="text-sm" htmlFor="country">
+              Expiry Date
+            </label>
+            <Input id="country" placeholder="1234567890123456" />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="zipcode">CVC / CVV</label>
-            <input
-              type="text"
-              id="zipcode"
-              className="rounded-xl bg-gray-900 px-2 py-1 focus:outline-none"
-              placeholder="123"
-            />
+            <label className="text-sm" htmlFor="zipcode">
+              CVC / CVV
+            </label>
+            <Input id="zipcode" placeholder="123" />
           </div>
         </div>
       </div>
