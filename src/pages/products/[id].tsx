@@ -4,7 +4,11 @@ import Layout from "@components/Layout";
 import ReviewCard from "@components/ReviewCard";
 import { useApp } from "@hooks/useApp";
 import { brands, products, reviews } from "@utils/default-values";
-import { BrandInterface, ProductInterface } from "@utils/types";
+import {
+  BrandInterface,
+  CartItemInterface,
+  ProductInterface,
+} from "@utils/types";
 import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,6 +40,10 @@ export default function Product() {
     }
   };
 
+  const selectAnItem = (idx:number) => {
+    setSelectedItem(idx)
+    setQty(1);
+  }
   const addToCart = (item: ProductInterface) => {
     const _brand = brands.find((brand) => brand.id === item.brandId);
     const _cartItem = {
@@ -44,9 +52,24 @@ export default function Product() {
       brand: _brand,
       item: item,
     };
-    if (!item.stock) return;
+    if (!item.stock || isInCart(item.id)) return;
+
     setShoppingCart([...shoppingCart, _cartItem]);
   };
+
+  const isInCart = (id: number) =>
+    shoppingCart.length > 0 &&
+    shoppingCart.findIndex((cartItem) => cartItem.id === id) !== -1;
+
+  const getQParams = () =>
+    qParams.encode([
+      {
+        id: pageProducts[selectedItem].id,
+        brand: brand,
+        qty: qty,
+        item: pageProducts[selectedItem],
+      },
+    ]);
 
   useEffect(() => {
     const { id } = router.query;
@@ -72,6 +95,11 @@ export default function Product() {
       setTotalPrice(pageProducts[selectedItem].price * qty);
     }
   }, [selectedItem, qty]);
+
+  /**
+   * todo
+   *
+   */
 
   return (
     <Layout>
@@ -133,7 +161,7 @@ export default function Product() {
                     key={idx}
                     product={product}
                     selectedItem={selectedItem}
-                    clickEvent={() => setSelectedItem(idx)}
+                    clickEvent={() => selectAnItem(idx)}
                     index={idx}
                     brand={brand}
                   />
@@ -185,17 +213,12 @@ export default function Product() {
                 onClick={() => addToCart(pageProducts[selectedItem])}
                 className="my-2 rounded-xl bg-gray-900 py-2 text-center font-bold text-yellow-400 hover:bg-yellow-400 hover:text-gray-900"
               >
-                Add to Cart
+                {isInCart(pageProducts[selectedItem].id)
+                  ? "In Cart"
+                  : "Add to Cart"}
               </button>
               <Link
-                href={`/checkout?${qParams.encode([
-                  {
-                    id: pageProducts[selectedItem].id,
-                    brand: brand,
-                    qty: qty,
-                    item: pageProducts[selectedItem],
-                  },
-                ])}`}
+                href={`/checkout?${getQParams()}`}
                 className="my-2 rounded-xl bg-yellow-400 py-2 text-center font-bold text-gray-900 hover:bg-gray-900 hover:text-yellow-400"
               >
                 Buy Now

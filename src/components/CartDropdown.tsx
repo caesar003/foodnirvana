@@ -1,15 +1,43 @@
 import { Menu } from "@headlessui/react";
+import { useApp } from "@hooks/useApp";
 import { qParams } from "@utils/query-params";
 import { CartItemInterface } from "@utils/types";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CartDropdown({
-  shoppingCart,
-}: {
-  shoppingCart: CartItemInterface[];
-}) {
+export default function CartDropdown() {
+  const { setShoppingCart, shoppingCart } = useApp();
+  const maxOrderQty: number = 20;
+
+  const addItemQty = (val: number, id: number) => {
+    const _cartItemIdx: number = shoppingCart.findIndex(
+      (item) => item.id === id
+    );
+    const _cartItem: CartItemInterface = { ...shoppingCart[_cartItemIdx] };
+
+    if (_cartItem !== undefined) {
+      const newQty: number = _cartItem.qty + val;
+
+      // base cases, results in early exits 
+      if (newQty === 0) return removeFromCart(_cartItemIdx);
+      if (newQty >= maxOrderQty + 1) return;
+      if (_cartItem.item?.stock && newQty > _cartItem.item.stock) return;
+
+      _cartItem.qty = shoppingCart[_cartItemIdx].qty + val;
+      const _shoppingCart = [...shoppingCart];
+      _shoppingCart[_cartItemIdx] = _cartItem;
+
+      setShoppingCart(_shoppingCart);
+    }
+  };
+
+  const removeFromCart = (idx: number) => {
+    const _shoppingCart = [...shoppingCart];
+    _shoppingCart.splice(idx, 1);
+    setShoppingCart(_shoppingCart);
+  };
+
   return (
     <Menu as="div" className="relative">
       <Menu.Button className="flex items-center gap-2">
@@ -29,7 +57,7 @@ export default function CartDropdown({
               to proceed with the purchase
             </p>
             {shoppingCart.map((item, idx) => (
-              <CartItem key={idx} item={item} />
+              <CartItem key={idx} item={item} addItemQty={addItemQty} />
             ))}
             <Link
               href={`/checkout?${qParams.encode(shoppingCart)}`}
@@ -54,7 +82,14 @@ export function EmptyCart() {
   );
 }
 
-export function CartItem({ item }: { item: CartItemInterface }) {
+export function CartItem({
+  item,
+  addItemQty,
+}: {
+  item: CartItemInterface;
+  addItemQty: Function;
+}) {
+  console.log("cartItem", item);
   return (
     <div className="my-2 flex items-center justify-between">
       <div className="flex items-center">
@@ -73,13 +108,19 @@ export function CartItem({ item }: { item: CartItemInterface }) {
         </div>
       </div>
       <div className="flex gap-2">
-        <button className="aspect-square rounded-lg bg-gray-900 p-1">
+        <button
+          className="aspect-square rounded-lg bg-gray-900 p-1"
+          onClick={() => addItemQty(-1, item.id)}
+        >
           <Minus className="h-4 w-4" />
         </button>
         <div className="aspect-square rounded-lg bg-gray-900 p-1 px-2">
           {item.qty}
         </div>
-        <button className="aspect-square rounded-lg bg-gray-900 p-1">
+        <button
+          className="aspect-square rounded-lg bg-gray-900 p-1"
+          onClick={() => addItemQty(1, item.id)}
+        >
           <Plus className="h-4 w-4" />
         </button>
       </div>

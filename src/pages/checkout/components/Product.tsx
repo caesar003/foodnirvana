@@ -25,7 +25,7 @@ export default function Product({ item }: { item: CartItemInterface }) {
             <span>{item?.qty > 1 ? "s" : ""}</span>
           </p>
           <Circle className="h-2 w-2" />
-          <p> Instant Dmail Delivery </p>
+          <p> Instant Email Delivery </p>
         </div>
       </div>
     </div>

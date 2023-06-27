@@ -44,7 +44,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <CartDropdown shoppingCart={shoppingCart} />
+        <CartDropdown />
         <button className="hidden rounded-xl bg-yellow-400 px-4 py-2 text-sm font-bold capitalize text-black transition-colors hover:bg-indigo-900 hover:text-yellow-400 md:block">
           customer login
         </button>
