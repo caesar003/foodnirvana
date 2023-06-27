@@ -16,6 +16,7 @@ import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
 import { useRouter } from "next/router";
 import { qParams } from "@utils/query-params";
+import Stars from "@components/Stars";
 
 export default function Product() {
   const { shoppingCart, setShoppingCart } = useApp();
@@ -72,29 +73,31 @@ export default function Product() {
     ]);
 
   useEffect(() => {
-    const { id } = router.query;
-    let brandId: number = 0;
-    if (id) {
-      brandId = Number(id);
-    } else {
-      if (window !== undefined) {
-        const url = window.location.href;
-        brandId = parseInt(url.slice(url.lastIndexOf("/") + 1));
+    if (router.query) {
+      const { id } = router.query;
+      let brandId: number = 0;
+      if (id) {
+        brandId = Number(id);
+      } else {
+        if (window !== undefined) {
+          const url = window.location.href;
+          brandId = parseInt(url.slice(url.lastIndexOf("/") + 1));
+        }
       }
-    }
 
-    const _brand = brands.find((item) => item.id === brandId);
-    const _products = products.filter((items) => items.brandId === brandId);
-    setPageProducts(_products);
-    setBrand(_brand);
-    setTotalPrice(_products[0].price);
+      const _brand = brands.find((item) => item.id === brandId);
+      const _products = products.filter((items) => items.brandId === brandId);
+      setPageProducts(_products);
+      setBrand(_brand);
+      setTotalPrice(_products[0].price);
+    }
   }, []);
 
   useEffect(() => {
     if (selectedItem) {
       setTotalPrice(pageProducts[selectedItem].price * qty);
     }
-  }, [selectedItem, qty]);
+  }, [selectedItem, qty, pageProducts]);
 
   return (
     <Layout>
@@ -110,13 +113,7 @@ export default function Product() {
                     Product sold{" "}
                     <span className="text-gray-400">{brand.sold}</span> times
                   </p>
-                  <div className="flex">
-                    {Array(brand.stars)
-                      .fill(null)
-                      .map((_, idx) => (
-                        <Star key={idx} className="h-4 w-4 text-yellow-400" />
-                      ))}
-                  </div>
+                  <Stars counts={5} />
                   <p>{brand.stars}</p>
                   <p className="text-gray-400">({brand.reviews} reviews)</p>
                 </div>

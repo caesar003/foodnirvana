@@ -54,11 +54,11 @@ export default function OrderDetails({
         </div>
         <div className="my-1 flex justify-between">
           <p className="text-lg">Subtotal</p>
-          <p className="font-bold">${totalPrice}</p>
+          <p className="font-bold">${totalPrice.toFixed(2)}</p>
         </div>
         <div className="my-2 mt-3 flex justify-between">
           <p className="text-lg">Total</p>
-          <p>${totalPrice}</p>
+          <p>${totalPrice.toFixed(2)}</p>
         </div>
 
         <button
