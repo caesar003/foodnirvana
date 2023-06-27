@@ -4,17 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { twMerge } from "tailwind-merge";
 import CartDropdown from "./CartDropdown";
+import { paths } from "@utils/paths";
 
 export default function Navbar() {
-  const { setSidebarShown, shoppingCart } = useApp();
-  const paths: { label: string; path: string }[] = [
-    { label: "Home", path: "/" },
-    { label: "Products", path: "/products" },
-    { label: "Reviews", path: "/reviews" },
-    { label: "Contacts", path: "/contacts" },
-    { label: "FAQ", path: "/faq" },
-  ];
-
+  const { setSidebarShown  } = useApp();
   const { pathname } = useRouter();
 
   return (
