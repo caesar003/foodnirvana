@@ -37,7 +37,7 @@ export default function OrderDetails({
   totalPrice,
 }: PropsInterface) {
   return (
-    <div className="col-span-5">
+    <div className="col-span-12 md:col-span-5">
       <div className="my-4 flex flex-col gap-2 rounded-xl bg-gray-800 p-4 py-6">
         <p className="px-4 text-sm text-yellow-400">
           $ Spend $46.00 get $5 in store balance

@@ -4,14 +4,14 @@ import { FaEnvelopeOpenText, FaQuestion } from "react-icons/fa";
 export default function Confirmation() {
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-6 col-start-4 rounded-xl border border-yellow-400 bg-gray-900">
+      <div className="col-span-10 col-start-2 rounded-xl border border-yellow-400 bg-gray-900 md:col-span-8 md:col-start-3">
         <button className="flex gap-2 p-2 text-sm">
           <FaQuestion />
           <span>Need help with your purchase? Contact us!</span>
         </button>
       </div>
 
-      <div className="col-span-6 col-start-4 mt-4 flex flex-col items-center gap-4 rounded-xl bg-gray-800 p-6">
+      <div className="col-span-10 col-start-2 mt-4 flex flex-col items-center gap-4 rounded-xl bg-gray-800 p-6 md:col-span-8 md:col-start-3">
         <FaEnvelopeOpenText size={65} />
         <h3 className="text-xl">Thank your for your purchase!</h3>
         <p className="text-center text-base text-gray-500">

@@ -64,7 +64,7 @@ export default function Checkout() {
           </button>
 
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-7">
+            <div className="col-span-12 md:col-span-7">
               {step === 0 ? <CustomerDetail /> : <PaymentMethod />}
               <div className="flex flex-col divide-y-2 divide-slate-600 rounded-lg bg-gray-800">
                 {cart.map((item, idx) => (
