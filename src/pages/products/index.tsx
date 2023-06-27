@@ -66,42 +66,16 @@ export default function Products() {
           </div>
         </div>
         <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {pageBrands.map(
-            ({
-              id,
-              imgSrc,
-              description,
-              price,
-              name,
-              inStock,
-              productType,
-              categoryId,
-              sold,
-              stars,
-              reviews,
-            }) => (
-              <Link
-                key={id}
-                href={{
-                  pathname: `/products/${id}`,
-                }}
-              >
-                <ProductCard
-                  imgSrc={`/images/${imgSrc}`}
-                  inStock={inStock}
-                  name={name}
-                  price={price}
-                  productType={productType}
-                  description={description}
-                  id={id}
-                  categoryId={categoryId}
-                  stars={stars}
-                  sold={sold}
-                  reviews={reviews}
-                />
-              </Link>
-            )
-          )}
+          {pageBrands.map((item) => (
+            <Link
+              key={item.id}
+              href={{
+                pathname: `/products/${item.id}`,
+              }}
+            >
+              <ProductCard item={item} key={item.id} />
+            </Link>
+          ))}
         </div>
       </div>
       <Footer />
