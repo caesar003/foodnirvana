@@ -30,7 +30,7 @@ export default function NavbarCollapse() {
             </li>
           ))}
         </ul>
-        <button className="mx-2 p-2 bg-yellow-400 text-black hover:bg-indigo-950 hover:text-yellow-400 rounded-xl font-bold capitalize">
+        <button className="mx-2 py-2 px-3 bg-yellow-400 text-black hover:bg-indigo-950 hover:text-yellow-400 rounded-xl font-bold capitalize text-sm">
           customer login
         </button>
       </div>
