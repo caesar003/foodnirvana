@@ -7,13 +7,13 @@ import { BrandInterface } from "@utils/types";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 // @ts-ignore
-import {useDebounce} from "@uidotdev/usehooks";
+import { useDebounce } from "@uidotdev/usehooks";
 
 export default function Products() {
   const [pageBrands, setPageBrands] = useState<BrandInterface[]>([]);
   const [categoryId, setCategoryId] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState("");
-  const debounceTerm = useDebounce(searchTerm, 300);  
+  const debounceTerm = useDebounce(searchTerm, 300);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchTerm(e.target.value);

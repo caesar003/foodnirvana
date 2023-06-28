@@ -6,7 +6,7 @@ export interface AppContextType {
   setSidebarShown: React.Dispatch<React.SetStateAction<boolean>>;
   shoppingCart: CartItemInterface[];
   setShoppingCart: React.Dispatch<React.SetStateAction<CartItemInterface[]>>;
-};
+}
 
 // @ts-ignore;
 const AppContext = React.createContext<AppContextType>();

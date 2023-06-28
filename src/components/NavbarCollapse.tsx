@@ -24,13 +24,13 @@ export default function NavbarCollapse() {
 
       <div>
         <ul className="p-4 font-bold">
-          {paths.map(({label, path}) => (
+          {paths.map(({ label, path }) => (
             <li key={label} className="my-2 text-sm">
               <Link href={path}>{label}</Link>
             </li>
           ))}
         </ul>
-        <button className="mx-2 py-2 px-3 bg-yellow-400 text-black hover:bg-indigo-950 hover:text-yellow-400 rounded-xl font-bold capitalize text-sm">
+        <button className="mx-2 rounded-xl bg-yellow-400 px-3 py-2 text-sm font-bold capitalize text-black hover:bg-indigo-950 hover:text-yellow-400">
           customer login
         </button>
       </div>

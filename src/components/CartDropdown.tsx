@@ -19,7 +19,7 @@ export default function CartDropdown() {
     if (_cartItem !== undefined) {
       const newQty: number = _cartItem.qty + val;
 
-      // base cases, results in early exits 
+      // base cases, results in early exits
       if (newQty === 0) return removeFromCart(_cartItemIdx);
       if (newQty >= maxOrderQty + 1) return;
       if (_cartItem.item?.stock && newQty > _cartItem.item.stock) return;

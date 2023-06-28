@@ -1,9 +1,9 @@
 export interface ProductInterface {
   id: number;
-  label: string,
-  price: number,
-  brandId: number,
-  stock: number,
+  label: string;
+  price: number;
+  brandId: number;
+  stock: number;
 }
 
 export interface CustomerInterface {}
@@ -16,9 +16,7 @@ export interface ReviewInterface {
   reply?: string;
 }
 
-export interface BrandObjectDescription {
-  
-}
+export interface BrandObjectDescription {}
 
 export interface BrandInterface {
   id: number;
@@ -43,7 +41,7 @@ export interface NewsInterface {
 
 export interface QuestionInterface {
   question: string;
-  answer:string;
+  answer: string;
 }
 
 export interface CartItemInterface {
