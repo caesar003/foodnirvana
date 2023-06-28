@@ -6,8 +6,6 @@ export interface ProductInterface {
   stock: number;
 }
 
-export interface CustomerInterface {}
-
 export interface ReviewInterface {
   date: string;
   stars: number;
@@ -15,8 +13,6 @@ export interface ReviewInterface {
   isVerified: boolean;
   reply?: string;
 }
-
-export interface BrandObjectDescription {}
 
 export interface BrandInterface {
   id: number;

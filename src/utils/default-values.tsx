@@ -2474,7 +2474,7 @@ const reviews: ReviewInterface[] = [
   },
 ];
 
-const brandCategories = [
+const brandCategories: { name: string; id: number }[] = [
   {
     name: "All",
     id: 0,
