@@ -13,9 +13,9 @@ import Product from "@components/Checkout/Product";
 
 export default function Checkout() {
   const router = useRouter();
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState<number>(0);
   const [cart, setCart] = useState<CartItemInterface[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const goBack = () => {
     if (step === 0) {
@@ -42,7 +42,7 @@ export default function Checkout() {
   }, []);
 
   const calculatePrice = (obj: CartItemInterface[]) => {
-    let res = 0;
+    let res:number = 0;
     obj.forEach((item) => {
       // @ts-ignore
       res += item?.item?.price * item?.qty;
