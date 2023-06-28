@@ -36,6 +36,7 @@ export default function OrderDetails({
   step,
   totalPrice,
 }: PropsInterface) {
+  console.log("cart: ", cart);
   return (
     <div className="col-span-12 md:col-span-5">
       <div className="my-4 flex flex-col gap-2 rounded-xl bg-gray-800 p-4 py-6">
@@ -52,13 +53,24 @@ export default function OrderDetails({
             <span>{cart?.length > 1 ? "s" : ""}</span>
           </p>
         </div>
-        <div className="my-1 flex justify-between">
-          <p className="text-lg">Subtotal</p>
-          <p className="font-bold">${totalPrice?.toFixed(2)}</p>
-        </div>
+        <p className="my-1 text-lg">Subtotal</p>
+        {cart.map((item) =>
+          item?.item?.price !== undefined ? (
+            <div key={item?.id} className="flex items-center justify-between">
+              <p className="text-sm text-gray-500">
+                {item?.brand?.name} {item?.item?.label} ({item?.qty})
+              </p>
+              <p className="font-bold text-gray-500">
+                ${(item?.qty * item?.item?.price).toFixed(2)}
+              </p>
+            </div>
+          ) : (
+            ""
+          )
+        )}
         <div className="my-2 mt-3 flex justify-between">
           <p className="text-lg">Total</p>
-          <p>${totalPrice?.toFixed(2)}</p>
+          <p className="font-bold">${totalPrice?.toFixed(2)}</p>
         </div>
 
         <button

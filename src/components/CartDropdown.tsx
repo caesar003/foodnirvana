@@ -89,7 +89,6 @@ export function CartItem({
   item: CartItemInterface;
   addItemQty: Function;
 }) {
-  console.log("cartItem", item);
   return (
     <div className="my-2 flex items-center justify-between">
       <div className="flex items-center">
