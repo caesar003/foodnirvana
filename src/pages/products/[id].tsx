@@ -1,22 +1,19 @@
 import { Fragment, useEffect, useState } from "react";
-
-import { Check, Minus, Plus, Star, X, Zap } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Footer from "@components/Footer";
 import Head from "@components/Head";
 import Layout from "@components/Layout";
 import ReviewCard from "@components/ReviewCard";
-
-import ItemCard from "./components/ItemCard";
+import ItemCard from "@components/Products/ItemCard";
+import Stars from "@components/Stars";
+import OrderSummary from "@components/Products/OrderSummary";
 
 import { useApp } from "@hooks/useApp";
 import { brands, products, reviews } from "@utils/default-values";
 import { BrandInterface, ProductInterface } from "@utils/types";
-import { useRouter } from "next/router";
 import { qParams } from "@utils/query-params";
-import Stars from "@components/Stars";
 
 export default function Product() {
   const { shoppingCart, setShoppingCart } = useApp();
@@ -146,64 +143,17 @@ export default function Product() {
                   ))
                 : ""}
 
-              <div className="my-2 flex flex-col rounded-xl border border-gray-800 bg-gray-800 p-6">
-                <div className="mb-3 flex items-center justify-between">
-                  <p>Price</p>
-                  <p className="text-4xl font-bold">
-                    $ {totalPrice?.toFixed(2)}
-                  </p>
-                </div>
-                <div className="my-3 flex items-center justify-between">
-                  <p>Delivery Time</p>
-                  <p className="flex gap-2">
-                    <Zap className="h-6 w-6 text-yellow-400" />{" "}
-                    <span>Instant</span>
-                  </p>
-                </div>
-                <div className="my-3 flex items-center justify-between">
-                  <p>In Stock</p>
-                  <p className="flex gap-2">
-                    {pageProducts[selectedItem]?.stock ? (
-                      <Check className="h-6 w-6 text-yellow-400" />
-                    ) : (
-                      <X className="h-6 w-6 text-yellow-400" />
-                    )}
-                    <span>{pageProducts[selectedItem]?.stock}</span>
-                  </p>
-                </div>
-                <div className="my-3 flex items-center justify-between gap-2">
-                  <p className="w-1/2">Quantity</p>
-                  <div className="flex w-1/2 items-center justify-between rounded-3xl bg-gray-900 p-2">
-                    <button onClick={() => addQty(-1)} className="mx-1">
-                      <Minus className="h-5 w-5" />
-                    </button>
-                    <input
-                      className="w-12 border-none bg-gray-900 text-center focus:outline-none"
-                      type="number"
-                      value={qty}
-                      onChange={(e) => setQty(parseInt(e?.target?.value))}
-                      max={12}
-                    />
-                    <button onClick={() => addQty(1)} className="mx-1">
-                      <Plus className="h-5 w-5" />
-                    </button>
-                  </div>
-                </div>
-                <button
-                  onClick={() => addToCart(pageProducts[selectedItem])}
-                  className="my-2 rounded-xl bg-gray-900 py-2 text-center font-bold text-yellow-400 hover:bg-yellow-400 hover:text-gray-900"
-                >
-                  {isInCart(pageProducts[selectedItem].id)
-                    ? "In Cart"
-                    : "Add to Cart"}
-                </button>
-                <Link
-                  href={`/checkout?${getQParams()}`}
-                  className="my-2 rounded-xl bg-yellow-400 py-2 text-center font-bold text-gray-900 hover:bg-gray-900 hover:text-yellow-400"
-                >
-                  Buy Now
-                </Link>
-              </div>
+              <OrderSummary
+                addQty={addQty}
+                qty={qty}
+                setQty={setQty}
+                totalPrice={totalPrice}
+                pageProducts={pageProducts}
+                selectedItem={selectedItem}
+                addToCart={addToCart}
+                isInCart={isInCart}
+                getQParams={getQParams}
+              />
             </div>
           </div>
           <div className="my-6 grid grid-cols-12 items-start gap-4">

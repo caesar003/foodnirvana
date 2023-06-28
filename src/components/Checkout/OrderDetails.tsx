@@ -54,7 +54,6 @@ export default function OrderDetails({
         </div>
         <div className="my-1 flex justify-between">
           <p className="text-lg">Subtotal</p>
-          {/* @ts-check  */}
           <p className="font-bold">${totalPrice?.toFixed(2)}</p>
         </div>
         <div className="my-2 mt-3 flex justify-between">

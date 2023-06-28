@@ -5,11 +5,11 @@ import { CartItemInterface } from "@utils/types";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Confirmation from "./components/Confirmation";
-import CustomerDetail from "./components/CustomerDetail";
-import OrderDetails from "./components/OrderDetails";
-import PaymentMethod from "./components/PaymentMethod";
-import Product from "./components/Product";
+import Confirmation from "@components/Checkout/Confirmation";
+import CustomerDetail from "@components/Checkout/CustomerDetail";
+import OrderDetails from "@components/Checkout/OrderDetails";
+import PaymentMethod from "@components/Checkout/PaymentMethod";
+import Product from "@components/Checkout/Product";
 
 export default function Checkout() {
   const router = useRouter();
