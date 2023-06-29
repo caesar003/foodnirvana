@@ -27,5 +27,5 @@ npm run dev
 # or
 yarn dev
 # or
-pnmp dev
+pnpm dev
 ```
