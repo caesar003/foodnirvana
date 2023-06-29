@@ -1,8 +1,18 @@
 import Input from "@components/Input";
+import { PaymentMethodInterface } from "@utils/types";
 import { CreditCard, Plus } from "lucide-react";
 import Image from "next/image";
+import { ChangeEventHandler } from "react";
 
-export default function PaymentMethod() {
+interface PropsInterface {
+  handleInput: ChangeEventHandler<HTMLInputElement>;
+  paymentDetail: PaymentMethodInterface;
+}
+
+export default function PaymentMethod({
+  handleInput,
+  paymentDetail: { cardNumber, ccv, expiryDate },
+}: PropsInterface) {
   return (
     <div className="my-4 rounded-xl bg-gray-800 p-6">
       <div className="flex items-center gap-2 border-gray-500  py-2">
@@ -85,25 +95,49 @@ export default function PaymentMethod() {
       <div className="flex flex-col">
         <div className="my-2  grid gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-sm" htmlFor="email">
+            <label className="text-sm" htmlFor="cardNumber">
               Card number
             </label>
-            <Input id="email" />
+            <Input
+              id="cardNumber"
+              placeholder="1234567890123456"
+              required
+              onChange={handleInput}
+              value={cardNumber}
+              data-field="payment"
+              type="number"
+            />
           </div>
         </div>
         <div className="my-2 grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-sm" htmlFor="country">
+            <label className="text-sm" htmlFor="expiryDate">
               Expiry Date
             </label>
-            <Input id="country" placeholder="1234567890123456" />
+            <Input
+              id="expiryDate"
+              placeholder=""
+              type="date"
+              required
+              onChange={handleInput}
+              value={expiryDate}
+              data-field="payment"
+            />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-sm" htmlFor="zipcode">
+            <label className="text-sm" htmlFor="ccv">
               CVC / CVV
             </label>
-            <Input id="zipcode" placeholder="123" />
+            <Input
+              id="ccv"
+              placeholder="123"
+              required
+              onChange={handleInput}
+              value={ccv}
+              data-field="payment"
+              type="number"
+            />
           </div>
         </div>
       </div>

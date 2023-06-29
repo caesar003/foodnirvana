@@ -1,42 +1,24 @@
 import { CartItemInterface } from "@utils/types";
 import { MouseEventHandler } from "react";
 
-import { Tags } from "lucide-react";
+import { Loader2, Tags } from "lucide-react";
 import Link from "next/link";
 import { FaGift, FaShoppingBasket } from "react-icons/fa";
-interface OrderDetailInterface {
-  brandId: number;
-  productId: number;
-  qty: number;
-}
-
-interface UserInfo {
-  firstName: string;
-  lastName: string;
-  email: string;
-  country: string;
-  zip: string;
-}
-interface PaymentDetail {
-  cardNumber: string;
-  expiryDate: Date;
-  cvc: number;
-}
+import { twMerge } from "tailwind-merge";
 
 interface PropsInterface {
   cart: CartItemInterface[];
-  goForward: MouseEventHandler<HTMLButtonElement>;
   step: number;
   totalPrice: number;
+  isLoading: boolean;
 }
 
 export default function OrderDetails({
   cart,
-  goForward,
   step,
   totalPrice,
+  isLoading,
 }: PropsInterface) {
-  console.log("cart: ", cart);
   return (
     <div className="col-span-12 md:col-span-5">
       <div className="my-4 flex flex-col gap-2 rounded-xl bg-gray-800 p-4 py-6">
@@ -74,10 +56,16 @@ export default function OrderDetails({
         </div>
 
         <button
-          onClick={goForward}
-          className="my-2 rounded-2xl bg-yellow-400 py-3 text-center font-bold text-black hover:bg-indigo-950 hover:text-yellow-400"
+          type="submit"
+          className="my-2 flex items-center justify-center gap-2 rounded-2xl bg-yellow-400 py-3 text-center font-bold text-black hover:bg-indigo-950 hover:text-yellow-400"
         >
           {step === 0 ? "Continue to payment" : "Pay"}
+          <Loader2
+            className={twMerge(
+              "h-5 w-5",
+              isLoading ? "animate-spin" : "text-transparent"
+            )}
+          />
         </button>
 
         <p className="text-xs">

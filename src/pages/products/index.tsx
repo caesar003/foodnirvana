@@ -13,7 +13,7 @@ export default function Products() {
   const [pageBrands, setPageBrands] = useState<BrandInterface[]>([]);
   const [categoryId, setCategoryId] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const debounceTerm:string = useDebounce(searchTerm, 300);
+  const debounceTerm: string = useDebounce(searchTerm, 300);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchTerm(e.target.value);
@@ -26,14 +26,14 @@ export default function Products() {
       setPageBrands(brands);
       return;
     }
-    const _brands:BrandInterface[] = [...brands].filter((items) =>
+    const _brands: BrandInterface[] = [...brands].filter((items) =>
       items.categoryId.includes(categoryId)
     );
     setPageBrands(_brands);
   }, [categoryId]);
 
   useEffect(() => {
-    const _brands:BrandInterface[] = [...brands].filter((items) =>
+    const _brands: BrandInterface[] = [...brands].filter((items) =>
       items.name.toLowerCase().includes(debounceTerm.toLowerCase())
     );
     setPageBrands(_brands);

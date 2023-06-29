@@ -1,20 +1,17 @@
 import Input from "@components/Input";
-import { BrandInterface, ProductInterface } from "@utils/types";
+import { CustomerDetailInterface } from "@utils/types";
 import { UserCircle2 } from "lucide-react";
-
-interface OrderDetailInterface {
-  brandId: number;
-  productId: number;
-  qty: number;
-}
+import { ChangeEventHandler } from "react";
 
 interface PropsInterface {
-  orderDetail: OrderDetailInterface;
-  product: ProductInterface;
-  brand: BrandInterface;
+  customerDetail: CustomerDetailInterface;
+  handleInput: ChangeEventHandler<HTMLInputElement>;
 }
 
-export default function CustomerDetail() {
+export default function CustomerDetail({
+  customerDetail: { country, email, firstName, lastName, zipCode },
+  handleInput,
+}: PropsInterface) {
   return (
     <div className=" my-4 rounded-xl bg-gray-800 p-4">
       <div className="flex items-center gap-2 border-gray-500  py-2">
@@ -27,14 +24,26 @@ export default function CustomerDetail() {
             <label className="text-sm" htmlFor="firstname">
               First name
             </label>
-            <Input id="firstname" />
+            <Input
+              id="firstName"
+              required
+              value={firstName}
+              onChange={handleInput}
+              data-field="customer"
+            />
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="text-sm" htmlFor="lastname">
               Last name
             </label>
-            <Input id="lastname" />
+            <Input
+              id="lastName"
+              required
+              value={lastName}
+              onChange={handleInput}
+              data-field="customer"
+            />
           </div>
         </div>
         <div className="my-2  grid gap-4">
@@ -42,7 +51,14 @@ export default function CustomerDetail() {
             <label className="text-sm" htmlFor="email">
               Email Address
             </label>
-            <Input id="email" />
+            <Input
+              id="email"
+              type="email"
+              required
+              value={email}
+              onChange={handleInput}
+              data-field="customer"
+            />
           </div>
         </div>
         <div className="my-2 grid grid-cols-2 gap-4">
@@ -50,14 +66,26 @@ export default function CustomerDetail() {
             <label className="text-sm" htmlFor="country">
               Country
             </label>
-            <Input id="country" />
+            <Input
+              id="country"
+              required
+              value={country}
+              onChange={handleInput}
+              data-field="customer"
+            />
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="text-sm" htmlFor="zipcode">
               Zip code / Postal Code
             </label>
-            <Input id="zipcode" />
+            <Input
+              id="zipCode"
+              required
+              value={zipCode}
+              onChange={handleInput}
+              data-field="customer"
+            />
           </div>
           <div className="col-span-2 flex gap-3">
             <input

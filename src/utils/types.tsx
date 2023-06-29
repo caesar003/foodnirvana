@@ -46,3 +46,17 @@ export interface CartItemInterface {
   brand: BrandInterface | undefined;
   item: ProductInterface | undefined;
 }
+
+export interface CustomerDetailInterface {
+  firstName: string;
+  lastName: string;
+  email: string;
+  country: string;
+  zipCode: number | string;
+}
+
+export interface PaymentMethodInterface {
+  cardNumber: string;
+  expiryDate: string;
+  ccv: string;
+}

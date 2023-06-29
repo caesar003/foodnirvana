@@ -1,21 +1,33 @@
 import CheckoutLayout from "@components/CheckoutLayout";
 import Head from "@components/Head";
 import { qParams } from "@utils/query-params";
-import { CartItemInterface } from "@utils/types";
+import {
+  CartItemInterface,
+  CustomerDetailInterface,
+  PaymentMethodInterface,
+} from "@utils/types";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FormEvent, ChangeEvent } from "react";
 import Confirmation from "@components/Checkout/Confirmation";
 import CustomerDetail from "@components/Checkout/CustomerDetail";
 import OrderDetails from "@components/Checkout/OrderDetails";
 import PaymentMethod from "@components/Checkout/PaymentMethod";
 import Product from "@components/Checkout/Product";
+import { defCustomerDetail, defPaymentDetail } from "@utils/default-values";
 
 export default function Checkout() {
   const router = useRouter();
   const [step, setStep] = useState<number>(0);
   const [cart, setCart] = useState<CartItemInterface[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  const [isLoading, setIsloading] = useState<boolean>(false);
+
+  const [customerDetail, setCustomerDetail] =
+    useState<CustomerDetailInterface>(defCustomerDetail);
+  const [paymentDetail, setPaymentDetail] =
+    useState<PaymentMethodInterface>(defPaymentDetail);
 
   const goBack = () => {
     if (step === 0) {
@@ -24,8 +36,6 @@ export default function Checkout() {
       setStep(step - 1);
     }
   };
-
-  const goForward = () => setStep(step + 1);
 
   useEffect(() => {
     if (window !== undefined) {
@@ -42,12 +52,35 @@ export default function Checkout() {
   }, []);
 
   const calculatePrice = (obj: CartItemInterface[]) => {
-    let res:number = 0;
+    let res: number = 0;
     obj.forEach((item) => {
       // @ts-ignore
       res += item?.item?.price * item?.qty;
     });
     return res;
+  };
+
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const {
+      id,
+      value,
+      dataset: { field },
+    } = e.target;
+
+    field === "customer"
+      ? setCustomerDetail({ ...customerDetail, [id]: value })
+      : setPaymentDetail({ ...paymentDetail, [id]: value });
+  };
+
+  const submitCheckout = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsloading(true);
+    setTimeout(() => {
+      setIsloading(false);
+      setTimeout(() => {
+        setStep(step + 1);
+      }, 100);
+    }, 1000);
   };
 
   return (
@@ -63,23 +96,35 @@ export default function Checkout() {
             <span>Go back</span>
           </button>
 
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 md:col-span-7">
-              {step === 0 ? <CustomerDetail /> : <PaymentMethod />}
-              <div className="flex flex-col divide-y-2 divide-slate-600 rounded-lg bg-gray-800">
-                {cart.map((item, idx) => (
-                  <Product item={item} key={idx} />
-                ))}
+          <form id="checkout" onSubmit={submitCheckout}>
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-12 md:col-span-7">
+                {step === 0 ? (
+                  <CustomerDetail
+                    customerDetail={customerDetail}
+                    handleInput={handleInput}
+                  />
+                ) : (
+                  <PaymentMethod
+                    paymentDetail={paymentDetail}
+                    handleInput={handleInput}
+                  />
+                )}
+                <div className="flex flex-col divide-y-2 divide-slate-600 rounded-lg bg-gray-800">
+                  {cart.map((item, idx) => (
+                    <Product item={item} key={idx} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <OrderDetails
-              cart={cart}
-              goForward={goForward}
-              step={step}
-              totalPrice={totalPrice}
-            />
-          </div>
+              <OrderDetails
+                cart={cart}
+                step={step}
+                totalPrice={totalPrice}
+                isLoading={isLoading}
+              />
+            </div>
+          </form>
         </div>
       )}
     </CheckoutLayout>

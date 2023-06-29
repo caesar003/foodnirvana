@@ -4,6 +4,8 @@ import {
   QuestionInterface,
   ReviewInterface,
   NewsInterface,
+  PaymentMethodInterface,
+  CustomerDetailInterface,
 } from "./types";
 const brands: BrandInterface[] = [
   {
@@ -2539,4 +2541,26 @@ const news: NewsInterface[] = [
   },
 ];
 
-export { news, brands, reviews, brandCategories, faqs, products };
+const defPaymentDetail: PaymentMethodInterface = {
+  cardNumber: "",
+  expiryDate: "",
+  ccv: "",
+};
+const defCustomerDetail: CustomerDetailInterface = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  country: "",
+  zipCode: "",
+};
+
+export {
+  defCustomerDetail,
+  defPaymentDetail,
+  news,
+  brands,
+  reviews,
+  brandCategories,
+  faqs,
+  products,
+};
